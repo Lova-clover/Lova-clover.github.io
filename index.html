@@ -3,46 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>한성주 | AI & Software Engineer</title>
-  <meta name="description" content="Vision AI, Path Planning, 자동화 기술로 문제를 해결하는 엔지니어 한성주의 포트폴리오입니다." />
+  <title>한성주 | AI Engineer Portfolio</title>
+  <meta name="description" content="데이터를 살아있는 서비스로 연결하는 AI 엔지니어 한성주의 포트폴리오입니다." />
   
   <meta property="og:type" content="website">
   <meta property="og:title" content="한성주 - AI Engineer Portfolio">
-  <meta property="og:description" content="데이터를 살아있는 서비스로. Vision AI & Path Planning 엔지니어.">
+  <meta property="og:description" content="Vision AI, Path Planning, Automation을 통한 문제 해결.">
 
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* --- Color Palette (Modern Clean) --- */
-      --bg-body: #F9FAFB;       /* 아주 밝은 쿨그레이 */
-      --bg-glass: rgba(255, 255, 255, 0.7);
+      /* --- Color Palette (Clean & Intelligent) --- */
+      --bg-body: #F3F5F7;
+      --bg-glass: rgba(255, 255, 255, 0.75);
       --bg-card: #FFFFFF;
       
-      --primary: #3b82f6;       /* Vivid Blue */
+      --primary: #3b82f6;       /* Trust Blue */
       --primary-dark: #1d4ed8;
-      --primary-soft: #eff6ff;
-      --accent: #6366f1;        /* Indigo */
+      --text-main: #1e293b;     /* Slate 800 */
+      --text-sub: #475569;      /* Slate 600 */
+      --text-muted: #94a3b8;    /* Slate 400 */
       
-      --text-main: #111827;     /* Almost Black */
-      --text-sub: #4b5563;      /* Dark Gray */
-      --text-muted: #9ca3af;    /* Light Gray */
-      
-      --border: rgba(0, 0, 0, 0.06);
-      
-      /* Shadows */
-      --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
-      --shadow-card: 0 10px 30px -10px rgba(0,0,0,0.08);
-      --shadow-hover: 0 20px 40px -10px rgba(59, 130, 246, 0.15);
+      --border: rgba(0,0,0,0.06);
+      --shadow-card: 0 4px 20px -2px rgba(0,0,0,0.05);
+      --shadow-hover: 0 20px 40px -5px rgba(59, 130, 246, 0.12);
       
       --radius: 20px;
       --font-kr: "Pretendard Variable", Pretendard, sans-serif;
-      --font-en: "Space Grotesk", sans-serif;
+      --font-en: "Plus Jakarta Sans", sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     html { scroll-behavior: smooth; }
     
     body {
@@ -50,135 +43,110 @@
       color: var(--text-main);
       font-family: var(--font-kr);
       line-height: 1.65;
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      word-break: keep-all; /* 한국어 줄바꿈 최적화 */
+      word-break: keep-all;
     }
 
     /* --- Background FX --- */
-    .bg-mesh {
-      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: 
-        radial-gradient(at 0% 0%, hsla(210,100%,96%,1) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(220,100%,96%,1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, hsla(240,100%,98%,1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, hsla(200,100%,98%,1) 0px, transparent 50%);
-      z-index: -2;
+    .bg-gradient {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+      background: radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
+                  radial-gradient(circle at 85% 85%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
     }
-    .orb {
-      position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.5; z-index: -1;
-      animation: float 20s infinite ease-in-out alternate;
-    }
-    .orb-1 { top: -10%; right: -5%; width: 60vw; height: 60vw; background: #e0e7ff; }
-    .orb-2 { bottom: -10%; left: -10%; width: 50vw; height: 50vw; background: #dbeafe; animation-delay: -5s; }
-
-    @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(-40px, 40px); } }
 
     /* --- Layout --- */
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
     /* --- Navigation --- */
     .nav-wrapper {
-      position: fixed; top: 1.5rem; left: 0; width: 100%; z-index: 100;
-      display: flex; justify-content: center; pointer-events: none;
+      position: fixed; top: 1.5rem; width: 100%; z-index: 100; pointer-events: none;
+      display: flex; justify-content: center;
     }
     .nav-bar {
-      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.6); padding: 0.4rem; border-radius: 100px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05); pointer-events: auto;
-      display: flex; gap: 0.2rem;
+      pointer-events: auto; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px);
+      padding: 0.4rem 0.5rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; gap: 0.3rem;
     }
     .nav-link {
       text-decoration: none; color: var(--text-sub); font-size: 0.9rem; font-weight: 600;
-      padding: 0.6rem 1.4rem; border-radius: 100px; transition: all 0.2s ease;
+      padding: 0.55rem 1.2rem; border-radius: 100px; transition: all 0.2s;
     }
-    .nav-link:hover { color: var(--primary); background: rgba(59, 130, 246, 0.05); }
-    .nav-link.active { background: var(--text-main); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .nav-link.active { background: var(--text-main); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .nav-link:hover:not(.active) { color: var(--primary); background: rgba(59,130,246,0.05); }
 
-    /* --- Hero Section --- */
-    header {
-      min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px;
-    }
+    /* --- Hero --- */
+    header { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-top: 60px; }
     
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; background: white; border: 1px solid var(--border);
-      border-radius: 100px; font-size: 0.85rem; font-weight: 700; color: var(--primary);
-      box-shadow: var(--shadow-sm); margin-bottom: 1.5rem;
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+      background: white; border: 1px solid var(--border); border-radius: 100px;
+      font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
-    .hero-badge::before { content: ""; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+    .hero-label::before { content:""; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+      font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.5rem;
       letter-spacing: -0.02em; color: var(--text-main);
     }
     h1 span { color: var(--text-muted); }
 
     .hero-desc {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-sub); max-width: 680px;
-      margin-bottom: 3rem; font-weight: 400; line-height: 1.6;
+      font-size: clamp(1.1rem, 2vw, 1.25rem); color: var(--text-sub); max-width: 650px;
+      margin-bottom: 3rem; font-weight: 400; line-height: 1.7;
     }
 
-    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cta-container { display: flex; gap: 1rem; }
     .btn {
       padding: 1rem 2rem; border-radius: 100px; font-weight: 700; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    .btn-primary {
-      background: var(--text-main); color: white;
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);
-    }
-    .btn-primary:hover {
-      background: var(--primary); transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.3);
-    }
-    .btn-secondary {
-      background: white; border: 1px solid var(--border); color: var(--text-main);
-    }
-    .btn-secondary:hover { border-color: var(--text-main); transform: translateY(-3px); }
+    .btn-primary { background: var(--text-main); color: white; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15); }
+    .btn-primary:hover { background: var(--primary); transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.25); }
+    .btn-outline { background: white; border: 1px solid var(--border); color: var(--text-main); }
+    .btn-outline:hover { border-color: var(--text-main); transform: translateY(-3px); }
 
     /* --- Sections --- */
     section { padding: 8rem 0; }
-    .section-head { margin-bottom: 3rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); }
-    .section-sub { font-size: 1.1rem; color: var(--text-sub); }
+    .section-header { margin-bottom: 3rem; }
+    h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+    .section-sub { font-size: 1.05rem; color: var(--text-sub); }
 
-    /* --- Bento Grid (About & Skills) --- */
-    .bento-grid {
-      display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem;
-    }
+    /* --- Bento Grid (About & Stack) --- */
+    .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem; }
+    
     .bento-item {
       background: var(--bg-glass); border: 1px solid white; backdrop-filter: blur(20px);
       border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-card);
       display: flex; flex-direction: column; justify-content: space-between;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
-    .bento-item:hover {
-      transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(59, 130, 246, 0.2);
-    }
+    .bento-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(59,130,246,0.2); }
 
+    .col-span-8 { grid-column: span 12; }
     .col-span-4 { grid-column: span 12; }
     .col-span-6 { grid-column: span 12; }
-    .col-span-8 { grid-column: span 12; }
     @media (min-width: 900px) {
+      .col-span-8 { grid-column: span 8; }
       .col-span-4 { grid-column: span 4; }
       .col-span-6 { grid-column: span 6; }
-      .col-span-8 { grid-column: span 8; }
     }
 
-    .bento-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .bento-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .bento-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .bento-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.8rem; }
     .bento-text { font-size: 1rem; color: var(--text-sub); line-height: 1.6; }
     
-    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    .tech-pill {
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag {
       font-family: var(--font-en); font-size: 0.85rem; font-weight: 600;
-      padding: 0.4rem 1rem; background: white; border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem; background: white; border: 1px solid var(--border);
       border-radius: 50px; color: var(--text-sub); transition: 0.2s;
     }
-    .tech-pill:hover { color: var(--primary); border-color: var(--primary); transform: scale(1.05); }
+    .tag:hover { color: var(--primary); border-color: var(--primary); transform: scale(1.05); }
 
-    /* --- Project Cards --- */
-    .project-grid { display: grid; gap: 3rem; }
+    /* --- Project Cards (Technical Deep Dive) --- */
+    .project-list { display: grid; gap: 3rem; }
+    
     .project-card {
       background: white; border-radius: var(--radius); border: 1px solid white;
       box-shadow: var(--shadow-card); overflow: hidden;
@@ -186,96 +154,74 @@
       transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     @media (min-width: 900px) {
-      .project-card { grid-template-columns: 1.2fr 0.8fr; min-height: 420px; }
+      .project-card { grid-template-columns: 1.1fr 0.9fr; min-height: 400px; }
     }
     .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
 
-    .project-visual {
-      background: #F1F5F9; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; padding: 2rem;
+    /* Code Visual Area */
+    .p-visual {
+      background: #F8FAFC; position: relative; padding: 2.5rem;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
     }
-    /* Abstract Code UI */
-    .code-window {
-      width: 100%; max-width: 400px; background: white; border-radius: 12px;
-      box-shadow: 0 20px 40px -5px rgba(0,0,0,0.1); padding: 1.5rem;
-      font-family: monospace; font-size: 0.8rem; color: #cbd5e1;
-      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-      transition: transform 0.4s ease;
+    .code-block {
+      width: 100%; max-width: 380px; background: white; border-radius: 16px;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); padding: 1.8rem;
+      font-family: 'Menlo', 'Monaco', monospace; font-size: 0.8rem; color: #94a3b8;
+      transform: rotate(-2deg); transition: 0.4s;
     }
-    .project-card:hover .code-window { transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.02); }
+    .project-card:hover .code-block { transform: rotate(0deg) scale(1.03); }
     
-    .code-line { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 8px; width: 100%; }
-    .code-line.w-60 { width: 60%; }
-    .code-line.w-40 { width: 40%; }
-    .code-line.accent { background: #bfdbfe; }
+    .c-line { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 10px; width: 100%; }
+    .c-line.blue { background: #bfdbfe; width: 50%; }
+    .c-text { margin-top: 15px; color: #64748b; line-height: 1.5; }
 
-    .project-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-    .p-category { 
-      font-family: var(--font-en); font-size: 0.8rem; font-weight: 700; 
-      color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; 
+    /* Content Area */
+    .p-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .p-cat { 
+      font-family: var(--font-en); font-size: 0.8rem; font-weight: 700; color: var(--primary);
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; 
     }
-    .p-title { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; }
-    .p-desc { font-size: 1rem; color: var(--text-sub); margin-bottom: 2rem; }
-    
-    .p-stats { 
+    .p-title { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; }
+    .p-desc { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.5rem; }
+    .p-detail li { margin-bottom: 0.4rem; position: relative; padding-left: 1rem; font-size: 0.95rem; color: var(--text-sub); }
+    .p-detail li::before { content:"•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+
+    .p-meta { 
       margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;
       display: flex; gap: 2rem; 
     }
-    .stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
-    .stat-value { font-size: 1rem; color: var(--text-main); font-weight: 700; margin-top: 0.2rem; font-family: var(--font-en); }
+    .meta-item div:first-child { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .meta-item div:last-child { font-size: 0.95rem; color: var(--text-main); font-weight: 700; margin-top: 0.2rem; font-family: var(--font-en); }
 
-    /* --- Experience (Clean List) --- */
-    .exp-list { max-width: 800px; margin: 0 auto; }
+    /* --- Experience --- */
+    .exp-list { max-width: 850px; margin: 0 auto; }
     .exp-item {
-      padding: 2rem 0; border-bottom: 1px solid var(--border);
-      display: grid; grid-template-columns: 100px 1fr; gap: 2rem;
-      transition: 0.3s;
+      display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem;
+      padding: 2rem 0; border-bottom: 1px solid var(--border); transition: 0.3s;
     }
     .exp-item:hover { transform: translateX(10px); }
-    
-    .exp-year { font-family: var(--font-en); font-weight: 700; color: var(--text-muted); font-size: 1.1rem; }
-    .exp-role { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .exp-org { color: var(--primary); font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 0.8rem; }
-    .exp-desc { color: var(--text-sub); font-size: 0.95rem; }
+    .exp-date { font-family: var(--font-en); font-weight: 700; color: var(--text-muted); font-size: 1.1rem; }
+    .exp-role { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .exp-org { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.8rem; display: block; }
+    .exp-desc { color: var(--text-sub); font-size: 0.95rem; line-height: 1.6; }
 
-    @media (max-width: 600px) {
-      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
-    }
+    @media (max-width: 600px) { .exp-item { grid-template-columns: 1fr; gap: 0.5rem; } }
 
     /* --- Footer --- */
-    footer { margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; }
+    footer { margin-top: 6rem; padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; }
     .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
     .social-link { font-weight: 600; color: var(--text-sub); transition: 0.2s; }
     .social-link:hover { color: var(--primary); }
 
-    /* --- Utils --- */
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    /* --- Reveal Animation --- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
     .highlight { color: var(--primary); font-weight: 700; }
-
-    /* --- Print Optimization --- */
-    @media print {
-      body { background: white; color: black; }
-      .nav-wrapper, .bg-mesh, .orb, .cta-group, .project-visual { display: none !important; }
-      .container { max-width: 100%; padding: 0; }
-      section { padding: 2rem 0; page-break-inside: avoid; }
-      .bento-grid, .project-grid { display: block; }
-      .bento-item, .project-card { 
-        break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 1.5rem; 
-        background: none; padding: 1.5rem;
-      }
-      .project-card { display: block; height: auto; }
-      h1 { font-size: 24pt; color: black; margin-bottom: 0.5rem; }
-      .hero-desc { font-size: 12pt; color: #333; margin-bottom: 2rem; }
-      a { text-decoration: none; color: black; }
-    }
   </style>
 </head>
 <body>
 
-  <div class="bg-mesh"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+  <div class="bg-gradient"></div>
 
   <div class="nav-wrapper">
     <nav class="nav-bar">
@@ -288,27 +234,27 @@
 
   <header id="home" class="container">
     <div class="reveal active">
-      <div class="hero-badge">AI & Software Engineer</div>
+      <div class="hero-label">AI & Software Engineer</div>
       <h1>
         지능을 설계하고,<br>
         <span>현실을 엔지니어링합니다.</span>
       </h1>
       <p class="hero-desc">
-        안녕하세요, 한성주입니다. <br>
+        안녕하세요, 한성주입니다.<br>
         Vision AI와 Path Planning 기술로 데이터와 현실 세계를 연결하는 <strong>End-to-End 시스템</strong>을 만듭니다.
         연구실의 모델을 넘어, <strong>실제 작동하는 서비스</strong>를 구현하는 데 집중합니다.
       </p>
-      <div class="cta-group">
+      <div class="cta-container">
         <a href="#work" class="btn btn-primary">프로젝트 보기</a>
-        <a href="mailto:woeg0226@naver.com" class="btn btn-secondary">연락하기</a>
+        <a href="mailto:woeg0226@naver.com" class="btn btn-outline">연락하기</a>
       </div>
     </div>
   </header>
 
   <section id="about" class="container">
-    <div class="section-head reveal">
+    <div class="section-header reveal">
       <h2>Engineering Stack</h2>
-      <span class="section-sub">문제를 해결하기 위한 기술적 도구들입니다.</span>
+      <p class="section-sub">문제를 해결하기 위한 기술적 도구들입니다.</p>
     </div>
 
     <div class="bento-grid reveal">
@@ -322,146 +268,163 @@
         </p>
       </div>
 
-      <div class="bento-item col-span-4" style="background: white;">
+      <div class="bento-item col-span-4" style="background: #fff;">
         <span class="bento-icon">🎯</span>
         <div class="bento-title">Core Focus</div>
-        <div class="tag-container">
-          <span class="tech-pill">Vision AI</span>
-          <span class="tech-pill">Path Planning</span>
-          <span class="tech-pill">RAG / LLM</span>
-          <span class="tech-pill">Automation</span>
+        <div class="tech-tags">
+          <span class="tag">Vision AI</span>
+          <span class="tag">Path Planning</span>
+          <span class="tag">RAG / LLM</span>
+          <span class="tag">Automation</span>
         </div>
       </div>
 
       <div class="bento-item col-span-6">
         <div class="bento-title">AI & Algorithms</div>
-        <div class="tag-container">
-          <span class="tech-pill">PyTorch</span>
-          <span class="tech-pill">YOLOv8</span>
-          <span class="tech-pill">Kalman Filter</span>
-          <span class="tech-pill">RRT / A*</span>
-          <span class="tech-pill">OpenCV</span>
+        <div class="tech-tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">YOLOv8</span>
+          <span class="tag">Kalman Filter</span>
+          <span class="tech-tags">
+            <span class="tag">RRT / A*</span>
+            <span class="tag">OpenCV</span>
+            <span class="tag">PaddleOCR</span>
+          </span>
         </div>
       </div>
 
       <div class="bento-item col-span-6">
         <div class="bento-title">Engineering & Ops</div>
-        <div class="tag-container">
-          <span class="tech-pill">Python</span>
-          <span class="tech-pill">FastAPI</span>
-          <span class="tech-pill">Docker</span>
-          <span class="tech-pill">Streamlit</span>
-          <span class="tech-pill">Git</span>
-          <span class="tech-pill">Linux</span>
+        <div class="tech-tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Git / GitHub</span>
+          <span class="tag">Linux</span>
         </div>
       </div>
     </div>
   </section>
 
   <section id="work" class="container">
-    <div class="section-head reveal">
+    <div class="section-header reveal">
       <h2>Selected Works</h2>
-      <span class="section-sub">대표적인 프로젝트 경험입니다.</span>
+      <p class="section-sub">기술적 깊이가 있는 대표 프로젝트입니다.</p>
     </div>
 
-    <div class="project-grid reveal">
+    <div class="project-list reveal">
       
       <article class="project-card">
-        <div class="project-visual">
-          <div class="code-window">
-            <div class="code-line accent w-40"></div>
-            <div class="code-line"></div>
-            <div class="code-line w-60"></div>
-            <div style="margin-top:15px; color:#94a3b8;">
-              # Kalman Filter Update<br>
-              K = P @ H.T @ inv(S)<br>
-              x = x + K @ y
+        <div class="p-visual">
+          <div class="code-block">
+            <div class="c-line blue"></div>
+            <div class="c-line"></div>
+            <div class="c-line" style="width:70%"></div>
+            <div class="c-text">
+              # Kalman Filter Logic<br>
+              x_est = x_pred + K * (z - H * x_pred)<br>
+              # Obstacle Avoidance<br>
+              path = RRT_Star(start, goal, map)
             </div>
           </div>
         </div>
-        <div class="project-content">
-          <span class="p-category">Autonomous Systems</span>
-          <h3 class="p-title">Path-Planning &<br>Filtering</h3>
+        <div class="p-content">
+          <span class="p-cat">Autonomous Systems</span>
+          <h3 class="p-title">Path-Planning &<br>Filtering Simulation</h3>
           <p class="p-desc">
-            자율주행 핵심 알고리즘 시뮬레이션입니다. 
-            Bug, RRT 알고리즘으로 경로를 생성하고, Kalman Filter를 직접 구현하여 센서 노이즈가 있는 환경에서도 안정적인 위치 추정을 구현했습니다.
+            자율주행의 핵심인 경로 탐색과 상태 추정 알고리즘을 Python으로 직접 구현하고 시뮬레이션했습니다.
           </p>
-          <div class="p-stats">
-            <div>
-              <div class="stat-label">Stack</div>
-              <div class="stat-value">Python, NumPy</div>
+          <ul class="p-detail">
+            <li>Bug, RRT, A* 알고리즘을 구현하여 장애물 회피 로직 완성</li>
+            <li>Kalman Filter를 적용해 센서 노이즈가 있는 환경에서 위치 추정 오차 최소화</li>
+            <li>Matplotlib을 활용한 실시간 경로 시각화 및 알고리즘 검증</li>
+          </ul>
+          <div class="p-meta">
+            <div class="meta-item">
+              <div>Stack</div>
+              <div>Python, NumPy</div>
             </div>
-            <div>
-              <div class="stat-label">Key Tech</div>
-              <div class="stat-value">Kalman Filter</div>
+            <div class="meta-item">
+              <div>Core Tech</div>
+              <div>Kalman Filter</div>
             </div>
           </div>
         </div>
       </article>
 
       <article class="project-card">
-        <div class="project-visual">
-          <div class="code-window">
-            <div class="code-line w-60"></div>
-            <div class="code-line accent w-40"></div>
-            <div style="margin-top:15px; color:#94a3b8;">
+        <div class="p-visual">
+          <div class="code-block">
+            <div class="c-line" style="width:60%"></div>
+            <div class="c-line blue"></div>
+            <div class="c-text">
               # Object Tracking<br>
               results = model.track(<br>
               &nbsp;&nbsp;source="stream",<br>
-              &nbsp;&nbsp;persist=True<br>
+              &nbsp;&nbsp;persist=True,<br>
+              &nbsp;&nbsp;tracker="botsort.yaml"<br>
               )
             </div>
           </div>
         </div>
-        <div class="project-content">
-          <span class="p-category">Computer Vision</span>
+        <div class="p-content">
+          <span class="p-cat">Computer Vision</span>
           <h3 class="p-title">YOLO + Vision<br>Pipeline</h3>
           <p class="p-desc">
-            흔들리는 영상에서도 객체를 놓치지 않는 추적 파이프라인입니다.
-            Kalman Filter로 가려짐(Occlusion) 문제를 해결하고, CLAHE 전처리로 곡면 라벨의 OCR 인식률을 대폭 개선했습니다.
+            흔들리는 카메라 영상에서도 객체를 안정적으로 추적하고 정보를 추출하는 파이프라인입니다.
           </p>
-          <div class="p-stats">
-            <div>
-              <div class="stat-label">Stack</div>
-              <div class="stat-value">YOLOv8, OCR</div>
+          <ul class="p-detail">
+            <li>YOLOv8과 Kalman Filter를 결합해 가려짐(Occlusion) 상황에서도 추적 유지</li>
+            <li>CLAHE 전처리와 Multi-Crop 전략으로 곡면 라벨의 OCR 인식률 개선</li>
+            <li>상품의 성분표에서 필요한 숫자 데이터만 정규표현식으로 추출</li>
+          </ul>
+          <div class="p-meta">
+            <div class="meta-item">
+              <div>Stack</div>
+              <div>YOLOv8, PaddleOCR</div>
             </div>
-            <div>
-              <div class="stat-label">Result</div>
-              <div class="stat-value">Robust Tracking</div>
+            <div class="meta-item">
+              <div>Result</div>
+              <div>Robust Tracking</div>
             </div>
           </div>
         </div>
       </article>
 
       <article class="project-card">
-        <div class="project-visual">
-          <div class="code-window">
-            <div class="code-line"></div>
-            <div class="code-line accent"></div>
-            <div style="margin-top:15px; color:#94a3b8;">
-              # RAG Chain<br>
-              qa = RetrievalQA.from_chain_type(<br>
-              &nbsp;&nbsp;llm=gpt_4,<br>
-              &nbsp;&nbsp;retriever=vector_db<br>
+        <div class="p-visual">
+          <div class="code-block">
+            <div class="c-line"></div>
+            <div class="c-line blue" style="width:40%"></div>
+            <div class="c-text">
+              # RAG Chain Setup<br>
+              qa_chain = RetrievalQA.from_chain_type(<br>
+              &nbsp;&nbsp;llm=gpt_4o,<br>
+              &nbsp;&nbsp;retriever=vector_store<br>
               )
             </div>
           </div>
         </div>
-        <div class="project-content">
-          <span class="p-category">Automation & LLM</span>
+        <div class="p-content">
+          <span class="p-cat">Automation & LLM</span>
           <h3 class="p-title">DevHistory<br>Automation</h3>
           <p class="p-desc">
-            흩어진 개발 로그(GitHub, Blog)를 수집해 포트폴리오를 자동 생성합니다.
-            RAG(검색 증강 생성) 기술을 적용하여 LLM이 없는 사실을 지어내는 환각 현상을 방지했습니다.
+            흩어진 개발 로그(GitHub, Blog)를 수집해 포트폴리오 초안을 자동 생성하는 도구입니다.
           </p>
-          <div class="p-stats">
-            <div>
-              <div class="stat-label">Stack</div>
-              <div class="stat-value">LangChain, RAG</div>
+          <ul class="p-detail">
+            <li>RAG(검색 증강 생성) 기술을 도입해 LLM의 환각(Hallucination) 현상 방지</li>
+            <li>GitHub API와 Velog 크롤링을 결합한 데이터 수집 파이프라인 설계</li>
+            <li>사용자의 스타일을 반영한 회고록 자동 생성 프롬프트 엔지니어링</li>
+          </ul>
+          <div class="p-meta">
+            <div class="meta-item">
+              <div>Stack</div>
+              <div>LangChain, RAG</div>
             </div>
-            <div>
-              <div class="stat-label">Impact</div>
-              <div class="stat-value">100% Automated</div>
+            <div class="meta-item">
+              <div>Impact</div>
+              <div>Zero Manual Work</div>
             </div>
           </div>
         </div>
@@ -471,41 +434,40 @@
   </section>
 
   <section id="exp" class="container">
-    <div class="section-head reveal">
+    <div class="section-header reveal">
       <h2>Experience</h2>
     </div>
 
     <div class="exp-list reveal">
       <div class="exp-item">
-        <div class="exp-year">2025.11</div>
+        <div class="exp-date">2025.11</div>
         <div class="exp-content">
           <h3 class="exp-role">의료AI 솔루션 코딩대회 2등 (우수상)</h3>
           <span class="exp-org">교내 알고리즘 경진대회</span>
           <p class="exp-desc">
-            LLM이 생성한 코드를 검증 및 디버깅하는 방식으로 알고리즘 문제 20개 중 18개를 해결했습니다. 
-            AI 협업 능력과 문제 해결력을 증명했습니다.
+            LLM이 생성한 코드를 무작정 믿지 않고, 테스트 케이스 기반으로 검증 및 디버깅하여 20개 문제 중 18개를 해결했습니다. AI와의 협업 능력과 문제 해결력을 입증했습니다.
           </p>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-year">2025.09</div>
+        <div class="exp-date">2025.09</div>
         <div class="exp-content">
           <h3 class="exp-role">Wavelab 창업 경진대회 장려상</h3>
           <span class="exp-org">의료 안내 영상 자동화 플랫폼</span>
           <p class="exp-desc">
-            Vision AI와 TTS 기술을 결합하여 의료 안내 영상을 자동으로 생성하는 파이프라인을 기획하고 프로토타입을 개발했습니다.
+            Vision AI와 TTS 기술을 결합하여, 복잡한 의료 안내문을 환자가 이해하기 쉬운 영상으로 자동 변환하는 파이프라인을 기획하고 프로토타입을 개발했습니다.
           </p>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-year">2025.08</div>
+        <div class="exp-date">2025.08</div>
         <div class="exp-content">
           <h3 class="exp-role">NYPC Code Battle 상위 44%</h3>
           <span class="exp-org">알고리즘 코딩 대회</span>
           <p class="exp-desc">
-            지속적으로 해커톤과 데이터 분석 대회(총 10회 이상)에 참가하며 엔지니어링 역량을 키워왔습니다.
+            지속적인 해커톤 및 알고리즘 대회 참가(총 10회 이상)를 통해, 제한된 시간 내에 최적의 알고리즘을 구현하는 엔지니어링 역량을 키웠습니다.
           </p>
         </div>
       </div>
@@ -516,17 +478,17 @@
     <div class="container">
       <div class="social-links">
         <a href="mailto:woeg0226@naver.com" class="social-link">Email</a>
-        <a href="https://github.com/Lova-clover" class="social-link">GitHub</a>
-        <a href="https://velog.io/@lova-clover" class="social-link">Blog</a>
+        <a href="https://github.com/Lova-clover" class="social-link" target="_blank">GitHub</a>
+        <a href="https://velog.io/@lova-clover" class="social-link" target="_blank">Blog</a>
       </div>
-      <p style="font-size: 0.9rem; color: var(--text-muted);">
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
         © 2025 Han Seongju. Engineered for Impact.
       </p>
     </div>
   </footer>
 
   <script>
-    // Scroll Reveal Animation
+    // Reveal Animation
     const reveals = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       const windowHeight = window.innerHeight;
@@ -541,10 +503,9 @@
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    // Active Nav Link
+    // Active Nav
     const sections = document.querySelectorAll('header, section');
     const navLinks = document.querySelectorAll('.nav-link');
-    
     window.addEventListener('scroll', () => {
       let current = '';
       const scrollY = window.scrollY;
