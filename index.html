@@ -4,783 +4,508 @@
   <meta charset="UTF-8" />
   <title>Han Seongju | AI & Software Engineer Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Han Seongju Portfolio – AI & Software Engineer focusing on Vision, Path Planning, and Automation." />
+  <meta name="description" content="Vision AI, Path Planning, Automation 역량을 갖춘 공군 AI특기병 지원자 한성주 포트폴리오" />
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Han Seongju - AI Portfolio">
+  <meta property="og:description" content="Vision AI, Path Planning, Automation 역량 보유">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
   <style>
     :root {
-      --bg: #f4f5fb;
-      --bg-soft: #ffffff;
-      --accent: #2563eb;
-      --accent-soft: #e0edff;
-      --accent-strong: #1d4ed8;
-      --text-main: #111827;
-      --text-muted: #6b7280;
-      --border-subtle: #e5e7eb;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      /* Color Palette (Clean & Professional Blue) */
+      --bg-body: #f8fafc;       /* 아주 연한 회색 배경 */
+      --bg-card: #ffffff;       /* 카드 흰색 */
+      
+      --primary: #2563eb;       /* Royal Blue (신뢰감) */
+      --primary-dark: #1e40af;
+      --primary-light: #eff6ff; /* 연한 블루 (배경용) */
+      
+      --text-main: #0f172a;     /* 진한 남색/검정 (가독성) */
+      --text-sub: #334155;      /* 짙은 회색 (본문) */
+      --text-muted: #64748b;    /* 연한 회색 (날짜/설명) */
+      
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      
+      --radius: 16px;
+      --font-main: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px; /* 네비게이션에 가려지지 않게 여백 확보 */
     }
 
     body {
       font-family: var(--font-main);
-      background: radial-gradient(circle at top, #dbeafe 0, #f4f5fb 52%, #eef2ff 100%);
+      background-color: var(--bg-body);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased; /* 폰트 부드럽게 */
+      letter-spacing: -0.01em; /* 프리텐다드 최적 자간 */
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { text-decoration: none; color: inherit; transition: color 0.2s; }
+    ul { list-style: none; }
 
-    .page {
-      max-width: 1120px;
+    .container {
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 2.5rem 1.4rem 3.5rem;
-    }
-
-    /* grid layout */
-    .layout {
+      padding: 3rem 1.5rem 5rem;
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.7fr);
-      gap: 1.8rem;
-      align-items: flex-start;
+      grid-template-columns: 300px 1fr; /* 사이드바 고정, 본문 가변 */
+      gap: 2.5rem;
+      align-items: start;
     }
 
-    /* SIDEBAR */
+    /* ========== SIDEBAR (Left) ========== */
     .sidebar {
       position: sticky;
-      top: 1.5rem;
-      align-self: flex-start;
-      background: var(--bg-soft);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: 1.8rem 1.6rem;
+      top: 2rem;
+      background: var(--bg-card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
     }
 
-    .profile-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-bottom: 1.2rem;
+    .profile-header { text-align: left; margin-bottom: 2rem; }
+    
+    .avatar {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--primary), #60a5fa);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.5rem; font-weight: 700;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
     }
 
-    .avatar-circle {
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      background: conic-gradient(from 200deg, #2563eb, #22c55e, #f97316, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.35rem;
+    .name { font-size: 1.5rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem; }
+    .role { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+    
+    .bio {
+      font-size: 0.9rem; color: var(--text-sub); margin-top: 1rem;
+      line-height: 1.6; word-break: keep-all;
     }
 
-    .avatar-inner {
-      width: 56px;
-      height: 56px;
-      border-radius: 999px;
-      background: #eff6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--accent-strong);
-      font-size: 1.05rem;
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tag {
+      font-size: 0.75rem; padding: 0.3rem 0.7rem;
+      background: var(--primary-light); color: var(--primary-dark);
+      border-radius: 20px; font-weight: 600; border: 1px solid rgba(37, 99, 235, 0.1);
     }
 
-    .name {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
+    .sidebar-info { margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .info-title { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+    
+    .info-item { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+    .info-item a:hover { color: var(--primary); text-decoration: underline; }
 
-    .role {
-      font-size: 0.9rem;
-      color: var(--accent-strong);
-      font-weight: 500;
-    }
+    /* ========== MAIN CONTENT (Right) ========== */
+    .main-content { display: flex; flex-direction: column; gap: 2rem; }
 
-    .summary {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
+    /* Sticky Nav Tabs */
+    .nav-wrapper {
+      position: sticky; top: 1rem; z-index: 100;
+      background: rgba(248, 250, 252, 0.85); /* 반투명 배경 */
+      backdrop-filter: blur(12px); /* 유리 효과 */
+      padding: 0.5rem 0;
+      margin: -0.5rem 0 0.5rem;
+      border-radius: 50px;
     }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.6rem;
-    }
-
-    .chip {
-      font-size: 0.75rem;
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      color: #4b5563;
-      white-space: nowrap;
-    }
-
-    .chip.primary {
-      border-color: var(--accent-soft);
-      background: var(--accent-soft);
-      color: var(--accent-strong);
-      font-weight: 500;
-    }
-
-    .sidebar-section {
-      margin-top: 1.4rem;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 1.1rem;
-    }
-
-    .sidebar-section-title {
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9ca3af;
-      margin-bottom: 0.55rem;
-    }
-
-    .info-list {
-      list-style: none;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .info-list li + li {
-      margin-top: 0.3rem;
-    }
-
-    .info-label {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .link-list {
-      list-style: none;
-      font-size: 0.84rem;
-      color: var(--accent-strong);
-    }
-
-    .link-list li + li {
-      margin-top: 0.3rem;
-    }
-
-    .link-list a {
-      border-bottom: 1px solid transparent;
-    }
-
-    .link-list a:hover {
-      border-bottom-color: rgba(37, 99, 235, 0.6);
-    }
-
-    .badge-list {
-      list-style: none;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .badge-list li + li {
-      margin-top: 0.3rem;
-    }
-
-    /* MAIN */
-    .main {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6rem;
-    }
-
+    
     .nav-tabs {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 999px;
-      padding: 0.25rem;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-      margin-bottom: 0.3rem;
-      position: sticky;
-      top: 1rem;
-      z-index: 10;
+      display: inline-flex; gap: 0.5rem;
+      background: white; padding: 0.3rem;
+      border-radius: 50px; border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
     }
 
-    .nav-tab {
-      font-size: 0.8rem;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: #6b7280;
-      cursor: pointer;
-      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+    .nav-link {
+      font-size: 0.9rem; padding: 0.5rem 1.2rem;
+      border-radius: 30px; font-weight: 500; color: var(--text-sub);
+      transition: all 0.2s ease; cursor: pointer;
     }
+    .nav-link:hover { background: var(--primary-light); color: var(--primary); }
+    .nav-link.active { background: var(--primary); color: white; font-weight: 600; box-shadow: 0 2px 5px rgba(37, 99, 235, 0.3); }
 
-    .nav-tab:hover {
-      background: #eff6ff;
-      color: var(--accent-strong);
-      transform: translateY(-1px);
-    }
-
-    .nav-tab.active {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
-      font-weight: 500;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
-    }
-
+    /* Sections General */
     section {
-      background: var(--bg-soft);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-      padding: 1.5rem 1.6rem 1.6rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
     }
 
-    section + section {
-      margin-top: 0.4rem;
+    h2 {
+      font-size: 1.35rem; font-weight: 700; color: var(--text-main);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem;
+    }
+    /* 제목 옆 파란색 바 */
+    h2::before { content: ""; width: 5px; height: 24px; background: var(--primary); border-radius: 2px; display: block; }
+    
+    .section-desc { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.5rem; word-break: keep-all; }
+    .highlight { color: var(--primary); font-weight: 600; }
+
+    /* Skills Grid */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .skill-cat h3 { font-size: 1.05rem; margin-bottom: 1rem; color: var(--text-main); font-weight: 700; }
+    .skill-list li {
+      font-size: 0.95rem; color: var(--text-sub); margin-bottom: 0.5rem;
+      position: relative; padding-left: 1.2rem;
+    }
+    .skill-list li::before {
+      content: "✔"; color: var(--primary); position: absolute; left: 0; font-size: 0.8rem; top: 2px;
     }
 
-    section h2 {
-      font-size: 1.05rem;
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
-    }
-
-    section h2 span.sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    section p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* about text */
-    .about-body {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-top: 0.4rem;
-    }
-
-    .about-body p + p {
-      margin-top: 0.4rem;
-    }
-
-    /* skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 0.6rem;
-      font-size: 0.86rem;
-    }
-
-    .skills-group h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .skills-group ul {
-      margin-left: 1rem;
-      color: var(--text-muted);
-    }
-
-    .skills-group li + li {
-      margin-top: 0.18rem;
-    }
-
-    /* projects */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 0.7rem;
-      font-size: 0.86rem;
-    }
-
+    /* Project Cards */
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    
     .project-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 1.05rem 1.05rem 1.1rem;
-      background: #f9fafb;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+      background: #ffffff; 
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.8rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
     }
-
+    
+    /* 카드 호버 효과: 살짝 떠오르면서 그림자 강조 */
     .project-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(37, 99, 235, 0.35);
-      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(37, 99, 235, 0.4);
     }
-
-    .project-title {
-      font-weight: 600;
-      margin-bottom: 0.1rem;
+    
+    .p-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text-main); }
+    .p-tech { font-size: 0.8rem; color: var(--primary); font-weight: 600; margin-bottom: 1rem; background: var(--primary-light); display: inline-block; padding: 2px 8px; border-radius: 4px; }
+    .p-desc { font-size: 0.9rem; color: var(--text-sub); flex-grow: 1; margin-bottom: 1.2rem; word-break: keep-all; }
+    .p-desc ul { margin-left: 1.2rem; list-style: disc; margin-top: 0.5rem; color: var(--text-sub); }
+    .p-desc li { margin-bottom: 0.3rem; }
+    
+    .p-footer {
+      margin-top: auto; padding-top: 1rem; border-top: 1px dashed var(--border);
+      font-size: 0.85rem; color: var(--text-muted); font-weight: 500;
     }
+    .p-footer strong { color: var(--text-main); }
 
-    .project-meta {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-bottom: 0.35rem;
-    }
-
-    .project-highlight {
-      font-size: 0.82rem;
-      color: var(--accent-strong);
-      margin-bottom: 0.35rem;
-    }
-
-    .project-card ul {
-      margin-left: 1rem;
-      color: var(--text-muted);
-    }
-
-    .project-card ul li + li {
-      margin-top: 0.18rem;
-    }
-
-    .project-footer {
-      font-size: 0.78rem;
-      color: #4b5563;
-      margin-top: 0.4rem;
-    }
-
-    /* experience */
-    .exp-list {
-      list-style: none;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin-top: 0.5rem;
-    }
-
+    /* Experience Timeline */
     .exp-item {
-      position: relative;
-      padding-left: 1.1rem;
+      padding-left: 2rem; border-left: 2px solid var(--border);
+      position: relative; padding-bottom: 2.5rem;
     }
-
-    .exp-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.45rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
+    .exp-item:last-child { padding-bottom: 0; border-left-color: transparent; }
+    .exp-item::after {
+      content: ""; position: absolute; left: -6px; top: 0;
+      width: 10px; height: 10px; border-radius: 50%; background: white;
+      border: 3px solid var(--primary); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
+    
+    .exp-title { font-weight: 700; font-size: 1.05rem; display: block; margin-bottom: 0.2rem; }
+    .exp-date { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem; display: block; font-feature-settings: "tnum"; }
+    .exp-detail { font-size: 0.95rem; color: var(--text-sub); word-break: keep-all; }
 
-    .exp-item + .exp-item {
-      margin-top: 0.8rem;
-      padding-top: 0.5rem;
-      border-top: 1px dashed #e5e7eb;
-    }
+    /* Table */
+    .table-wrapper { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 500px; }
+    th { text-align: left; padding: 1rem; background: var(--bg-body); border-bottom: 1px solid var(--border); color: var(--text-main); font-weight: 600; }
+    td { padding: 1rem; border-bottom: 1px solid var(--border); color: var(--text-sub); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
 
-    .exp-title {
-      font-weight: 600;
-      color: var(--text-main);
-    }
+    /* Footer */
+    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 3rem; padding-bottom: 2rem; }
 
-    .exp-meta {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-bottom: 0.18rem;
-    }
-
-    /* competitions table 스타일 */
-    .table {
-      width: 100%;
-      margin-top: 0.7rem;
-      border-collapse: collapse;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .table th,
-    .table td {
-      padding: 0.4rem 0.45rem;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-    }
-
-    .table th {
-      font-weight: 600;
-      background: #f3f4f6;
-    }
-
-    /* footer contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 1rem;
-      margin-top: 0.6rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .contact-label {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    .contact a {
-      color: var(--accent-strong);
-    }
-
-    footer {
-      margin-top: 1.4rem;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      text-align: center;
-    }
-
-    /* responsive */
+    /* ========== Responsive (모바일 최적화) ========== */
     @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .sidebar {
-        position: static;
-      }
-      .nav-tabs {
-        position: static;
-        margin-top: 0.4rem;
-      }
+      .container { grid-template-columns: 1fr; padding-top: 1rem; gap: 1.5rem; }
+      .sidebar { position: static; text-align: center; padding: 1.5rem; }
+      .profile-header { text-align: center; display: flex; flex-direction: column; align-items: center; }
+      .tags { justify-content: center; }
+      .info-item { justify-content: center; }
+      
+      .nav-wrapper { top: 0; margin-bottom: 1rem; text-align: center; }
+      .project-grid { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+      .nav-tabs { width: 100%; overflow-x: auto; white-space: nowrap; padding-bottom: 0.5rem; justify-content: flex-start; }
+      .skills-grid { grid-template-columns: 1fr; }
+      section { padding: 1.5rem; }
+      h2 { font-size: 1.2rem; }
     }
 
-    @media (max-width: 640px) {
-      .project-grid,
-      .skills-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
+    /* ========== Print Optimization (인쇄/PDF 최적화) ========== */
+    @media print {
+      body { background: white; color: black; font-size: 11pt; }
+      .container { display: block; max-width: 100%; padding: 0; margin: 0; }
+      
+      /* 사이드바를 상단 헤더처럼 변형 */
+      .sidebar { 
+        position: static; border: none; box-shadow: none; padding: 0; margin-bottom: 2rem; 
+        text-align: left; display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 2px solid #000; padding-bottom: 1rem;
       }
-      .page {
-        padding-inline: 1rem;
+      .profile-header { margin: 0; flex-direction: row; gap: 1rem; align-items: center; }
+      .avatar, .tags, .nav-wrapper { display: none; } /* 인쇄시 불필요한 요소 숨김 */
+      .sidebar-info { border: none; margin: 0; padding: 0; text-align: right; }
+      
+      /* 본문 스타일 조정 */
+      .main-content { display: block; gap: 1.5rem; }
+      section { 
+        break-inside: avoid; /* 섹션 중간에 페이지 잘림 방지 */
+        border: none; box-shadow: none; padding: 0; margin-bottom: 2rem;
       }
+      
+      h2 { font-size: 14pt; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 10px; }
+      h2::before { display: none; } /* 파란 막대 제거 */
+      
+      .project-grid, .skills-grid { display: block; }
+      .project-card { 
+        break-inside: avoid; border: 1px solid #ccc; margin-bottom: 1rem; box-shadow: none; 
+      }
+      .exp-item { border-left: 2px solid #ccc; }
+      .exp-item::after { border-color: #ccc; }
+      
+      a { text-decoration: none; color: black; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8rem; color: #666; } /* 링크 주소 표시 */
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <div class="layout">
-      <!-- ========== SIDEBAR ========== -->
-      <aside class="sidebar">
-        <div class="profile-header">
-          <div class="avatar-circle" aria-hidden="true">
-            <div class="avatar-inner">HS</div>
-          </div>
-          <div class="name">한성주 Han Seongju</div>
-          <div class="role">AI & Software Engineer (학생)</div>
-          <p class="summary">
-            Vision AI, 경로 탐색(Path Planning), 데이터 기반 자동화에 관심이 있는
-            연세대학교 미래캠퍼스 소프트웨어학부 4학년입니다.
-          </p>
-          <div class="chip-row">
-            <span class="chip primary">Vision · Path Planning · Automation</span>
-            <span class="chip">Python · PyTorch</span>
-            <span class="chip">Streamlit · FastAPI</span>
-          </div>
-        </div>
 
-        <div class="sidebar-section">
-          <div class="sidebar-section-title">Profile</div>
-          <ul class="info-list">
-            <li><span class="info-label">학교</span> : 연세대학교 미래캠퍼스 소프트웨어학부 4학년</li>
-            <li><span class="info-label">관심 분야</span> : 의료·비전 AI, 로봇/드론 경로 탐색, 자동화 파이프라인</li>
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <div class="sidebar-section-title">Links</div>
-          <ul class="link-list">
-            <li><a href="https://github.com/Lova-clover" target="_blank" rel="noreferrer">GitHub · Lova-clover</a></li>
-            <li><a href="https://velog.io/@lova-clover" target="_blank" rel="noreferrer">Velog · Tech Blog</a></li>
-            <!-- 필요하면 Notion/Resume 링크 추가 -->
-            <!-- <li><a href="노션_링크" target="_blank" rel="noreferrer">Notion Portfolio</a></li> -->
-          </ul>
-        </div>
-
-        <div class="sidebar-section">
-          <div class="sidebar-section-title">Certificates</div>
-          <ul class="badge-list">
-            <li>정보처리기사 (필기 합격 / 실기 준비 중)</li>
-            <li>ADsP, SQLD</li>
-            <li>컴퓨터활용능력 1급 (필기 합격 / 실기 준비 중)</li>
-          </ul>
-        </div>
-      </aside>
-
-      <!-- ========== MAIN CONTENT ========== -->
-      <main class="main">
-        <!-- nav tabs -->
-        <nav class="nav-tabs" aria-label="Page sections">
-          <a class="nav-tab active" href="#about">About</a>
-          <a class="nav-tab" href="#skills">Skills</a>
-          <a class="nav-tab" href="#projects">Projects</a>
-          <a class="nav-tab" href="#experience">Experience</a>
-          <a class="nav-tab" href="#contact">Contact</a>
-        </nav>
-
-        <!-- ABOUT -->
-        <section id="about">
-          <h2>About <span class="sub">나에 대해 한 줄로 설명하면,</span></h2>
-          <div class="about-body">
-            <p>
-              "데이터를 실제로 움직이는 서비스로 연결하는 엔지니어"를 목표로 공부하고 있습니다.
-              단순히 모델 하나 학습하는 수준을 넘어서, 데이터 수집·전처리·모델링·웹/백엔드 연동·데모까지
-              한 흐름으로 구현하는 경험을 쌓아왔습니다.
-            </p>
-            <p>
-              특히 Vision AI와 Path Planning, 그리고 LLM을 활용한 자동화 워크플로우에 관심이 많습니다.
-              로봇/드론 경로 탐색 알고리즘 구현, 객체 탐지/추적 파이프라인, 의료 영상 분석,
-              개발 로그 자동 리포팅 도구 등을 직접 설계·구현했습니다.
-            </p>
-          </div>
-        </section>
-
-        <!-- SKILLS -->
-        <section id="skills">
-          <h2>Tech Stack & Strengths <span class="sub">바로 투입 가능한 역량</span></h2>
-          <div class="skills-grid">
-            <div class="skills-group">
-              <h3>Language & AI / Vision</h3>
-              <ul>
-                <li>Python, Java, JavaScript, TypeScript</li>
-                <li>PyTorch, EfficientNet, ResNet, scikit-learn</li>
-                <li>YOLO, OpenCV, PaddleOCR, 이미지 분류/탐지, OCR 파이프라인</li>
-                <li>Bayes Filter, Kalman Filter 기반 확률적 추정/추적</li>
-              </ul>
-            </div>
-            <div class="skills-group">
-              <h3>Web · Backend · Automation</h3>
-              <ul>
-                <li>Streamlit, FastAPI, Django, Spring Boot, REST API 설계</li>
-                <li>MySQL, SQL 튜닝 기초, Git/GitHub, Docker, Linux</li>
-                <li>OpenAI API · FFmpeg · MoviePy, 개발/행정 자동화 스크립트</li>
-                <li>Notion · Velog를 이용한 개발 기록 및 회고</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects">
-          <h2>Selected Projects <span class="sub">대표적으로 보여줄 수 있는 작업들</span></h2>
-
-          <div class="project-grid">
-            <!-- Path-Planning -->
-            <article class="project-card">
-              <div class="project-title">Path-Planning & Filtering – 로봇·드론 경로 탐색</div>
-              <div class="project-meta">Python · NumPy · Matplotlib · Bayes/Kalman Filter</div>
-              <div class="project-highlight">
-                자율주행·무인기 경로계획 핵심 알고리즘을 직접 구현하고 시뮬레이션까지 만든 프로젝트.
-              </div>
-              <ul>
-                <li>Bug1/Bug2/Tangent Bug, Kinematics, PRM/RRT/EST, APBP, Bayes/Kalman Filter 등 주요 알고리즘을 Python으로 구현</li>
-                <li>장애물 회피, 최적/준최적 경로, 센서 노이즈를 고려한 위치 추정 실험 및 애니메이션 시각화</li>
-              </ul>
-              <div class="project-footer">
-                · 경로 탐색·추적 알고리즘의 원리를 직접 손으로 구현해 본 경험.
-              </div>
-            </article>
-
-            <!-- YOLO + PaddleOCR -->
-            <article class="project-card">
-              <div class="project-title">YOLO + PaddleOCR Vision Pipeline</div>
-              <div class="project-meta">YOLOv8 · Kalman Filter · PaddleOCR · OpenCV</div>
-              <div class="project-highlight">
-                카메라 영상에서 물체를 탐지/추적하고, 라벨 텍스트 중 필요한 숫자만 뽑아내는 비전 파이프라인.
-              </div>
-              <ul>
-                <li>YOLO로 상품/라벨 영역 탐지, Kalman Filter로 프레임 간 바운딩 박스 안정화</li>
-                <li>PaddleOCR + 정규표현식으로 성분표 중 당류/탄수화물/kcal 등 핵심 정보만 추출</li>
-                <li>곡면 라벨·조명 반사 문제를 Multi-Crop + CLAHE 전처리로 개선</li>
-              </ul>
-              <div class="project-footer">
-                · CCTV/드론 영상에서 타깃 추적 및 표식 인식 등으로 확장 가능한 구조.
-              </div>
-            </article>
-
-            <!-- AnemiaDetection -->
-            <article class="project-card">
-              <div class="project-title">AnemiaDetection – 결막 이미지 기반 빈혈 예측</div>
-              <div class="project-meta">ResNet18 · Streamlit · OpenCV</div>
-              <div class="project-highlight">
-                조명 편차가 심한 환경에서도 비교적 안정적인 결막 분석을 목표로 한 의료 비전 웹앱.
-              </div>
-              <ul>
-                <li>Kaggle Eye-Anemia 데이터셋 기반 ResNet18 이진 분류 모델 학습 · 평가</li>
-                <li>홍채/공막 밝기를 활용한 상대적 밝기 정규화와 결막 ROI 마스킹 로직 구현</li>
-                <li>Streamlit + WebRTC로 웹캠 실시간 캡처 → 전처리 → 추론 결과 시각화</li>
-              </ul>
-              <div class="project-footer">
-                · 의료 데이터의 한계와 전처리/검증의 중요성을 체감한 프로젝트.
-              </div>
-            </article>
-
-            <!-- DevHistory -->
-            <article class="project-card">
-              <div class="project-title">DevHistory – 활동 로그 기반 자동 포트폴리오</div>
-              <div class="project-meta">Python · GitHub API · LLM Pipeline · Automation</div>
-              <div class="project-highlight">
-                GitHub/solved.ac/블로그 로그를 수집해 회고/포트폴리오 문장을 자동 생성하는 도구.
-              </div>
-              <ul>
-                <li>활동 로그 수집(MergeCollector) → 지표 집계(MergeTimeline) → LLM 문장 생성(MergeForge) 설계</li>
-                <li>실제 로그 데이터만 Context로 주입해 LLM 환각(hallucination) 최소화</li>
-                <li>사용자 말투·구조를 템플릿으로 관리하는 스타일 시스템 구상</li>
-              </ul>
-              <div class="project-footer">
-                · 개발자/조직의 활동 기록을 자동 리포트로 바꾸는 워크플로우 설계 경험.
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- EXPERIENCE / COMPETITIONS -->
-        <section id="experience">
-          <h2>Experience & Competitions <span class="sub">대회와 활동</span></h2>
-
-          <ul class="exp-list">
-            <li class="exp-item">
-              <div class="exp-title">의료AI 솔루션 코딩대회 (교내)</div>
-              <div class="exp-meta">2025.11 · ChatGPT 사용 부문 결승 · <strong>2등(우수상)</strong></div>
-              <div>
-                UVA 알고리즘 문제 20개 중 18개를, LLM 코드 제안을 검증·보완하는 방식으로 해결해 2등을 기록했습니다.
-              </div>
-            </li>
-            <li class="exp-item">
-              <div class="exp-title">Wavelab 창업 경진대회</div>
-              <div class="exp-meta">2025.09 · 의료 AI 안내 영상 자동화 플랫폼 · <strong>장려상</strong></div>
-              <div>
-                빈혈/의료 안내 영상을 자동 생성하는 파이프라인을 기획하고, 모델·영상 자동화 구조를 설계해
-                창업 아이템 수준의 프로토타입을 제작했습니다.
-              </div>
-            </li>
-            <li class="exp-item">
-              <div class="exp-title">K-Intelligence Track2 프롬프트 엔지니어링 해커톤</div>
-              <div class="exp-meta">2025.08 · 예선 3위 / 본선 9위</div>
-              <div>
-                LLM 프롬프트 최적화, 자동 평가 흐름 설계, 서비스 시나리오 구성을 통해
-                제한된 시간 내에 실사용 가능한 LLM 기반 기능을 구현했습니다.
-              </div>
-            </li>
-          </ul>
-
-          <table class="table" aria-label="주요 대회/공모전">
-            <thead>
-              <tr>
-                <th>기간</th>
-                <th>구분</th>
-                <th>이름</th>
-                <th>결과</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>2025.11</td>
-                <td>코딩대회</td>
-                <td>의료AI 솔루션 코딩대회 (결승)</td>
-                <td>2등 (우수상)</td>
-              </tr>
-              <tr>
-                <td>2025.09</td>
-                <td>창업</td>
-                <td>Wavelab 창업 경진대회</td>
-                <td>장려상</td>
-              </tr>
-              <tr>
-                <td>2025.08</td>
-                <td>해커톤</td>
-                <td>K-Intelligence Track2 프롬프트 해커톤</td>
-                <td>예선 3위 / 본선 9위</td>
-              </tr>
-              <tr>
-                <td>2025~</td>
-                <td>기타</td>
-                <td>AI/데이터/알고리즘 대회 다수</td>
-                <td>총 10회 이상 참가 및 완주</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact">
-          <h2>Contact <span class="sub">협업 / 질문 / 피드백 모두 환영입니다</span></h2>
-          <div class="contact-grid">
-            <div>
-              <div class="contact-label">하고 싶은 일</div>
-              <p>
-                Vision AI, Path Planning, 로그/리포트 자동화를 활용해
-                실제로 조직의 업무 시간을 줄이고, 데이터 기반 의사결정을 돕는 도구를 만드는 일에 관심이 있습니다.
-                연구·실험뿐 아니라, 실제로 동작하는 서비스/툴 형태로 구현하는 것을 중요하게 생각합니다.
-              </p>
-            </div>
-            <div class="contact">
-              <p><span class="contact-label">Email</span><br />
-                <a href="mailto:woeg0226@naver.com">woeg0226@naver.com</a>
-              </p>
-              <p><span class="contact-label">GitHub</span><br />
-                <a href="https://github.com/Lova-clover" target="_blank" rel="noreferrer">https://github.com/Lova-clover</a>
-              </p>
-              <p><span class="contact-label">Blog</span><br />
-                <a href="https://velog.io/@lova-clover" target="_blank" rel="noreferrer">https://velog.io/@lova-clover</a>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <footer>
-          © <span id="year"></span> Han Seongju. All rights reserved.
-        </footer>
-      </main>
+<div class="container">
+  
+  <aside class="sidebar">
+    <div class="profile-header">
+      <div class="avatar">HS</div>
+      <h1 class="name">한성주</h1>
+      <div class="role">AI & Software Engineer</div>
+      <p class="bio">
+        Vision AI, 경로 탐색(Path Planning), 자동화 파이프라인 구축에 강점이 있는
+        연세대학교 미래캠퍼스 소프트웨어학부 4학년입니다.
+      </p>
+      <div class="tags">
+        <span class="tag">Vision AI</span>
+        <span class="tag">Path Planning</span>
+        <span class="tag">Automation</span>
+      </div>
     </div>
-  </div>
 
-  <script>
-    // footer 연도 자동 업데이트
-    document.getElementById("year").textContent = new Date().getFullYear();
+    <div class="sidebar-info">
+      <div class="info-title">CONTACT & LINKS</div>
+      <div class="info-item">📧 <a href="mailto:woeg0226@naver.com">woeg0226@naver.com</a></div>
+      <div class="info-item">🐙 <a href="https://github.com/Lova-clover" target="_blank">GitHub: Lova-clover</a></div>
+      <div class="info-item">📝 <a href="https://velog.io/@lova-clover" target="_blank">Blog: Velog</a></div>
+    </div>
 
-    // nav active 하이라이트 (스크롤된 섹션 기준)
-    const sections = document.querySelectorAll("section[id]");
-    const tabs = document.querySelectorAll(".nav-tab");
+    <div class="sidebar-info">
+      <div class="info-title">CERTIFICATES</div>
+      <div class="info-item">🏆 정보처리기사 (필기 합격)</div>
+      <div class="info-item">🏆 ADsP, SQLD</div>
+      <div class="info-item">🏆 컴활 1급 (필기 합격)</div>
+    </div>
+  </aside>
 
-    function onScroll() {
-      const scrollPos = window.scrollY + 110;
-      let currentId = "";
-      sections.forEach((sec) => {
-        const top = sec.offsetTop;
-        const height = sec.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          currentId = sec.id;
-        }
-      });
-      tabs.forEach((tab) => {
-        const href = tab.getAttribute("href").replace("#", "");
-        tab.classList.toggle("active", href === currentId);
-      });
-    }
+  <main class="main-content">
+    
+    <div class="nav-wrapper">
+      <nav class="nav-tabs">
+        <a href="#about" class="nav-link active">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+      </nav>
+    </div>
 
-    window.addEventListener("scroll", onScroll);
-  </script>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="section-desc">
+        "데이터를 실제로 움직이는 서비스로 연결하는 엔지니어"를 목표로 합니다.<br>
+        연구실의 모델링을 넘어, <span class="highlight">실제 환경(야전, 웹, 로봇)에서 동작하는 파이프라인</span>을 설계합니다.
+      </div>
+      <p style="color: var(--text-sub); font-size: 0.95rem;">
+        특히 <strong>Vision AI</strong>와 <strong>Path Planning</strong>, 그리고 LLM을 활용한 <strong>자동화 워크플로우</strong>에 집중하고 있습니다.
+        로봇/드론 경로 탐색 알고리즘 구현, 객체 탐지/추적 파이프라인, 의료 영상 분석, 
+        개발 로그 자동 리포팅 도구 등을 직접 설계·구현하며 <span class="highlight">End-to-End 개발 역량</span>을 키워왔습니다.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Tech Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h3>🧠 AI / Vision / Math</h3>
+          <ul class="skill-list">
+            <li><strong>Language:</strong> Python, Java, JavaScript</li>
+            <li><strong>AI Core:</strong> PyTorch, Scikit-learn, YOLOv8</li>
+            <li><strong>Vision:</strong> OpenCV, PaddleOCR, CLAHE, Multi-Crop</li>
+            <li><strong>Algorithm:</strong> Kalman/Bayes Filter, RRT/PRM, A*, Bug Algorithm</li>
+          </ul>
+        </div>
+        <div class="skill-cat">
+          <h3>💻 Web / Backend / Infra</h3>
+          <ul class="skill-list">
+            <li><strong>Framework:</strong> Streamlit, FastAPI, Spring Boot</li>
+            <li><strong>Data:</strong> MySQL, SQL Tuning, Git</li>
+            <li><strong>DevOps:</strong> Docker, GitHub Actions, Linux</li>
+            <li><strong>Automation:</strong> OpenAI API, FFmpeg</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        
+        <article class="project-card">
+          <div class="p-title">🤖 Path-Planning & Filtering</div>
+          <div class="p-tech">Python · NumPy · Kalman Filter · Matplotlib</div>
+          <div class="p-desc">
+            자율주행·무인기 경로계획 핵심 알고리즘(Bug, RRT, Kalman Filter)을 직접 구현하고 시뮬레이션한 프로젝트입니다.
+            <ul>
+              <li>장애물 회피 및 최적 경로 산출 로직(RRT, A*) 구현</li>
+              <li>센서 노이즈를 고려한 확률적 위치 추정(Filtering) 실험</li>
+            </ul>
+          </div>
+          <div class="p-footer">
+            <strong>🚀 공군 활용:</strong> 무인기/항법 체계 원리 이해 및 PoC 개발
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="p-title">👁️ YOLO + Vision Pipeline</div>
+          <div class="p-tech">YOLOv8 · PaddleOCR · Kalman Tracking</div>
+          <div class="p-desc">
+            흔들리는 영상에서 객체를 추적하고 성분표의 핵심 숫자만 추출하는 파이프라인입니다.
+            <ul>
+              <li>Kalman Filter로 프레임 간 추적 끊김(Occlusion) 방지</li>
+              <li>CLAHE 전처리로 조명 반사/곡면 인식률 대폭 개선</li>
+            </ul>
+          </div>
+          <div class="p-footer">
+            <strong>🚀 공군 활용:</strong> 드론/CCTV 감시 영상 자동 식별 시스템
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="p-title">🩸 AnemiaDetection</div>
+          <div class="p-tech">ResNet18 · Streamlit · ROI Masking</div>
+          <div class="p-desc">
+            조명 편차가 심한 환경에서도 결막을 분석해 빈혈을 예측하는 의료 웹앱입니다.
+            <ul>
+              <li>상대적 밝기 정규화 알고리즘 고안 (조명 영향 최소화)</li>
+              <li>WebRTC를 통한 실시간 웹캠 추론 및 마스킹 구현</li>
+            </ul>
+          </div>
+          <div class="p-footer">
+            <strong>🚀 공군 활용:</strong> 야전/격납고 등 악조건 하 이미지 분석
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="p-title">📜 DevHistory Automation</div>
+          <div class="p-tech">LLM Pipeline · GitHub API · RAG</div>
+          <div class="p-desc">
+            흩어진 개발 로그를 수집해 리포트/회고를 자동 생성하는 자동화 도구입니다.
+            <ul>
+              <li>실제 로그만 Context로 주입해 환각(Hallucination) 방지</li>
+              <li>데이터 수집-가공-생성 전체 파이프라인(ETL) 설계</li>
+            </ul>
+          </div>
+          <div class="p-footer">
+            <strong>🚀 공군 활용:</strong> 행정 소요 단축 및 로그 데이터 통합 관리
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience & Awards</h2>
+      
+      <div class="exp-item">
+        <span class="exp-title">🥈 의료AI 솔루션 코딩대회 (교내)</span>
+        <span class="exp-date">2025.11 | 결승 2등 (우수상)</span>
+        <div class="exp-detail">
+          LLM이 생성한 코드를 검증/디버깅하는 방식으로 알고리즘 문제 20개 중 18개를 해결하며, AI 협업 능력과 문제 해결력을 증명했습니다.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-title">🏅 Wavelab 창업 경진대회</span>
+        <span class="exp-date">2025.09 | 장려상</span>
+        <div class="exp-detail">
+          의료 안내 영상 자동 생성 파이프라인을 기획하고 프로토타입(Vision AI + TTS + 영상 합성)을 개발하여 기술적 실현 가능성을 입증했습니다.
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <span class="exp-title">🥉 K-Intelligence 프롬프트 해커톤</span>
+        <span class="exp-date">2025.08 | 예선 3위 / 본선 9위</span>
+        <div class="exp-detail">
+          LLM 프롬프트 최적화 및 평가 자동화 시나리오를 설계하여 제한된 시간 내에 서비스 기능을 구현했습니다.
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--text-main); font-weight: 700;">📌 Summary Table</h3>
+        <div class="table-wrapper">
+          <table>
+            <tr><th width="20%">기간</th><th>활동명</th><th>성과</th></tr>
+            <tr><td>2025.11</td><td>의료AI 솔루션 코딩대회</td><td>2등 (우수상)</td></tr>
+            <tr><td>2025.09</td><td>Wavelab 창업 경진대회</td><td>장려상</td></tr>
+            <tr><td>2025.08</td><td>NYPC Code Battle</td><td>상위 44%</td></tr>
+            <tr><td>2025~</td><td>AI/데이터 해커톤 다수</td><td>10회 이상 완주</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Han Seongju. All rights reserved.<br>
+      Ready for Air Force AI Track.
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  // 연도 자동 업데이트
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll Spy (네비게이션 활성화 로직)
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      // 네비게이션 높이(약 150px)만큼 보정하여 감지
+      if (scrollY >= (sectionTop - 180)) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href").includes(current)) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
