@@ -27,6 +27,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: var(--font-main);
       background: radial-gradient(circle at top, #dbeafe 0, #f4f5fb 52%, #eef2ff 100%);
@@ -211,6 +215,9 @@
       border: 1px solid var(--border-subtle);
       box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
       margin-bottom: 0.3rem;
+      position: sticky;
+      top: 1rem;
+      z-index: 10;
     }
 
     .nav-tab {
@@ -220,11 +227,13 @@
       border: 1px solid transparent;
       color: #6b7280;
       cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
     }
 
     .nav-tab:hover {
       background: #eff6ff;
       color: var(--accent-strong);
+      transform: translateY(-1px);
     }
 
     .nav-tab.active {
@@ -232,6 +241,7 @@
       color: #ffffff;
       border-color: var(--accent);
       font-weight: 500;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.28);
     }
 
     section {
@@ -313,6 +323,13 @@
       border: 1px solid var(--border-subtle);
       padding: 1.05rem 1.05rem 1.1rem;
       background: #f9fafb;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(37, 99, 235, 0.35);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
     }
 
     .project-title {
@@ -355,8 +372,24 @@
       margin-top: 0.5rem;
     }
 
+    .exp-item {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .exp-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
     .exp-item + .exp-item {
-      margin-top: 0.6rem;
+      margin-top: 0.8rem;
       padding-top: 0.5rem;
       border-top: 1px dashed #e5e7eb;
     }
@@ -375,7 +408,7 @@
     /* competitions table 스타일 */
     .table {
       width: 100%;
-      margin-top: 0.5rem;
+      margin-top: 0.7rem;
       border-collapse: collapse;
       font-size: 0.8rem;
       color: var(--text-muted);
@@ -427,6 +460,10 @@
       .sidebar {
         position: static;
       }
+      .nav-tabs {
+        position: static;
+        margin-top: 0.4rem;
+      }
     }
 
     @media (max-width: 640px) {
@@ -447,7 +484,7 @@
       <!-- ========== SIDEBAR ========== -->
       <aside class="sidebar">
         <div class="profile-header">
-          <div class="avatar-circle">
+          <div class="avatar-circle" aria-hidden="true">
             <div class="avatar-inner">HS</div>
           </div>
           <div class="name">한성주 Han Seongju</div>
@@ -492,15 +529,15 @@
       </aside>
 
       <!-- ========== MAIN CONTENT ========== -->
-      <div class="main">
+      <main class="main">
         <!-- nav tabs -->
-        <div class="nav-tabs">
+        <nav class="nav-tabs" aria-label="Page sections">
           <a class="nav-tab active" href="#about">About</a>
           <a class="nav-tab" href="#skills">Skills</a>
           <a class="nav-tab" href="#projects">Projects</a>
           <a class="nav-tab" href="#experience">Experience</a>
           <a class="nav-tab" href="#contact">Contact</a>
-        </div>
+        </nav>
 
         <!-- ABOUT -->
         <section id="about">
@@ -521,7 +558,7 @@
 
         <!-- SKILLS -->
         <section id="skills">
-          <h2>Tech Stack & Strengths <span class="sub">내가 바로 투입될 수 있는 영역</span></h2>
+          <h2>Tech Stack & Strengths <span class="sub">바로 투입 가능한 역량</span></h2>
           <div class="skills-grid">
             <div class="skills-group">
               <h3>Language & AI / Vision</h3>
@@ -561,7 +598,7 @@
                 <li>장애물 회피, 최적/준최적 경로, 센서 노이즈를 고려한 위치 추정 실험 및 애니메이션 시각화</li>
               </ul>
               <div class="project-footer">
-                · 경로 탐색, 추적 알고리즘의 원리를 직접 손으로 구현해 본 경험.
+                · 경로 탐색·추적 알고리즘의 원리를 직접 손으로 구현해 본 경험.
               </div>
             </article>
 
@@ -626,17 +663,25 @@
             <li class="exp-item">
               <div class="exp-title">의료AI 솔루션 코딩대회 (교내)</div>
               <div class="exp-meta">2025.11 · ChatGPT 사용 부문 결승 · <strong>2등(우수상)</strong></div>
-              <div>UVA 알고리즘 문제 20개 세트에서, LLM이 생성한 풀이 코드를 테스트 케이스 기반으로 검증·수정하며 18개 문제를 해결해 2등을 달성했습니다.</div>
+              <div>
+                UVA 알고리즘 문제 20개 중 18개를, LLM 코드 제안을 검증·보완하는 방식으로 해결해 2등을 기록했습니다.
+              </div>
             </li>
             <li class="exp-item">
               <div class="exp-title">Wavelab 창업 경진대회</div>
               <div class="exp-meta">2025.09 · 의료 AI 안내 영상 자동화 플랫폼 · <strong>장려상</strong></div>
-              <div>빈혈/의료 안내 영상을 자동 생성하는 파이프라인 기획, 모델/영상 자동화를 활용한 프로토타입 제작.</div>
+              <div>
+                빈혈/의료 안내 영상을 자동 생성하는 파이프라인을 기획하고, 모델·영상 자동화 구조를 설계해
+                창업 아이템 수준의 프로토타입을 제작했습니다.
+              </div>
             </li>
             <li class="exp-item">
               <div class="exp-title">K-Intelligence Track2 프롬프트 엔지니어링 해커톤</div>
               <div class="exp-meta">2025.08 · 예선 3위 / 본선 9위</div>
-              <div>LLM 프롬프트 최적화, 평가 자동화, 서비스 시나리오 설계 등 LLM 기반 서비스 구축 경험.</div>
+              <div>
+                LLM 프롬프트 최적화, 자동 평가 흐름 설계, 서비스 시나리오 구성을 통해
+                제한된 시간 내에 실사용 가능한 LLM 기반 기능을 구현했습니다.
+              </div>
             </li>
           </ul>
 
@@ -692,7 +737,7 @@
             </div>
             <div class="contact">
               <p><span class="contact-label">Email</span><br />
-                <a href="mailto:이메일@도메인">woeg0226@naver.com</a>
+                <a href="mailto:woeg0226@naver.com">woeg0226@naver.com</a>
               </p>
               <p><span class="contact-label">GitHub</span><br />
                 <a href="https://github.com/Lova-clover" target="_blank" rel="noreferrer">https://github.com/Lova-clover</a>
@@ -707,7 +752,7 @@
         <footer>
           © <span id="year"></span> Han Seongju. All rights reserved.
         </footer>
-      </div>
+      </main>
     </div>
   </div>
 
@@ -720,7 +765,7 @@
     const tabs = document.querySelectorAll(".nav-tab");
 
     function onScroll() {
-      const scrollPos = window.scrollY + 100;
+      const scrollPos = window.scrollY + 110;
       let currentId = "";
       sections.forEach((sec) => {
         const top = sec.offsetTop;
