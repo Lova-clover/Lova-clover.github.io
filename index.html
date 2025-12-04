@@ -7,28 +7,35 @@
   <meta name="description" content="Portfolio of Han Seongju - AI & Software Engineer building intelligent systems." />
 
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* --- Color Palette (Cyberpunk Midnight) --- */
-      --bg-deep: #050505;
-      --bg-card: rgba(20, 20, 20, 0.6);
-      --bg-card-hover: rgba(30, 30, 30, 0.8);
+      /* --- Color Palette (Clean Modernist) --- */
+      --bg-body: #F3F5F7;       /* 아주 연한 쿨그레이 */
+      --bg-glass: rgba(255, 255, 255, 0.65);
+      --bg-card: #FFFFFF;
       
-      --accent-primary: #3b82f6; /* Electric Blue */
-      --accent-secondary: #8b5cf6; /* Cyber Purple */
-      --accent-glow: rgba(59, 130, 246, 0.5);
+      --primary: #2563eb;       /* Electric Blue */
+      --primary-dark: #0f172a;  /* Dark Navy (Text Main) */
+      --secondary: #6366f1;     /* Indigo */
       
-      --text-main: #ffffff;
-      --text-muted: #a1a1aa;
-      --border: rgba(255, 255, 255, 0.1);
+      --text-main: #0f172a;     /* Slate 900 */
+      --text-sub: #475569;      /* Slate 600 */
+      --text-muted: #94a3b8;    /* Slate 400 */
       
-      --font-main: "Pretendard Variable", Pretendard, sans-serif;
-      --font-display: "Space Grotesk", sans-serif;
+      --border: rgba(0, 0, 0, 0.06);
+      --border-hover: rgba(37, 99, 235, 0.3);
+      
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 20px 40px -5px rgba(37, 99, 235, 0.15);
       
       --radius: 24px;
-      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      
+      --font-main: "Pretendard Variable", Pretendard, sans-serif;
+      --font-display: "Plus Jakarta Sans", sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +43,7 @@
     html { scroll-behavior: smooth; }
     
     body {
-      background-color: var(--bg-deep);
+      background-color: var(--bg-body);
       color: var(--text-main);
       font-family: var(--font-main);
       line-height: 1.6;
@@ -44,26 +51,28 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* --- Background FX (Aurora & Noise) --- */
-    .bg-gradient {
+    /* --- Background FX (Soft Mesh Gradient) --- */
+    .bg-mesh {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: 
-        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15), transparent 25%);
+        radial-gradient(at 0% 0%, hsla(210,100%,96%,1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(220,100%,93%,1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(240,100%,96%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(200,100%,96%,1) 0px, transparent 50%);
       z-index: -2;
-      filter: blur(60px);
-      animation: pulse 10s infinite alternate;
     }
-
-    .noise-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48ZmlsdGVyIGlkPSJ4Ij48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC42NSIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCN4KSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
-      z-index: -1; opacity: 0.4; pointer-events: none;
+    
+    /* Moving Orbs (은은한 움직임) */
+    .orb {
+      position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.6; z-index: -1;
+      animation: float 20s infinite ease-in-out alternate;
     }
+    .orb-1 { top: -10%; right: -10%; width: 50vw; height: 50vw; background: #e0e7ff; }
+    .orb-2 { bottom: -10%; left: -10%; width: 40vw; height: 40vw; background: #dbeafe; animation-delay: -5s; }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(1.1); opacity: 1; }
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-30px, 30px) scale(1.1); }
     }
 
     /* --- Layout --- */
@@ -73,196 +82,208 @@
 
     /* --- Header / Hero --- */
     header {
-      height: 100vh; display: flex; flex-direction: column; justify-content: center;
-      position: relative;
+      min-height: 90vh; display: flex; flex-direction: column; justify-content: center;
+      position: relative; padding-top: 60px;
     }
 
     .nav-bar {
       position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
-      background: rgba(20, 20, 20, 0.5); backdrop-filter: blur(16px);
-      border: 1px solid var(--border); border-radius: 100px;
-      padding: 0.5rem 0.8rem; z-index: 100; display: flex; gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
+      border: 1px solid white; box-shadow: var(--shadow-sm);
+      border-radius: 100px; padding: 0.4rem 0.6rem; z-index: 100; display: flex; gap: 0.3rem;
     }
     
     .nav-link {
-      color: var(--text-muted); text-decoration: none; font-size: 0.85rem; font-weight: 500;
-      padding: 0.5rem 1.2rem; border-radius: 100px; transition: var(--transition);
+      color: var(--text-sub); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+      padding: 0.6rem 1.4rem; border-radius: 100px; transition: var(--transition);
     }
-    .nav-link:hover, .nav-link.active {
-      color: white; background: rgba(255, 255, 255, 0.1);
-    }
-
-    .hero-content {
-      margin-top: -5vh;
-    }
+    .nav-link:hover { color: var(--primary); background: rgba(37, 99, 235, 0.05); }
+    .nav-link.active { background: var(--text-main); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
     .hero-kicker {
-      font-family: var(--font-display); color: var(--accent-primary);
-      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 1rem;
-      display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--accent-primary); border-radius: 100px;
-      background: rgba(59, 130, 246, 0.1);
+      font-family: var(--font-display); color: var(--primary); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 1.5rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border-radius: 100px; background: white;
+      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
     }
+    .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
 
     h1 {
-      font-size: clamp(3rem, 8vw, 6rem); font-weight: 800; line-height: 1.1;
-      letter-spacing: -0.03em; margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #fff, #a1a1aa);
-      -webkit-background-clip: text; color: transparent;
+      font-family: var(--font-display); font-size: clamp(3.2rem, 8vw, 5.5rem); 
+      font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 1.5rem;
+      color: var(--text-main);
     }
+    h1 span { color: var(--text-muted); }
 
     .hero-desc {
-      font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-muted); max-width: 600px;
-      margin-bottom: 3rem; line-height: 1.7;
+      font-size: clamp(1.15rem, 2vw, 1.35rem); color: var(--text-sub); max-width: 650px;
+      margin-bottom: 3rem; line-height: 1.6; font-weight: 400;
     }
 
-    .cta-group { display: flex; gap: 1rem; }
+    .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      padding: 1rem 2rem; border-radius: 100px; font-weight: 600; text-decoration: none;
-      transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 2.2rem; border-radius: 100px; font-weight: 700; text-decoration: none;
+      transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem;
     }
     .btn-primary {
-      background: white; color: black;
+      background: var(--text-main); color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
     .btn-primary:hover {
-      transform: translateY(-3px); box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      background: var(--primary); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
     }
     .btn-outline {
-      border: 1px solid var(--border); color: white;
+      background: white; border: 1px solid var(--border); color: var(--text-main); box-shadow: var(--shadow-sm);
     }
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.1); border-color: white;
-    }
+    .btn-outline:hover { border-color: var(--text-main); transform: translateY(-2px); }
 
     /* --- Sections --- */
     section { padding: 8rem 0; }
     
-    .section-head { margin-bottom: 4rem; }
+    .section-head { margin-bottom: 3.5rem; display: flex; align-items: flex-end; justify-content: space-between; }
     h2 {
-      font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 1rem;
+      font-family: var(--font-display); font-size: 2.8rem; letter-spacing: -0.03em; color: var(--text-main);
     }
-    .section-line {
-      width: 60px; height: 4px; background: var(--accent-primary); border-radius: 2px;
-    }
+    .section-desc-sm { font-size: 1rem; color: var(--text-muted); max-width: 300px; text-align: right; }
 
-    /* --- Bento Grid (Skills & About) --- */
+    /* --- Bento Grid (Skills) --- */
     .bento-grid {
       display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem;
     }
     
     .bento-item {
-      background: var(--bg-card); border: 1px solid var(--border);
-      backdrop-filter: blur(12px); border-radius: var(--radius); padding: 2rem;
+      background: var(--bg-glass); border: 1px solid white;
+      backdrop-filter: blur(20px); border-radius: var(--radius); padding: 2.5rem;
       transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between;
+      box-shadow: var(--shadow-card);
     }
     .bento-item:hover {
-      border-color: rgba(255, 255, 255, 0.3); transform: translateY(-5px);
-      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+      transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(37, 99, 235, 0.2);
     }
 
     .col-span-4 { grid-column: span 12; }
     .col-span-6 { grid-column: span 12; }
     .col-span-8 { grid-column: span 12; }
     
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       .col-span-4 { grid-column: span 4; }
       .col-span-6 { grid-column: span 6; }
       .col-span-8 { grid-column: span 8; }
     }
 
-    .bento-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; color: white; }
-    .bento-text { color: var(--text-muted); font-size: 0.95rem; }
+    .bento-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .bento-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); font-family: var(--font-display); }
+    .bento-text { color: var(--text-sub); font-size: 1rem; line-height: 1.6; }
     
+    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
     .tech-pill {
-      display: inline-block; padding: 0.4rem 0.8rem; background: rgba(255,255,255,0.05);
-      border-radius: 50px; font-size: 0.8rem; margin: 0.2rem 0; border: 1px solid transparent;
-      transition: 0.3s; color: #ccc;
+      display: inline-block; padding: 0.4rem 1rem; background: white;
+      border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border);
+      color: var(--text-sub); transition: 0.2s; box-shadow: var(--shadow-sm);
     }
-    .tech-pill:hover { border-color: var(--accent-primary); color: white; background: rgba(59, 130, 246, 0.1); }
+    .tech-pill:hover { color: var(--primary); transform: scale(1.05); }
 
     /* --- Project Cards (Showcase) --- */
+    .project-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+    
     .project-card {
-      background: var(--bg-card); border-radius: var(--radius); border: 1px solid var(--border);
-      overflow: hidden; margin-bottom: 4rem; transition: var(--transition);
-    }
-    .project-card:hover { border-color: var(--accent-secondary); }
-
-    .project-inner {
+      background: white; border-radius: var(--radius); border: 1px solid white;
+      overflow: hidden; box-shadow: var(--shadow-card); transition: var(--transition);
       display: grid; grid-template-columns: 1fr;
     }
+    .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
     @media (min-width: 900px) {
-      .project-inner { grid-template-columns: 1.2fr 0.8fr; }
+      .project-card { grid-template-columns: 1.1fr 0.9fr; height: 420px; }
     }
 
-    .project-preview {
-      background: #111; min-height: 300px; display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden; border-right: 1px solid var(--border);
+    .project-visual {
+      background: #f1f5f9; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
-    /* Abstract Code/Visual Placeholder */
-    .code-overlay {
-      font-family: monospace; color: rgba(59, 130, 246, 0.2); font-size: 0.8rem;
-      position: absolute; top: 20px; left: 20px; white-space: pre;
+    /* Abstract Code Visual */
+    .visual-code {
+      width: 80%; height: 80%; background: white; border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 2rem;
+      font-family: monospace; color: #cbd5e1; font-size: 0.8rem; overflow: hidden;
+      transform: rotate(-3deg) translateX(10px); transition: var(--transition);
     }
+    .project-card:hover .visual-code { transform: rotate(0deg) scale(1.05); }
 
-    .project-info { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-    .project-tag { color: var(--accent-primary); font-family: var(--font-display); font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    .project-title { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
-    .project-desc { color: var(--text-muted); margin-bottom: 2rem; }
+    .code-line { height: 8px; background: #f1f5f9; border-radius: 4px; margin-bottom: 10px; width: 100%; }
+    .code-line.short { width: 60%; }
+    .code-line.accent { background: #dbeafe; width: 40%; }
+
+    .project-content { padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .p-cat { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .p-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; font-family: var(--font-display); line-height: 1.1; }
+    .p-desc { color: var(--text-sub); font-size: 1rem; margin-bottom: 2rem; max-width: 90%; }
     
-    .stat-row { display: flex; gap: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
-    .stat-item h4 { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
-    .stat-item p { font-size: 1.1rem; font-weight: 700; color: white; margin-top: 0.2rem; }
+    .p-stats { display: flex; gap: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: auto; }
+    .stat div:first-child { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+    .stat div:last-child { font-size: 1rem; color: var(--text-main); font-weight: 700; margin-top: 0.2rem; }
 
-    /* --- Experience (Minimal Timeline) --- */
-    .timeline-item {
-      border-left: 2px solid var(--border); padding-left: 2rem; padding-bottom: 3rem; position: relative;
+    /* --- Experience (Minimal) --- */
+    .exp-list { max-width: 800px; margin: 0 auto; }
+    .exp-item {
+      display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border);
+      transition: 0.3s;
     }
-    .timeline-item:last-child { border: none; padding-bottom: 0; }
-    .timeline-item::before {
-      content: ""; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px;
-      border-radius: 50%; background: var(--accent-secondary); box-shadow: 0 0 10px var(--accent-secondary);
+    .exp-item:hover { transform: translateX(10px); }
+    
+    .exp-year { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-muted); min-width: 80px; }
+    .exp-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .exp-org { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.8rem; display: block; }
+    .exp-text { color: var(--text-sub); font-size: 1rem; }
+
+    @media (max-width: 768px) {
+      .exp-item { flex-direction: column; gap: 0.5rem; }
+      .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .section-desc-sm { text-align: left; }
     }
-    .t-year { font-family: var(--font-display); color: var(--accent-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
-    .t-role { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.2rem; }
-    .t-org { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
-    .t-desc { color: #ccc; font-size: 0.95rem; max-width: 600px; }
 
     /* --- Footer --- */
     footer {
-      padding: 4rem 0; text-align: center; border-top: 1px solid var(--border);
-      margin-top: 4rem; color: var(--text-muted);
+      padding: 6rem 0; text-align: center; border-top: 1px solid var(--border);
+      background: white; position: relative;
     }
-    .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2rem; }
-    .social-link { font-size: 1.2rem; transition: 0.3s; color: white; opacity: 0.7; }
-    .social-link:hover { opacity: 1; transform: scale(1.1); color: var(--accent-primary); }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+    .f-link { font-weight: 600; color: var(--text-main); transition: 0.2s; position: relative; }
+    .f-link::after { content: ""; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: var(--primary); transition: 0.3s; }
+    .f-link:hover::after { width: 100%; }
 
-    /* --- Utilities --- */
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    /* --- Scroll Reveal --- */
+    .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.2, 1, 0.2, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
   </style>
 </head>
 <body>
 
-  <div class="bg-gradient"></div>
-  <div class="noise-overlay"></div>
+  <div class="bg-mesh"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
   <nav class="nav-bar">
     <a href="#home" class="nav-link active">Home</a>
     <a href="#about" class="nav-link">About</a>
-    <a href="#projects" class="nav-link">Work</a>
-    <a href="#experience" class="nav-link">Exp</a>
+    <a href="#work" class="nav-link">Work</a>
+    <a href="#exp" class="nav-link">Exp</a>
   </nav>
 
   <header id="home" class="container">
-    <div class="hero-content reveal active">
-      <span class="hero-kicker">Han Seongju Portfolio</span>
-      <h1>Designing Intelligence.<br>Engineering Reality.</h1>
+    <div class="reveal active">
+      <div class="hero-kicker">Available for Hire</div>
+      <h1>
+        Building Intelligence.<br>
+        <span>Engineering Reality.</span>
+      </h1>
       <p class="hero-desc">
-        I bridge the gap between AI research and real-world services.<br>
-        Specializing in <strong>Vision AI, Path Planning, and Automation pipelines.</strong>
+        I am <strong>Han Seongju</strong>, an AI Engineer bridging the gap between research and production. 
+        Specialized in <strong>Computer Vision, Path Planning,</strong> and <strong>Automation Pipelines</strong>.
       </p>
       <div class="cta-group">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#work" class="btn btn-primary">View Selected Work</a>
         <a href="mailto:woeg0226@naver.com" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
@@ -271,44 +292,43 @@
   <section id="about" class="container">
     <div class="section-head reveal">
       <h2>Engineering Stack</h2>
-      <div class="section-line"></div>
+      <div class="section-desc-sm">My technical arsenal for building scalable AI systems.</div>
     </div>
 
     <div class="bento-grid reveal">
       <div class="bento-item col-span-8">
-        <div class="bento-title">Who I Am</div>
+        <span class="bento-icon">🚀</span>
+        <div class="bento-title">The "Full-Cycle" Engineer</div>
         <p class="bento-text">
-          I don't just train models; I build <strong>End-to-End Systems</strong>. 
-          From collecting raw data to deploying scalable web services, I handle the entire lifecycle of an AI product.
-          Currently focusing on autonomous navigation logic and vision-based automation.
+          I don't just write algorithms; I deploy them. My expertise covers the entire AI lifecycle—from raw data collection and model training to building web services that serve users in real-time. I focus on reliability and efficiency in autonomous systems.
         </p>
       </div>
 
-      <div class="bento-item col-span-4">
-        <div class="bento-title">Focus Areas</div>
-        <div>
+      <div class="bento-item col-span-4" style="background: white;">
+        <span class="bento-icon">🎯</span>
+        <div class="bento-title">Core Focus</div>
+        <div class="tag-container">
           <span class="tech-pill">Vision AI</span>
           <span class="tech-pill">Path Planning</span>
-          <span class="tech-pill">RAG</span>
-          <span class="tech-pill">Workflow Automation</span>
+          <span class="tech-pill">RAG / LLM</span>
+          <span class="tech-pill">Automation</span>
         </div>
       </div>
 
       <div class="bento-item col-span-6">
-        <div class="bento-title">AI & Algorithms</div>
-        <div>
+        <div class="bento-title">AI & Math</div>
+        <div class="tag-container">
           <span class="tech-pill">PyTorch</span>
           <span class="tech-pill">YOLOv8</span>
           <span class="tech-pill">Kalman Filter</span>
           <span class="tech-pill">RRT / A*</span>
           <span class="tech-pill">OpenCV</span>
-          <span class="tech-pill">LLM Prompting</span>
         </div>
       </div>
 
       <div class="bento-item col-span-6">
-        <div class="bento-title">Engineering & Ops</div>
-        <div>
+        <div class="bento-title">Dev & Ops</div>
+        <div class="tag-container">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">FastAPI</span>
           <span class="tech-pill">Docker</span>
@@ -320,36 +340,40 @@
     </div>
   </section>
 
-  <section id="projects" class="container">
+  <section id="work" class="container">
     <div class="section-head reveal">
-      <h2>Selected Works</h2>
-      <div class="section-line"></div>
+      <h2>Selected Work</h2>
+      <div class="section-desc-sm">Projects that define my capabilities.</div>
     </div>
 
     <article class="project-card reveal">
       <div class="project-inner">
-        <div class="project-preview">
-          <div style="width:100px; height:100px; border:2px solid #3b82f6; border-radius:50%; position:absolute; animation: pulse 2s infinite;"></div>
-          <div class="code-overlay">
-def kalman_filter(z):
-  x_est = x_pred + K*(z - H*x_pred)
-  return x_est
+        <div class="project-visual">
+          <div class="visual-code">
+            <div class="code-line accent"></div>
+            <div class="code-line"></div>
+            <div class="code-line short"></div>
+            <div style="margin-top:20px; color:#94a3b8;">
+              # Kalman Filter Logic<br>
+              x = F @ x + B @ u<br>
+              P = F @ P @ F.T + Q
+            </div>
           </div>
         </div>
-        <div class="project-info">
-          <span class="project-tag">AUTONOMOUS SYSTEMS</span>
-          <h3 class="project-title">Path-Planning & Filtering</h3>
-          <p class="project-desc">
-            Simulation of core autonomous navigation algorithms. Implemented Bug, RRT, and Kalman Filters from scratch to handle obstacle avoidance and sensor noise estimation.
+        <div class="project-content">
+          <span class="p-cat">Autonomous Systems</span>
+          <h3 class="p-title">Path-Planning &<br>Filtering Simulation</h3>
+          <p class="p-desc">
+            A comprehensive simulation of autonomous navigation. Implemented <strong>Bug, RRT, and Kalman Filters</strong> from scratch to handle obstacle avoidance and sensor noise estimation in real-time.
           </p>
-          <div class="stat-row">
-            <div class="stat-item">
-              <h4>Stack</h4>
-              <p>Python, NumPy</p>
+          <div class="p-stats">
+            <div class="stat">
+              <div>Tech Stack</div>
+              <div>Python, NumPy</div>
             </div>
-            <div class="stat-item">
-              <h4>Key Tech</h4>
-              <p>Kalman Filter</p>
+            <div class="stat">
+              <div>Key Algorithm</div>
+              <div>Kalman Filter</div>
             </div>
           </div>
         </div>
@@ -358,27 +382,33 @@ def kalman_filter(z):
 
     <article class="project-card reveal">
       <div class="project-inner">
-        <div class="project-preview">
-          <div style="width:120px; height:80px; border:1px dashed #8b5cf6; position:absolute;"></div>
-          <div class="code-overlay">
-model = YOLO('v8.pt')
-results = model.track(source, persist=True)
+        <div class="project-visual">
+          <div class="visual-code">
+            <div class="code-line short"></div>
+            <div class="code-line accent"></div>
+            <div style="margin-top:20px; color:#94a3b8;">
+              # YOLO Tracking<br>
+              results = model.track(<br>
+              &nbsp;&nbsp;source="cam",<br>
+              &nbsp;&nbsp;persist=True<br>
+              )
+            </div>
           </div>
         </div>
-        <div class="project-info">
-          <span class="project-tag">COMPUTER VISION</span>
-          <h3 class="project-title">YOLO + Vision Pipeline</h3>
-          <p class="project-desc">
-            Robust object tracking and information extraction pipeline. Solved occlusion issues using Kalman filters and improved OCR accuracy on curved surfaces using CLAHE preprocessing.
+        <div class="project-content">
+          <span class="p-cat">Computer Vision</span>
+          <h3 class="p-title">YOLO + Vision<br>Pipeline</h3>
+          <p class="p-desc">
+            Robust object tracking pipeline. Solved occlusion issues using <strong>Kalman filters</strong> and improved OCR accuracy on curved surfaces using <strong>CLAHE preprocessing</strong>.
           </p>
-          <div class="stat-row">
-            <div class="stat-item">
-              <h4>Stack</h4>
-              <p>YOLOv8, PaddleOCR</p>
+          <div class="p-stats">
+            <div class="stat">
+              <div>Tech Stack</div>
+              <div>YOLOv8, PaddleOCR</div>
             </div>
-            <div class="stat-item">
-              <h4>Result</h4>
-              <p>Occlusion Robust</p>
+            <div class="stat">
+              <div>Outcome</div>
+              <div>Occlusion Robust</div>
             </div>
           </div>
         </div>
@@ -387,28 +417,33 @@ results = model.track(source, persist=True)
 
     <article class="project-card reveal">
       <div class="project-inner">
-        <div class="project-preview">
-          <div style="width:80px; height:80px; background:rgba(255,255,255,0.1); border-radius:12px;"></div>
-          <div class="code-overlay">
-response = openai.ChatCompletion.create(
-  model="gpt-4", messages=context
-)
+        <div class="project-visual">
+          <div class="visual-code">
+            <div class="code-line"></div>
+            <div class="code-line accent"></div>
+            <div style="margin-top:20px; color:#94a3b8;">
+              # RAG Pipeline<br>
+              chain = RetrievalQA(<br>
+              &nbsp;&nbsp;llm=gpt4,<br>
+              &nbsp;&nbsp;retriever=db<br>
+              )
+            </div>
           </div>
         </div>
-        <div class="project-info">
-          <span class="project-tag">AUTOMATION & LLM</span>
-          <h3 class="project-title">DevHistory Automation</h3>
-          <p class="project-desc">
-            A fully automated pipeline that collects scattered development logs (GitHub, Blogs) and generates portfolios/reports using RAG-based LLM to prevent hallucinations.
+        <div class="project-content">
+          <span class="p-cat">Automation & LLM</span>
+          <h3 class="p-title">DevHistory<br>Automation</h3>
+          <p class="p-desc">
+            Automated pipeline that collects scattered development logs (GitHub, Blogs) and generates portfolios using <strong>RAG-based LLM</strong> to prevent hallucinations.
           </p>
-          <div class="stat-row">
-            <div class="stat-item">
-              <h4>Stack</h4>
-              <p>LangChain, RAG</p>
+          <div class="p-stats">
+            <div class="stat">
+              <div>Tech Stack</div>
+              <div>LangChain, RAG</div>
             </div>
-            <div class="stat-item">
-              <h4>Impact</h4>
-              <p>Zero Manual Work</p>
+            <div class="stat">
+              <div>Impact</div>
+              <div>Zero Manual Work</div>
             </div>
           </div>
         </div>
@@ -417,83 +452,86 @@ response = openai.ChatCompletion.create(
 
   </section>
 
-  <section id="experience" class="container">
+  <section id="exp" class="container">
     <div class="section-head reveal">
       <h2>Experience</h2>
-      <div class="section-line"></div>
     </div>
 
-    <div class="reveal">
-      <div class="timeline-item">
-        <div class="t-year">2025.11</div>
-        <div class="t-role">2nd Place Winner (Finalist)</div>
-        <div class="t-org">Medical AI Solution Coding Competition</div>
-        <p class="t-desc">
-          Solved 18/20 algorithms using LLM collaboration. Demonstrated rapid debugging and problem-solving skills in a competitive environment.
-        </p>
+    <div class="exp-list reveal">
+      <div class="exp-item">
+        <div class="exp-year">2025</div>
+        <div class="exp-content">
+          <h3>2nd Place Winner (Finalist)</h3>
+          <span class="exp-org">Medical AI Solution Coding Competition</span>
+          <p class="exp-text">Solved 18/20 algorithms using LLM collaboration. Validated AI-generated code to ensure 100% accuracy in test cases.</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="t-year">2025.09</div>
-        <div class="t-role">Encouragement Award</div>
-        <div class="t-org">Wavelab Startup Competition</div>
-        <p class="t-desc">
-          Developed a prototype for an automated medical guidance video platform using Vision AI and TTS pipelines.
-        </p>
+      <div class="exp-item">
+        <div class="exp-year">2025</div>
+        <div class="exp-content">
+          <h3>Encouragement Award</h3>
+          <span class="exp-org">Wavelab Startup Competition</span>
+          <p class="exp-text">Developed a prototype for an automated medical guidance video platform using Vision AI and TTS pipelines.</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="t-year">2025.08</div>
-        <div class="t-role">Top 44% Performance</div>
-        <div class="t-org">NYPC Code Battle</div>
-        <p class="t-desc">
-          Consistently participated in over 10+ hackathons and data competitions to sharpen analytical skills.
-        </p>
+      <div class="exp-item">
+        <div class="exp-year">2025</div>
+        <div class="exp-content">
+          <h3>Top 44% Performance</h3>
+          <span class="exp-org">NYPC Code Battle</span>
+          <p class="exp-text">Participated in over 10+ hackathons to sharpen algorithmic thinking and problem-solving skills.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="container reveal">
-    <div class="social-links">
-      <a href="mailto:woeg0226@naver.com" class="social-link">Email</a>
-      <a href="https://github.com/Lova-clover" class="social-link">GitHub</a>
-      <a href="https://velog.io/@lova-clover" class="social-link">Blog</a>
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="mailto:woeg0226@naver.com" class="f-link">Email</a>
+        <a href="https://github.com/Lova-clover" class="f-link">GitHub</a>
+        <a href="https://velog.io/@lova-clover" class="f-link">Blog</a>
+      </div>
+      <p>&copy; 2025 Han Seongju. Designed for Impact.</p>
     </div>
-    <p>&copy; 2025 Han Seongju. Engineered for Impact.</p>
   </footer>
 
   <script>
-    // Scroll Reveal Animation
-    const reveals = document.querySelectorAll('.reveal');
-
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    
     const revealOnScroll = () => {
       const windowHeight = window.innerHeight;
-      const elementVisible = 100;
-
-      reveals.forEach((reveal) => {
-        const elementTop = reveal.getBoundingClientRect().top;
+      const elementVisible = 120;
+      
+      revealElements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
-          reveal.classList.add('active');
+          el.classList.add('active');
         }
       });
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Trigger once on load
+    revealOnScroll(); // Trigger once
 
-    // Active Nav Link
+    // Active Nav
     const sections = document.querySelectorAll('header, section');
     const navLinks = document.querySelectorAll('.nav-link');
 
     window.addEventListener('scroll', () => {
       let current = '';
+      const scrollY = window.scrollY;
+      
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        if (scrollY >= (sectionTop - 200)) {
+        if (scrollY >= (sectionTop - 300)) {
           current = section.getAttribute('id');
         }
       });
-
+      
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(current)) {
