@@ -1,41 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Han Seongju | AI Engineer</title>
-  <meta name="description" content="Portfolio of Han Seongju - AI & Software Engineer building intelligent systems." />
+  <title>한성주 | AI & Software Engineer</title>
+  <meta name="description" content="Vision AI, Path Planning, 자동화 기술로 문제를 해결하는 엔지니어 한성주의 포트폴리오입니다." />
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="한성주 - AI Engineer Portfolio">
+  <meta property="og:description" content="데이터를 살아있는 서비스로. Vision AI & Path Planning 엔지니어.">
 
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* --- Color Palette (Clean Modernist) --- */
-      --bg-body: #F3F5F7;       /* 아주 연한 쿨그레이 */
-      --bg-glass: rgba(255, 255, 255, 0.65);
+      /* --- Color Palette (Modern Clean) --- */
+      --bg-body: #F9FAFB;       /* 아주 밝은 쿨그레이 */
+      --bg-glass: rgba(255, 255, 255, 0.7);
       --bg-card: #FFFFFF;
       
-      --primary: #2563eb;       /* Electric Blue */
-      --primary-dark: #0f172a;  /* Dark Navy (Text Main) */
-      --secondary: #6366f1;     /* Indigo */
+      --primary: #3b82f6;       /* Vivid Blue */
+      --primary-dark: #1d4ed8;
+      --primary-soft: #eff6ff;
+      --accent: #6366f1;        /* Indigo */
       
-      --text-main: #0f172a;     /* Slate 900 */
-      --text-sub: #475569;      /* Slate 600 */
-      --text-muted: #94a3b8;    /* Slate 400 */
+      --text-main: #111827;     /* Almost Black */
+      --text-sub: #4b5563;      /* Dark Gray */
+      --text-muted: #9ca3af;    /* Light Gray */
       
       --border: rgba(0, 0, 0, 0.06);
-      --border-hover: rgba(37, 99, 235, 0.3);
       
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.06);
-      --shadow-hover: 0 20px 40px -5px rgba(37, 99, 235, 0.15);
+      /* Shadows */
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+      --shadow-card: 0 10px 30px -10px rgba(0,0,0,0.08);
+      --shadow-hover: 0 20px 40px -10px rgba(59, 130, 246, 0.15);
       
-      --radius: 24px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      
-      --font-main: "Pretendard Variable", Pretendard, sans-serif;
-      --font-display: "Plus Jakarta Sans", sans-serif;
+      --radius: 20px;
+      --font-kr: "Pretendard Variable", Pretendard, sans-serif;
+      --font-en: "Space Grotesk", sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,217 +48,227 @@
     body {
       background-color: var(--bg-body);
       color: var(--text-main);
-      font-family: var(--font-main);
-      line-height: 1.6;
+      font-family: var(--font-kr);
+      line-height: 1.65;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      word-break: keep-all; /* 한국어 줄바꿈 최적화 */
     }
 
-    /* --- Background FX (Soft Mesh Gradient) --- */
+    /* --- Background FX --- */
     .bg-mesh {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: 
         radial-gradient(at 0% 0%, hsla(210,100%,96%,1) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(220,100%,93%,1) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, hsla(240,100%,96%,1) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, hsla(200,100%,96%,1) 0px, transparent 50%);
+        radial-gradient(at 100% 0%, hsla(220,100%,96%,1) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, hsla(240,100%,98%,1) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(200,100%,98%,1) 0px, transparent 50%);
       z-index: -2;
     }
-    
-    /* Moving Orbs (은은한 움직임) */
     .orb {
-      position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.6; z-index: -1;
+      position: fixed; border-radius: 50%; filter: blur(100px); opacity: 0.5; z-index: -1;
       animation: float 20s infinite ease-in-out alternate;
     }
-    .orb-1 { top: -10%; right: -10%; width: 50vw; height: 50vw; background: #e0e7ff; }
-    .orb-2 { bottom: -10%; left: -10%; width: 40vw; height: 40vw; background: #dbeafe; animation-delay: -5s; }
+    .orb-1 { top: -10%; right: -5%; width: 60vw; height: 60vw; background: #e0e7ff; }
+    .orb-2 { bottom: -10%; left: -10%; width: 50vw; height: 50vw; background: #dbeafe; animation-delay: -5s; }
 
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-30px, 30px) scale(1.1); }
-    }
+    @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(-40px, 40px); } }
 
     /* --- Layout --- */
-    .container {
-      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
-    }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
 
-    /* --- Header / Hero --- */
-    header {
-      min-height: 90vh; display: flex; flex-direction: column; justify-content: center;
-      position: relative; padding-top: 60px;
+    /* --- Navigation --- */
+    .nav-wrapper {
+      position: fixed; top: 1.5rem; left: 0; width: 100%; z-index: 100;
+      display: flex; justify-content: center; pointer-events: none;
     }
-
     .nav-bar {
-      position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
-      border: 1px solid white; box-shadow: var(--shadow-sm);
-      border-radius: 100px; padding: 0.4rem 0.6rem; z-index: 100; display: flex; gap: 0.3rem;
+      background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.6); padding: 0.4rem; border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05); pointer-events: auto;
+      display: flex; gap: 0.2rem;
+    }
+    .nav-link {
+      text-decoration: none; color: var(--text-sub); font-size: 0.9rem; font-weight: 600;
+      padding: 0.6rem 1.4rem; border-radius: 100px; transition: all 0.2s ease;
+    }
+    .nav-link:hover { color: var(--primary); background: rgba(59, 130, 246, 0.05); }
+    .nav-link.active { background: var(--text-main); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
+    /* --- Hero Section --- */
+    header {
+      min-height: 90vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px;
     }
     
-    .nav-link {
-      color: var(--text-sub); text-decoration: none; font-size: 0.9rem; font-weight: 600;
-      padding: 0.6rem 1.4rem; border-radius: 100px; transition: var(--transition);
-    }
-    .nav-link:hover { color: var(--primary); background: rgba(37, 99, 235, 0.05); }
-    .nav-link.active { background: var(--text-main); color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-
-    .hero-kicker {
-      font-family: var(--font-display); color: var(--primary); font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 1.5rem;
+    .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; border-radius: 100px; background: white;
-      box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+      padding: 0.5rem 1rem; background: white; border: 1px solid var(--border);
+      border-radius: 100px; font-size: 0.85rem; font-weight: 700; color: var(--primary);
+      box-shadow: var(--shadow-sm); margin-bottom: 1.5rem;
     }
-    .hero-kicker::before { content: ""; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+    .hero-badge::before { content: ""; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
 
     h1 {
-      font-family: var(--font-display); font-size: clamp(3.2rem, 8vw, 5.5rem); 
-      font-weight: 800; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 1.5rem;
-      color: var(--text-main);
+      font-size: clamp(3rem, 7vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem;
+      letter-spacing: -0.02em; color: var(--text-main);
     }
     h1 span { color: var(--text-muted); }
 
     .hero-desc {
-      font-size: clamp(1.15rem, 2vw, 1.35rem); color: var(--text-sub); max-width: 650px;
-      margin-bottom: 3rem; line-height: 1.6; font-weight: 400;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: var(--text-sub); max-width: 680px;
+      margin-bottom: 3rem; font-weight: 400; line-height: 1.6;
     }
 
     .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn {
-      padding: 1rem 2.2rem; border-radius: 100px; font-weight: 700; text-decoration: none;
-      transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem; font-size: 1rem;
+      padding: 1rem 2rem; border-radius: 100px; font-weight: 700; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .btn-primary {
-      background: var(--text-main); color: white; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background: var(--text-main); color: white;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);
     }
     .btn-primary:hover {
-      background: var(--primary); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.25);
+      background: var(--primary); transform: translateY(-3px); box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.3);
     }
-    .btn-outline {
-      background: white; border: 1px solid var(--border); color: var(--text-main); box-shadow: var(--shadow-sm);
+    .btn-secondary {
+      background: white; border: 1px solid var(--border); color: var(--text-main);
     }
-    .btn-outline:hover { border-color: var(--text-main); transform: translateY(-2px); }
+    .btn-secondary:hover { border-color: var(--text-main); transform: translateY(-3px); }
 
     /* --- Sections --- */
     section { padding: 8rem 0; }
-    
-    .section-head { margin-bottom: 3.5rem; display: flex; align-items: flex-end; justify-content: space-between; }
-    h2 {
-      font-family: var(--font-display); font-size: 2.8rem; letter-spacing: -0.03em; color: var(--text-main);
-    }
-    .section-desc-sm { font-size: 1rem; color: var(--text-muted); max-width: 300px; text-align: right; }
+    .section-head { margin-bottom: 3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    h2 { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); }
+    .section-sub { font-size: 1.1rem; color: var(--text-sub); }
 
-    /* --- Bento Grid (Skills) --- */
+    /* --- Bento Grid (About & Skills) --- */
     .bento-grid {
       display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem;
     }
-    
     .bento-item {
-      background: var(--bg-glass); border: 1px solid white;
-      backdrop-filter: blur(20px); border-radius: var(--radius); padding: 2.5rem;
-      transition: var(--transition); display: flex; flex-direction: column; justify-content: space-between;
-      box-shadow: var(--shadow-card);
+      background: var(--bg-glass); border: 1px solid white; backdrop-filter: blur(20px);
+      border-radius: var(--radius); padding: 2.5rem; box-shadow: var(--shadow-card);
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: all 0.3s ease;
     }
     .bento-item:hover {
-      transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(37, 99, 235, 0.2);
+      transform: translateY(-5px); box-shadow: var(--shadow-hover); border-color: rgba(59, 130, 246, 0.2);
     }
 
     .col-span-4 { grid-column: span 12; }
     .col-span-6 { grid-column: span 12; }
     .col-span-8 { grid-column: span 12; }
-    
     @media (min-width: 900px) {
       .col-span-4 { grid-column: span 4; }
       .col-span-6 { grid-column: span 6; }
       .col-span-8 { grid-column: span 8; }
     }
 
-    .bento-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
-    .bento-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-main); font-family: var(--font-display); }
-    .bento-text { color: var(--text-sub); font-size: 1rem; line-height: 1.6; }
+    .bento-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .bento-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .bento-text { font-size: 1rem; color: var(--text-sub); line-height: 1.6; }
     
-    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; }
+    .tag-container { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
     .tech-pill {
-      display: inline-block; padding: 0.4rem 1rem; background: white;
-      border-radius: 50px; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border);
-      color: var(--text-sub); transition: 0.2s; box-shadow: var(--shadow-sm);
+      font-family: var(--font-en); font-size: 0.85rem; font-weight: 600;
+      padding: 0.4rem 1rem; background: white; border: 1px solid var(--border);
+      border-radius: 50px; color: var(--text-sub); transition: 0.2s;
     }
-    .tech-pill:hover { color: var(--primary); transform: scale(1.05); }
+    .tech-pill:hover { color: var(--primary); border-color: var(--primary); transform: scale(1.05); }
 
-    /* --- Project Cards (Showcase) --- */
-    .project-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
-    
+    /* --- Project Cards --- */
+    .project-grid { display: grid; gap: 3rem; }
     .project-card {
       background: white; border-radius: var(--radius); border: 1px solid white;
-      overflow: hidden; box-shadow: var(--shadow-card); transition: var(--transition);
+      box-shadow: var(--shadow-card); overflow: hidden;
       display: grid; grid-template-columns: 1fr;
+      transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    @media (min-width: 900px) {
+      .project-card { grid-template-columns: 1.2fr 0.8fr; min-height: 420px; }
     }
     .project-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
 
-    @media (min-width: 900px) {
-      .project-card { grid-template-columns: 1.1fr 0.9fr; height: 420px; }
-    }
-
     .project-visual {
-      background: #f1f5f9; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      background: #F1F5F9; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; padding: 2rem;
     }
-    /* Abstract Code Visual */
-    .visual-code {
-      width: 80%; height: 80%; background: white; border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08); padding: 2rem;
-      font-family: monospace; color: #cbd5e1; font-size: 0.8rem; overflow: hidden;
-      transform: rotate(-3deg) translateX(10px); transition: var(--transition);
+    /* Abstract Code UI */
+    .code-window {
+      width: 100%; max-width: 400px; background: white; border-radius: 12px;
+      box-shadow: 0 20px 40px -5px rgba(0,0,0,0.1); padding: 1.5rem;
+      font-family: monospace; font-size: 0.8rem; color: #cbd5e1;
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+      transition: transform 0.4s ease;
     }
-    .project-card:hover .visual-code { transform: rotate(0deg) scale(1.05); }
-
-    .code-line { height: 8px; background: #f1f5f9; border-radius: 4px; margin-bottom: 10px; width: 100%; }
-    .code-line.short { width: 60%; }
-    .code-line.accent { background: #dbeafe; width: 40%; }
-
-    .project-content { padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
-    .p-cat { color: var(--primary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-    .p-title { font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem; font-family: var(--font-display); line-height: 1.1; }
-    .p-desc { color: var(--text-sub); font-size: 1rem; margin-bottom: 2rem; max-width: 90%; }
+    .project-card:hover .code-window { transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.02); }
     
-    .p-stats { display: flex; gap: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: auto; }
-    .stat div:first-child { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
-    .stat div:last-child { font-size: 1rem; color: var(--text-main); font-weight: 700; margin-top: 0.2rem; }
+    .code-line { height: 8px; background: #e2e8f0; border-radius: 4px; margin-bottom: 8px; width: 100%; }
+    .code-line.w-60 { width: 60%; }
+    .code-line.w-40 { width: 40%; }
+    .code-line.accent { background: #bfdbfe; }
 
-    /* --- Experience (Minimal) --- */
+    .project-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .p-category { 
+      font-family: var(--font-en); font-size: 0.8rem; font-weight: 700; 
+      color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; 
+    }
+    .p-title { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; }
+    .p-desc { font-size: 1rem; color: var(--text-sub); margin-bottom: 2rem; }
+    
+    .p-stats { 
+      margin-top: auto; padding-top: 1.5rem; border-top: 1px solid #f1f5f9;
+      display: flex; gap: 2rem; 
+    }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    .stat-value { font-size: 1rem; color: var(--text-main); font-weight: 700; margin-top: 0.2rem; font-family: var(--font-en); }
+
+    /* --- Experience (Clean List) --- */
     .exp-list { max-width: 800px; margin: 0 auto; }
     .exp-item {
-      display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border);
+      padding: 2rem 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 100px 1fr; gap: 2rem;
       transition: 0.3s;
     }
     .exp-item:hover { transform: translateX(10px); }
     
-    .exp-year { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--text-muted); min-width: 80px; }
-    .exp-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.3rem; }
-    .exp-org { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.8rem; display: block; }
-    .exp-text { color: var(--text-sub); font-size: 1rem; }
+    .exp-year { font-family: var(--font-en); font-weight: 700; color: var(--text-muted); font-size: 1.1rem; }
+    .exp-role { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .exp-org { color: var(--primary); font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 0.8rem; }
+    .exp-desc { color: var(--text-sub); font-size: 0.95rem; }
 
-    @media (max-width: 768px) {
-      .exp-item { flex-direction: column; gap: 0.5rem; }
-      .section-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .section-desc-sm { text-align: left; }
+    @media (max-width: 600px) {
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
     }
 
     /* --- Footer --- */
-    footer {
-      padding: 6rem 0; text-align: center; border-top: 1px solid var(--border);
-      background: white; position: relative;
-    }
-    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
-    .f-link { font-weight: 600; color: var(--text-main); transition: 0.2s; position: relative; }
-    .f-link::after { content: ""; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: var(--primary); transition: 0.3s; }
-    .f-link:hover::after { width: 100%; }
+    footer { margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--border); text-align: center; }
+    .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+    .social-link { font-weight: 600; color: var(--text-sub); transition: 0.2s; }
+    .social-link:hover { color: var(--primary); }
 
-    /* --- Scroll Reveal --- */
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.2, 1, 0.2, 1); }
+    /* --- Utils --- */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
     .reveal.active { opacity: 1; transform: translateY(0); }
+    .highlight { color: var(--primary); font-weight: 700; }
 
+    /* --- Print Optimization --- */
+    @media print {
+      body { background: white; color: black; }
+      .nav-wrapper, .bg-mesh, .orb, .cta-group, .project-visual { display: none !important; }
+      .container { max-width: 100%; padding: 0; }
+      section { padding: 2rem 0; page-break-inside: avoid; }
+      .bento-grid, .project-grid { display: block; }
+      .bento-item, .project-card { 
+        break-inside: avoid; border: 1px solid #ccc; box-shadow: none; margin-bottom: 1.5rem; 
+        background: none; padding: 1.5rem;
+      }
+      .project-card { display: block; height: auto; }
+      h1 { font-size: 24pt; color: black; margin-bottom: 0.5rem; }
+      .hero-desc { font-size: 12pt; color: #333; margin-bottom: 2rem; }
+      a { text-decoration: none; color: black; }
+    }
   </style>
 </head>
 <body>
@@ -264,27 +277,30 @@
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <nav class="nav-bar">
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#work" class="nav-link">Work</a>
-    <a href="#exp" class="nav-link">Exp</a>
-  </nav>
+  <div class="nav-wrapper">
+    <nav class="nav-bar">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#exp" class="nav-link">Exp</a>
+    </nav>
+  </div>
 
   <header id="home" class="container">
     <div class="reveal active">
-      <div class="hero-kicker">Available for Hire</div>
+      <div class="hero-badge">AI & Software Engineer</div>
       <h1>
-        Building Intelligence.<br>
-        <span>Engineering Reality.</span>
+        지능을 설계하고,<br>
+        <span>현실을 엔지니어링합니다.</span>
       </h1>
       <p class="hero-desc">
-        I am <strong>Han Seongju</strong>, an AI Engineer bridging the gap between research and production. 
-        Specialized in <strong>Computer Vision, Path Planning,</strong> and <strong>Automation Pipelines</strong>.
+        안녕하세요, 한성주입니다. <br>
+        Vision AI와 Path Planning 기술로 데이터와 현실 세계를 연결하는 <strong>End-to-End 시스템</strong>을 만듭니다.
+        연구실의 모델을 넘어, <strong>실제 작동하는 서비스</strong>를 구현하는 데 집중합니다.
       </p>
       <div class="cta-group">
-        <a href="#work" class="btn btn-primary">View Selected Work</a>
-        <a href="mailto:woeg0226@naver.com" class="btn btn-outline">Contact Me</a>
+        <a href="#work" class="btn btn-primary">프로젝트 보기</a>
+        <a href="mailto:woeg0226@naver.com" class="btn btn-secondary">연락하기</a>
       </div>
     </div>
   </header>
@@ -292,7 +308,7 @@
   <section id="about" class="container">
     <div class="section-head reveal">
       <h2>Engineering Stack</h2>
-      <div class="section-desc-sm">My technical arsenal for building scalable AI systems.</div>
+      <span class="section-sub">문제를 해결하기 위한 기술적 도구들입니다.</span>
     </div>
 
     <div class="bento-grid reveal">
@@ -300,7 +316,9 @@
         <span class="bento-icon">🚀</span>
         <div class="bento-title">The "Full-Cycle" Engineer</div>
         <p class="bento-text">
-          I don't just write algorithms; I deploy them. My expertise covers the entire AI lifecycle—from raw data collection and model training to building web services that serve users in real-time. I focus on reliability and efficiency in autonomous systems.
+          단순히 모델 학습에서 그치지 않습니다. 데이터 수집부터 전처리, 모델링, 그리고 웹 서비스 배포까지 
+          <strong>AI 프로덕트의 전체 수명 주기(Lifecycle)</strong>를 다룹니다. 
+          특히 자율주행 로직과 비전 기반 자동화 파이프라인 구축에 강점이 있습니다.
         </p>
       </div>
 
@@ -316,7 +334,7 @@
       </div>
 
       <div class="bento-item col-span-6">
-        <div class="bento-title">AI & Math</div>
+        <div class="bento-title">AI & Algorithms</div>
         <div class="tag-container">
           <span class="tech-pill">PyTorch</span>
           <span class="tech-pill">YOLOv8</span>
@@ -327,7 +345,7 @@
       </div>
 
       <div class="bento-item col-span-6">
-        <div class="bento-title">Dev & Ops</div>
+        <div class="bento-title">Engineering & Ops</div>
         <div class="tag-container">
           <span class="tech-pill">Python</span>
           <span class="tech-pill">FastAPI</span>
@@ -342,114 +360,114 @@
 
   <section id="work" class="container">
     <div class="section-head reveal">
-      <h2>Selected Work</h2>
-      <div class="section-desc-sm">Projects that define my capabilities.</div>
+      <h2>Selected Works</h2>
+      <span class="section-sub">대표적인 프로젝트 경험입니다.</span>
     </div>
 
-    <article class="project-card reveal">
-      <div class="project-inner">
+    <div class="project-grid reveal">
+      
+      <article class="project-card">
         <div class="project-visual">
-          <div class="visual-code">
-            <div class="code-line accent"></div>
+          <div class="code-window">
+            <div class="code-line accent w-40"></div>
             <div class="code-line"></div>
-            <div class="code-line short"></div>
-            <div style="margin-top:20px; color:#94a3b8;">
-              # Kalman Filter Logic<br>
-              x = F @ x + B @ u<br>
-              P = F @ P @ F.T + Q
+            <div class="code-line w-60"></div>
+            <div style="margin-top:15px; color:#94a3b8;">
+              # Kalman Filter Update<br>
+              K = P @ H.T @ inv(S)<br>
+              x = x + K @ y
             </div>
           </div>
         </div>
         <div class="project-content">
-          <span class="p-cat">Autonomous Systems</span>
-          <h3 class="p-title">Path-Planning &<br>Filtering Simulation</h3>
+          <span class="p-category">Autonomous Systems</span>
+          <h3 class="p-title">Path-Planning &<br>Filtering</h3>
           <p class="p-desc">
-            A comprehensive simulation of autonomous navigation. Implemented <strong>Bug, RRT, and Kalman Filters</strong> from scratch to handle obstacle avoidance and sensor noise estimation in real-time.
+            자율주행 핵심 알고리즘 시뮬레이션입니다. 
+            Bug, RRT 알고리즘으로 경로를 생성하고, Kalman Filter를 직접 구현하여 센서 노이즈가 있는 환경에서도 안정적인 위치 추정을 구현했습니다.
           </p>
           <div class="p-stats">
-            <div class="stat">
-              <div>Tech Stack</div>
-              <div>Python, NumPy</div>
+            <div>
+              <div class="stat-label">Stack</div>
+              <div class="stat-value">Python, NumPy</div>
             </div>
-            <div class="stat">
-              <div>Key Algorithm</div>
-              <div>Kalman Filter</div>
+            <div>
+              <div class="stat-label">Key Tech</div>
+              <div class="stat-value">Kalman Filter</div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="project-card reveal">
-      <div class="project-inner">
+      <article class="project-card">
         <div class="project-visual">
-          <div class="visual-code">
-            <div class="code-line short"></div>
-            <div class="code-line accent"></div>
-            <div style="margin-top:20px; color:#94a3b8;">
-              # YOLO Tracking<br>
+          <div class="code-window">
+            <div class="code-line w-60"></div>
+            <div class="code-line accent w-40"></div>
+            <div style="margin-top:15px; color:#94a3b8;">
+              # Object Tracking<br>
               results = model.track(<br>
-              &nbsp;&nbsp;source="cam",<br>
+              &nbsp;&nbsp;source="stream",<br>
               &nbsp;&nbsp;persist=True<br>
               )
             </div>
           </div>
         </div>
         <div class="project-content">
-          <span class="p-cat">Computer Vision</span>
+          <span class="p-category">Computer Vision</span>
           <h3 class="p-title">YOLO + Vision<br>Pipeline</h3>
           <p class="p-desc">
-            Robust object tracking pipeline. Solved occlusion issues using <strong>Kalman filters</strong> and improved OCR accuracy on curved surfaces using <strong>CLAHE preprocessing</strong>.
+            흔들리는 영상에서도 객체를 놓치지 않는 추적 파이프라인입니다.
+            Kalman Filter로 가려짐(Occlusion) 문제를 해결하고, CLAHE 전처리로 곡면 라벨의 OCR 인식률을 대폭 개선했습니다.
           </p>
           <div class="p-stats">
-            <div class="stat">
-              <div>Tech Stack</div>
-              <div>YOLOv8, PaddleOCR</div>
+            <div>
+              <div class="stat-label">Stack</div>
+              <div class="stat-value">YOLOv8, OCR</div>
             </div>
-            <div class="stat">
-              <div>Outcome</div>
-              <div>Occlusion Robust</div>
+            <div>
+              <div class="stat-label">Result</div>
+              <div class="stat-value">Robust Tracking</div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="project-card reveal">
-      <div class="project-inner">
+      <article class="project-card">
         <div class="project-visual">
-          <div class="visual-code">
+          <div class="code-window">
             <div class="code-line"></div>
             <div class="code-line accent"></div>
-            <div style="margin-top:20px; color:#94a3b8;">
-              # RAG Pipeline<br>
-              chain = RetrievalQA(<br>
-              &nbsp;&nbsp;llm=gpt4,<br>
-              &nbsp;&nbsp;retriever=db<br>
+            <div style="margin-top:15px; color:#94a3b8;">
+              # RAG Chain<br>
+              qa = RetrievalQA.from_chain_type(<br>
+              &nbsp;&nbsp;llm=gpt_4,<br>
+              &nbsp;&nbsp;retriever=vector_db<br>
               )
             </div>
           </div>
         </div>
         <div class="project-content">
-          <span class="p-cat">Automation & LLM</span>
+          <span class="p-category">Automation & LLM</span>
           <h3 class="p-title">DevHistory<br>Automation</h3>
           <p class="p-desc">
-            Automated pipeline that collects scattered development logs (GitHub, Blogs) and generates portfolios using <strong>RAG-based LLM</strong> to prevent hallucinations.
+            흩어진 개발 로그(GitHub, Blog)를 수집해 포트폴리오를 자동 생성합니다.
+            RAG(검색 증강 생성) 기술을 적용하여 LLM이 없는 사실을 지어내는 환각 현상을 방지했습니다.
           </p>
           <div class="p-stats">
-            <div class="stat">
-              <div>Tech Stack</div>
-              <div>LangChain, RAG</div>
+            <div>
+              <div class="stat-label">Stack</div>
+              <div class="stat-value">LangChain, RAG</div>
             </div>
-            <div class="stat">
-              <div>Impact</div>
-              <div>Zero Manual Work</div>
+            <div>
+              <div class="stat-label">Impact</div>
+              <div class="stat-value">100% Automated</div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
 
+    </div>
   </section>
 
   <section id="exp" class="container">
@@ -459,29 +477,36 @@
 
     <div class="exp-list reveal">
       <div class="exp-item">
-        <div class="exp-year">2025</div>
+        <div class="exp-year">2025.11</div>
         <div class="exp-content">
-          <h3>2nd Place Winner (Finalist)</h3>
-          <span class="exp-org">Medical AI Solution Coding Competition</span>
-          <p class="exp-text">Solved 18/20 algorithms using LLM collaboration. Validated AI-generated code to ensure 100% accuracy in test cases.</p>
+          <h3 class="exp-role">의료AI 솔루션 코딩대회 2등 (우수상)</h3>
+          <span class="exp-org">교내 알고리즘 경진대회</span>
+          <p class="exp-desc">
+            LLM이 생성한 코드를 검증 및 디버깅하는 방식으로 알고리즘 문제 20개 중 18개를 해결했습니다. 
+            AI 협업 능력과 문제 해결력을 증명했습니다.
+          </p>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-year">2025</div>
+        <div class="exp-year">2025.09</div>
         <div class="exp-content">
-          <h3>Encouragement Award</h3>
-          <span class="exp-org">Wavelab Startup Competition</span>
-          <p class="exp-text">Developed a prototype for an automated medical guidance video platform using Vision AI and TTS pipelines.</p>
+          <h3 class="exp-role">Wavelab 창업 경진대회 장려상</h3>
+          <span class="exp-org">의료 안내 영상 자동화 플랫폼</span>
+          <p class="exp-desc">
+            Vision AI와 TTS 기술을 결합하여 의료 안내 영상을 자동으로 생성하는 파이프라인을 기획하고 프로토타입을 개발했습니다.
+          </p>
         </div>
       </div>
 
       <div class="exp-item">
-        <div class="exp-year">2025</div>
+        <div class="exp-year">2025.08</div>
         <div class="exp-content">
-          <h3>Top 44% Performance</h3>
-          <span class="exp-org">NYPC Code Battle</span>
-          <p class="exp-text">Participated in over 10+ hackathons to sharpen algorithmic thinking and problem-solving skills.</p>
+          <h3 class="exp-role">NYPC Code Battle 상위 44%</h3>
+          <span class="exp-org">알고리즘 코딩 대회</span>
+          <p class="exp-desc">
+            지속적으로 해커톤과 데이터 분석 대회(총 10회 이상)에 참가하며 엔지니어링 역량을 키워왔습니다.
+          </p>
         </div>
       </div>
     </div>
@@ -489,49 +514,46 @@
 
   <footer>
     <div class="container">
-      <div class="footer-links">
-        <a href="mailto:woeg0226@naver.com" class="f-link">Email</a>
-        <a href="https://github.com/Lova-clover" class="f-link">GitHub</a>
-        <a href="https://velog.io/@lova-clover" class="f-link">Blog</a>
+      <div class="social-links">
+        <a href="mailto:woeg0226@naver.com" class="social-link">Email</a>
+        <a href="https://github.com/Lova-clover" class="social-link">GitHub</a>
+        <a href="https://velog.io/@lova-clover" class="social-link">Blog</a>
       </div>
-      <p>&copy; 2025 Han Seongju. Designed for Impact.</p>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">
+        © 2025 Han Seongju. Engineered for Impact.
+      </p>
     </div>
   </footer>
 
   <script>
-    // Scroll Reveal
-    const revealElements = document.querySelectorAll('.reveal');
-    
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll('.reveal');
     const revealOnScroll = () => {
       const windowHeight = window.innerHeight;
-      const elementVisible = 120;
-      
-      revealElements.forEach((el) => {
-        const elementTop = el.getBoundingClientRect().top;
+      const elementVisible = 100;
+      reveals.forEach((reveal) => {
+        const elementTop = reveal.getBoundingClientRect().top;
         if (elementTop < windowHeight - elementVisible) {
-          el.classList.add('active');
+          reveal.classList.add('active');
         }
       });
     };
-
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Trigger once
+    revealOnScroll();
 
-    // Active Nav
+    // Active Nav Link
     const sections = document.querySelectorAll('header, section');
     const navLinks = document.querySelectorAll('.nav-link');
-
+    
     window.addEventListener('scroll', () => {
       let current = '';
       const scrollY = window.scrollY;
-      
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (scrollY >= (sectionTop - 300)) {
           current = section.getAttribute('id');
         }
       });
-      
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href').includes(current)) {
