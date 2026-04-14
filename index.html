@@ -48,14 +48,15 @@
       position: fixed; top: 0; left: 0; width: 450px; height: 450px;
       background: radial-gradient(circle, rgba(255, 209, 59, 0.15) 0%, rgba(255, 159, 28, 0.05) 50%, transparent 70%);
       border-radius: 50%; pointer-events: none; z-index: -1;
-      transform: translate(-50%, -50%); transition: transform 0.1s ease-out;
+      transform: translate3d(-50%, -50%, 0);
       filter: blur(40px);
     }
 
     #cursor-dot {
       position: fixed; top: 0; left: 0; width: 12px; height: 12px;
       background-color: var(--duck-orange); border-radius: 50%; pointer-events: none; z-index: 9999;
-      transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background-color 0.2s;
+      transform: translate3d(-50%, -50%, 0);
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
       box-shadow: 0 0 10px rgba(255, 159, 28, 0.4);
     }
     #cursor-dot.hovered {
@@ -734,13 +735,13 @@
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
       });
 
       function animateGlow() {
-        orbX += (mouseX - orbX) * 0.1;
-        orbY += (mouseY - orbY) * 0.1;
-        glowOrb.style.transform = `translate(${orbX}px, ${orbY}px)`;
+        orbX += (mouseX - orbX) * 0.2;
+        orbY += (mouseY - orbY) * 0.2;
+        glowOrb.style.transform = `translate3d(${orbX}px, ${orbY}px, 0) translate(-50%, -50%)`;
         requestAnimationFrame(animateGlow);
       }
       animateGlow();
