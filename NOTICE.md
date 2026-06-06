@@ -4,7 +4,7 @@ This repository is a personal portfolio website for Han Seongju.
 
 ## Source Code
 
-The source code in this repository is licensed under the MIT License.
+The source code files in this repository are licensed under the MIT License.
 You may reference, reuse, and adapt the code under the terms of `LICENSE`.
 
 ## Portfolio Content and Assets
