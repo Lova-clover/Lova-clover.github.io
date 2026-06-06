@@ -79,6 +79,8 @@ RAG · React
 │   ├── emoji/
 │   ├── icons/
 │   └── project images
+├── LICENSE
+├── NOTICE.md
 └── README.md
 ```
 
@@ -99,6 +101,14 @@ GitHub Pages에서 저장소 루트의 `index.html`을 배포합니다.
 ```text
 Repository Settings -> Pages -> Deploy from branch -> main / root
 ```
+
+## License
+
+Source code is licensed under the [MIT License](LICENSE).
+
+Portfolio content, project screenshots, images, personal branding, and written
+materials are not covered by the MIT License. See [NOTICE.md](NOTICE.md) for
+details.
 
 ---
 
