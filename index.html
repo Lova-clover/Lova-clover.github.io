@@ -1125,7 +1125,23 @@
       box-shadow: none;
     }
 
+    .project-shot.is-cover-top {
+      padding: 0;
+      background: linear-gradient(135deg, rgba(255, 246, 220, 0.72), #fffefe);
+    }
+
+    .project-shot.is-cover-top img {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      max-height: none;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 0;
+    }
+
     .project-shot.is-phone {
+      --phone-thumb-w: min(30%, 94px);
       display: grid;
       place-items: center;
       padding: clamp(0.4rem, 0.72vw, 0.62rem);
@@ -1161,12 +1177,13 @@
     .project-shot.is-phone .project-shot-main {
       position: relative;
       z-index: 2;
-      width: auto;
+      width: var(--phone-thumb-w);
       height: auto;
-      max-width: min(44%, 160px);
-      max-height: calc(100% - 0.62rem);
+      max-width: none;
+      max-height: calc(100% - 0.9rem);
       object-fit: contain;
-      border-radius: 12px;
+      object-position: top center;
+      border-radius: 14px;
       box-shadow:
         0 8px 18px rgba(104, 70, 25, 0.07),
         0 0 0 1px rgba(255, 255, 255, 0.76);
@@ -1912,7 +1929,7 @@
       display: grid;
       place-items: center;
       --frame-w: min(92%, 860px);
-      --frame-h: min(48vh, 420px);
+      --frame-h: min(52vh, 480px);
       width: var(--frame-w);
       height: var(--frame-h);
       max-height: 100%;
@@ -1929,12 +1946,12 @@
 
     .modal-frame.is-natural-ultrawide:not(.is-phone-frame) {
       --frame-w: min(94%, 920px);
-      --frame-h: min(42vh, 390px);
+      --frame-h: min(46vh, 430px);
     }
 
     .modal-frame.is-natural-wide:not(.is-phone-frame) {
       --frame-w: min(92%, 880px);
-      --frame-h: min(48vh, 420px);
+      --frame-h: min(52vh, 480px);
     }
 
     .modal-frame.is-natural-square:not(.is-phone-frame) {
@@ -1964,6 +1981,10 @@
       -webkit-user-drag: none;
     }
 
+    .modal-frame:not(.is-phone-frame) img {
+      max-height: calc(var(--frame-h) - clamp(0.98rem, 1.7vw, 1.34rem));
+    }
+
     .modal-frame.is-phone-frame {
       width: min(318px, 62%);
       height: min(61vh, 500px);
@@ -1978,13 +1999,13 @@
 
     .modal-frame.is-phone-frame img {
       max-width: 100%;
-      max-height: min(58vh, 470px);
+      max-height: 100%;
       border-radius: 16px;
     }
 
     .modal.single-media .modal-frame {
       --frame-w: min(92%, 860px);
-      --frame-h: min(48vh, 420px);
+      --frame-h: min(52vh, 480px);
     }
 
     .modal.single-media .modal-frame.is-phone-frame {
@@ -2649,10 +2670,10 @@
       }
       .modal { padding: 12px; }
       .modal-shell {
-        grid-template-rows: minmax(300px, 46vh) auto;
-        grid-template-rows: minmax(300px, 46dvh) auto;
-        max-height: 94vh;
-        max-height: 94dvh;
+        grid-template-rows: minmax(360px, 58vh) auto;
+        grid-template-rows: minmax(360px, 58dvh) auto;
+        max-height: 96vh;
+        max-height: 96dvh;
       }
       .modal-media-col { grid-template-rows: minmax(254px, 1fr) auto; }
       .modal-slide { padding: 0.62rem; }
@@ -2664,17 +2685,25 @@
       }
       .modal-frame {
         --frame-w: min(97%, 560px);
-        --frame-h: 38vh;
-        --frame-h: 38dvh;
+        --frame-h: 50vh;
+        --frame-h: 50dvh;
         padding: 0.34rem;
       }
+      .modal-frame.is-natural-ultrawide:not(.is-phone-frame),
+      .modal-frame.is-natural-wide:not(.is-phone-frame),
+      .modal-frame.is-natural-square:not(.is-phone-frame),
+      .modal-frame.is-natural-portrait:not(.is-phone-frame) {
+        --frame-w: min(97%, 560px);
+        --frame-h: 50vh;
+        --frame-h: 50dvh;
+      }
       .modal-frame.is-phone-frame {
-        width: min(236px, 68%);
-        height: 40vh;
-        height: 40dvh;
+        width: min(260px, 76%);
+        height: 52vh;
+        height: 52dvh;
         padding: 0.3rem;
       }
-      .modal-slide.is-phone-slide::before { width: min(230px, 68%); height: min(72%, 320px); }
+      .modal-slide.is-phone-slide::before { width: min(254px, 76%); height: min(82%, 430px); }
       .modal-strip { padding: 0.64rem 0.82rem 0.76rem; }
       .thumbs { display: none; }
       .modal-dots { gap: 0.36rem; }
@@ -2763,6 +2792,48 @@
         grid-column: 1 / -1;
       }
       .section-title { font-size: clamp(1.46rem, 6.7vw, 1.94rem); }
+      .project-shot {
+        aspect-ratio: 16 / 10.8;
+      }
+      .project-shot:not(.is-phone) {
+        display: grid;
+        place-items: center;
+        padding: 0.48rem;
+        background: linear-gradient(135deg, rgba(255, 246, 220, 0.72), #fffefe);
+      }
+      .project-shot:not(.is-phone)::after {
+        opacity: 0;
+      }
+      .project-shot:not(.is-phone) img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 6px;
+      }
+      .project-shot.is-cover-top {
+        display: block;
+        padding: 0;
+      }
+      .project-shot.is-cover-top img {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        object-fit: cover;
+        object-position: top center;
+        border-radius: 0;
+      }
+      .project-shot.is-phone {
+        --phone-thumb-w: min(42%, 150px);
+        aspect-ratio: 16 / 13.2;
+      }
+      .project-shot.is-phone .project-shot-main {
+        width: var(--phone-thumb-w);
+        height: auto;
+        max-height: calc(100% - 0.9rem);
+      }
       .project-card {
         min-height: 0;
       }
@@ -2797,17 +2868,25 @@
       .proof-chip:nth-child(n+3) { flex-basis: 100%; }
       .modal-frame {
         --frame-w: min(97%, 350px);
-        --frame-h: 38vh;
-        --frame-h: 38dvh;
+        --frame-h: 50vh;
+        --frame-h: 50dvh;
+      }
+      .modal-frame.is-natural-ultrawide:not(.is-phone-frame),
+      .modal-frame.is-natural-wide:not(.is-phone-frame),
+      .modal-frame.is-natural-square:not(.is-phone-frame),
+      .modal-frame.is-natural-portrait:not(.is-phone-frame) {
+        --frame-w: min(97%, 350px);
+        --frame-h: 50vh;
+        --frame-h: 50dvh;
       }
       .modal-frame.is-phone-frame {
-        width: min(230px, 68%);
-        height: 40vh;
-        height: 40dvh;
+        width: min(252px, 78%);
+        height: 52vh;
+        height: 52dvh;
       }
       .modal-slide.is-phone-slide::before {
-        width: min(224px, 68%);
-        height: min(72%, 308px);
+        width: min(246px, 78%);
+        height: min(82%, 420px);
       }
     }
 
@@ -3169,8 +3248,9 @@
         media: [
           { src: "assets/losstwin-cover.png", alt: "LossTwin AI 본선 3등 회고 커버" },
           { src: "assets/losstwin-final-leaderboard.jpeg", alt: "LossTwin AI 본선 해커톤 최종 3위 결과 캡처", caption: "본선 해커톤 최종 결과 · 전체 3위 기록" },
-          { src: "assets/losstwin-ui.png", alt: "LossTwin AI 의사결정 화면" },
-          { src: "assets/losstwin-dashboard.png", alt: "LossTwin AI 대시보드 화면" }
+          { src: "assets/losstwin-dashboard.png", alt: "LossTwin AI 대시보드 화면", caption: "대시보드 화면 · 예상 손실과 승인 흐름 요약" },
+          { src: "assets/losstwin-line-monitoring.png", alt: "LossTwin AI 라인 모니터링 화면", caption: "라인 모니터링 화면 · 공정 상태와 설비 이상 추적" },
+          { src: "assets/losstwin-simulation-explained.png", alt: "LossTwin AI 시뮬레이션 화면", caption: "시뮬레이션 화면 · 이상 신호와 AI 추천 조치 확인" }
         ],
         links: {
           github: "https://github.com/Lova-clover/LossTwin-AI",
@@ -3240,6 +3320,7 @@
         tags: ["RAG", "FastAPI", "pgvector", "Docker"],
         media: [
           { src: "assets/medibridge.png", alt: "MediClear v2 모바일 환자 화면", caption: "v2 환자 모바일 화면 · 강원도 대학생 AI 활용 창업 공모전 장려상", phone: true },
+          { src: "assets/mediclear-faq.png", alt: "MediClear v2 환자 FAQ 모달", caption: "v2 환자 FAQ 모달 · 물음표 버튼으로 확인하는 자주 묻는 질문", phone: true },
           { src: "assets/medibridge-patient-check.png", alt: "MediClear v2 환자 상태 체크 화면", caption: "v2 환자 상태 체크 · 통증, 발열, 수술 부위 상태 입력 흐름", phone: true },
           { src: "assets/medibridge-admin-dashboard.png", alt: "MediClear v2 관리자 대시보드", caption: "v2 관리자 대시보드 · 위험신호와 응답 현황 관리" },
           { src: "assets/medibridge-admin-doc.png", alt: "MediClear v2 퇴원 안내문 생성 화면", caption: "v2 퇴원 안내문 생성 · 환자별 RAG 안내문 운영" },
@@ -3354,7 +3435,7 @@
         type: "AI Interview",
         categories: ["main", "service", "ai", "automation"],
         cover: "assets/prepit-cover.png",
-        coverFit: "contain",
+        coverFit: "cover-top",
         desc: "포트폴리오 PDF에서 프로젝트와 성과를 읽어 맞춤 질문, 모의 면접, 누적 코칭까지 이어주는 AI 면접 연습 플랫폼입니다.",
         tags: ["FastAPI", "OpenAI API", "PDF", "Docker"],
         media: [
@@ -3497,6 +3578,7 @@
         type: "DACON Competition",
         categories: ["all", "ai", "vision"],
         cover: "assets/structure-result.png",
+        coverFit: "contain",
         desc: "구조물 안정성 물리 추론 AI 경진대회에서 두 시점 이미지 기반 안정성 예측 전략을 검증했습니다.",
         tags: ["DACON", "Physics", "CV", "OOF"],
         media: [
@@ -3871,11 +3953,10 @@
         const imageClass = media.phone ? "phone-shot" : "wide-shot";
         const slideClass = media.phone ? "modal-slide is-phone-slide" : "modal-slide is-wide-slide";
         const frameClass = media.phone ? "modal-frame is-phone-frame" : "modal-frame is-wide-frame";
-        const loading = index === 0 ? "eager" : "lazy";
         return `
         <div class="${slideClass}">
           <figure class="${frameClass}">
-            <img class="${imageClass}" src="${media.src}" alt="${media.alt}" loading="${loading}" decoding="async" draggable="false">
+            <img class="${imageClass}" src="${media.src}" alt="${media.alt}" loading="eager" decoding="async" draggable="false">
           </figure>
           <p class="modal-caption"><span>${index + 1}/${project.media.length}</span> ${media.caption || media.alt}</p>
         </div>
