@@ -1302,10 +1302,15 @@
       max-width: 640px;
       color: var(--ink);
       font-family: var(--font-en);
-      font-size: clamp(1.22rem, 1.78vw, 1.78rem);
+      font-size: clamp(1.16rem, 1.32vw, 1.42rem);
       line-height: 1.22;
       font-weight: 650;
       letter-spacing: 0;
+    }
+
+    .record-map h3 span {
+      display: block;
+      white-space: nowrap;
     }
 
     .record-map p {
@@ -2909,7 +2914,7 @@
       <div class="hero-visual reveal delay-2" aria-label="프로필 요약">
         <div class="profile-panel">
           <div class="profile-art">
-            <img src="assets/프사.png" alt="한성주 포트폴리오 캐릭터" loading="eager" decoding="async" fetchpriority="high">
+            <img src="assets/profile-duck.png" alt="한성주 포트폴리오 캐릭터" loading="eager" decoding="async" fetchpriority="high">
           </div>
           <div class="profile-panel-copy">
             <span>Working Focus</span>
@@ -3027,7 +3032,7 @@
           <article class="record-map reveal">
             <div>
               <span class="eyebrow">2025 -> 2026 Growth Map</span>
-              <h3>만든 과정과 검증 결과를 다음 작업의 근거로 남깁니다.</h3>
+              <h3><span>만든 과정과 검증 결과를</span><span>다음 작업의 근거로 남깁니다.</span></h3>
               <p>2025년부터 10회 이상 AI 대회·해커톤·공모전에 참여하며, GitHub와 Velog에 문제 정의, 접근 과정, 결과와 회고를 남기고 있습니다.</p>
             </div>
             <div class="record-flow">
@@ -3159,10 +3164,11 @@
         categories: ["main", "ai", "service"],
         cover: "assets/losstwin-cover.png",
         coverFit: "contain",
-        desc: "손실금액 기반 스마트공장 조치 의사결정 MVP. 이상 신호를 손실 예측, ROI 비교, 작업지시 흐름으로 연결했습니다.",
-        tags: ["React", "TypeScript", "Simulation", "Hackathon"],
+        desc: "CNC 설비 이상 신호를 손실금액으로 환산하고, 조치 비용·ROI 비교를 거쳐 승인과 작업지시까지 연결한 스마트공장 의사결정 MVP입니다.",
+        tags: ["React", "TypeScript", "ROI Logic", "Hackathon"],
         media: [
           { src: "assets/losstwin-cover.png", alt: "LossTwin AI 본선 3등 회고 커버" },
+          { src: "assets/losstwin-final-leaderboard.jpeg", alt: "LossTwin AI 본선 해커톤 최종 3위 결과 캡처", caption: "본선 해커톤 최종 결과 · 전체 3위 기록" },
           { src: "assets/losstwin-ui.png", alt: "LossTwin AI 의사결정 화면" },
           { src: "assets/losstwin-dashboard.png", alt: "LossTwin AI 대시보드 화면" }
         ],
@@ -3171,19 +3177,19 @@
           velog: "https://velog.io/@lova-clover/2026-스마트-공장-MVP-해커톤-LossTwin-AI-회고"
         },
         metrics: [
-          ["My Role", "MVP 흐름 설계·구현"],
-          ["Problem", "이상 알람을 의사결정으로 연결"],
-          ["Build", "손실 예측 · ROI · 작업지시 MVP"],
-          ["Result", "스마트공장 MVP 해커톤 최종 3등"]
+          ["My Role", "문제 정의·MVP 흐름 설계/구현"],
+          ["Problem", "알람·손실·조치가 분리된 제조 현장"],
+          ["Build", "AI 이상 점수 · 손실금액 · ROI · 작업지시"],
+          ["Result", "본선 해커톤 3위"]
         ],
         build: [
-          "손실 금액을 기준으로 조치 우선순위를 잡는 의사결정 흐름을 설계했습니다.",
-          "ROI 비교와 승인, 작업지시로 이어지는 MVP 화면을 구현했습니다.",
-          "시연에서 문제, 판단 근거, 실행 액션이 한 흐름으로 보이도록 구성했습니다."
+          "토크·온도·진동 편차와 불량 추세를 조합해 현장에서 설명 가능한 이상 점수 산출 방식을 구성했습니다.",
+          "정지 손실, 불량 폐기 손실, 납기 지연 리스크를 합산해 예상 손실금액으로 환산했습니다.",
+          "조치 비용, 절감 효과, 실행 신속성, SOP 적합성을 함께 비교해 승인과 작업지시까지 이어지는 MVP 화면을 구현했습니다."
         ],
         impact: [
-          "단순 알림보다 운영자가 바로 판단할 수 있는 액션 중심 구조가 중요하다는 점을 확인했습니다.",
-          "2026 스마트 공장 운영 시스템 MVP 개발 해커톤에서 최종 3등을 기록했습니다."
+          "단순 알림보다 손실·비용·작업 실행까지 이어지는 액션 중심 구조가 중요하다는 점을 확인했습니다.",
+          "DACON 수상 인증서 기준 3/163을 기록하며 2026 스마트 공장 운영 시스템 MVP 개발 본선 해커톤 3위를 수상했습니다."
         ]
       },
       {
@@ -3230,7 +3236,7 @@
         categories: ["main", "service", "ai"],
         cover: "assets/medibridge.png",
         coverFit: "phone",
-        desc: "K-Intelligence v1 탈락 이후 퇴원 후 관리 흐름을 v2로 고도화해 강원도 대학생 AI 활용 창업 공모전 장려상까지 이어간 의료 운영 자동화 프로젝트입니다.",
+        desc: "K-Intelligence v1 탈락 이후 퇴원 후 14일 관리 흐름을 다시 설계해, 강원도 대학생 AI 활용 창업 공모전 장려상까지 이어간 의료 운영 자동화 프로젝트입니다.",
         tags: ["RAG", "FastAPI", "pgvector", "Docker"],
         media: [
           { src: "assets/medibridge.png", alt: "MediClear v2 모바일 환자 화면", caption: "v2 환자 모바일 화면 · 강원도 대학생 AI 활용 창업 공모전 장려상", phone: true },
@@ -3250,7 +3256,7 @@
           }
         },
         metrics: [
-          ["My Role", "v2 서비스 흐름·AI 구조 설계"],
+          ["My Role", "퇴원 후 관리 서비스 흐름·AI 구조 설계"],
           ["Problem", "퇴원 후 안내·상태 관리 흐름 분산"],
           ["Build", "RAG 안내문 · 알림 · 설문 · 위험신호"],
           ["Result", "강원도 대학생 AI 활용 창업 공모전 장려상"]
@@ -3273,30 +3279,34 @@
         categories: ["main", "ai"],
         cover: "assets/kmomento-match.png",
         coverFit: "phone",
-        desc: "K리그 이벤트 데이터를 전처리해 xG/xT 흐름을 분석하고 예측 모델과 스토리 카드 자동화로 확장했습니다.",
-        tags: ["XGBoost", "Pandas", "DACON", "Visualization"],
+        desc: "K리그 이벤트 데이터를 xG/xT 기반 모멘텀으로 환산하고, 전환점 탐지와 스토리 카드 생성으로 팬 친화적 경기 흐름 해설을 구성했습니다.",
+        tags: ["xG/xT", "SciPy Peak Detection", "GPT-4 해설", "Story Card"],
         media: [
           { src: "assets/kmomento-match.png", alt: "K-MOMENTO AI 경기 선택 화면", phone: true },
           { src: "assets/kmomento-visualization.png", alt: "K-MOMENTO AI 경기 흐름 시각화" },
           { src: "assets/kmomento-cover.jpeg", alt: "K-MOMENTO AI 경진대회 제출 화면" }
         ],
         links: {
-          velog: "https://velog.io/@lova-clover/DACON-K리그-AI-경진대회-15등장려상-모멘텀-그래프스토리-카드-자동화-K-MOMENTO-AI-후기"
+          velog: "https://velog.io/@lova-clover/DACON-K리그-AI-경진대회-15등장려상-모멘텀-그래프스토리-카드-자동화-K-MOMENTO-AI-후기",
+          site: {
+            href: "https://dacon.io/competitions/official/236648/codeshare/13760",
+            label: "DACON 코드공유"
+          }
         },
         metrics: [
-          ["My Role", "개인 모델링·시각화"],
-          ["Problem", "경기 이벤트를 해석 가능한 흐름으로 전환"],
-          ["Build", "xG/xT 피처와 모멘텀 시각화"],
-          ["Result", "K리그 AI 경진대회 15등 · 장려상"]
+          ["My Role", "개인 모델링·스토리 카드 설계"],
+          ["Problem", "복잡한 경기 로그를 팬이 이해하는 흐름으로 전환"],
+          ["Build", "xG/xT 모멘텀 · 전환점 탐지 · 카드 생성"],
+          ["Result", "Track2 15위 · 장려상"]
         ],
         build: [
-          "K리그 이벤트 데이터를 전처리하고 경기 흐름을 시간축으로 시각화했습니다.",
-          "xG와 xT 기반으로 경기 모멘텀을 설명하는 스토리 구조를 만들었습니다.",
-          "예측 모델 결과를 단순 점수보다 해석 가능한 그래프로 보여주려 했습니다."
+          "raw_data와 match_info를 경기·팀·이벤트·좌표 단위로 정리해 분석 가능한 형태로 전처리했습니다.",
+          "xG는 Logistic Regression, xT는 Markov Chain 전이 확률 기반으로 구성해 경기 모멘텀을 시간축으로 시각화했습니다.",
+          "SciPy Peak Detection으로 Top 3 전환점을 찾고, 그래프와 스토리 카드로 팬이 이해할 수 있는 해설 흐름을 만들었습니다."
         ],
         impact: [
-          "스포츠 데이터는 예측 정확도뿐 아니라 흐름을 설명하는 방식이 중요하다는 점을 배웠습니다.",
-          "K리그-서울시립대 공개 AI 경진대회 15등과 장려상을 기록했습니다."
+          "스포츠 데이터는 예측보다 흐름, 전환점, 원인을 함께 설명할 때 팬 경험으로 이어진다는 점을 확인했습니다.",
+          "DACON 수상 인증서 기준 15/38을 기록하며 Track2 아이디어 개발 부문 장려상을 수상했습니다."
         ]
       },
       {
@@ -3422,7 +3432,11 @@
         ],
         links: {
           github: "https://github.com/Lova-clover/AnemiaDetection_web",
-          velog: "https://velog.io/@lova-clover/실시간-결막-이미지-기반-빈혈-판별-웹앱-개발기"
+          velog: "https://velog.io/@lova-clover/실시간-결막-이미지-기반-빈혈-판별-웹앱-개발기",
+          demo: {
+            href: "https://anemiadetection.streamlit.app/",
+            label: "Streamlit Demo"
+          }
         },
         metrics: [
           ["My Role", "팀 프로젝트 ResNet18 모델 학습·Streamlit 웹 데모 담당"],
@@ -3490,7 +3504,11 @@
         ],
         links: {
           github: "https://github.com/Lova-clover/Dacon-Structural-Stability",
-          velog: "https://velog.io/@lova-clover/%ED%9A%8C%EA%B3%A0-%EA%B5%AC%EC%A1%B0%EB%AC%BC-%EC%95%88%EC%A0%95%EC%84%B1-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C-OOF%EB%8A%94-%EC%A2%8B%EC%95%98%EB%8A%94%EB%8D%B0-%EC%99%9C-Public%EC%9D%80-%ED%8B%80%EB%A0%B8%EC%9D%84%EA%B9%8C"
+          velog: "https://velog.io/@lova-clover/%ED%9A%8C%EA%B3%A0-%EA%B5%AC%EC%A1%B0%EB%AC%BC-%EC%95%88%EC%A0%95%EC%84%B1-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C-OOF%EB%8A%94-%EC%A2%8B%EC%95%98%EB%8A%94%EB%8D%B0-%EC%99%9C-Public%EC%9D%80-%ED%8B%80%EB%A0%B8%EC%9D%84%EA%B9%8C",
+          site: {
+            href: "https://dacon.io/competitions/official/236686/leaderboard",
+            label: "DACON 대회 페이지"
+          }
         },
         metrics: [
           ["My Role", "개인 모델링·검증 전략"],
@@ -3516,8 +3534,8 @@
         categories: ["all", "service", "ai"],
         cover: "assets/classcue-cover.png",
         coverFit: "contain",
-        desc: "수업 직후 강의 자료, 학생 질문, 교강사 메모를 묶어 재수업 판단과 개입안을 만드는 AI 교육 운영 서비스입니다.",
-        tags: ["Next.js", "TypeScript", "OpenAI", "Supabase"],
+        desc: "수업 직후 강의 자료, 학생 질문, 교강사 메모를 하나의 세션으로 묶고, AI가 오개념과 근거·개입안을 제안한 뒤 교강사가 승인해 학습자와 운영자에게 전달하는 교육 운영 서비스입니다.",
+        tags: ["Next.js", "TypeScript", "OpenAI-compatible", "HITL", "Fallback"],
         media: [
           { src: "assets/classcue-cover.png", alt: "ClassCue 서비스 커버", caption: "ClassCue 서비스 커버" },
           { src: "assets/classcue-dashboard.png", alt: "ClassCue 운영 현황 대시보드", caption: "운영 현황 대시보드 · 분석 완료, 대기, 단축 시간, 전체 세션 지표" },
@@ -3526,21 +3544,28 @@
         ],
         links: {
           github: "https://github.com/Lova-clover/ClassCue",
-          velog: "https://velog.io/@lova-clover/회고-KIT-바이브코딩-공모전에서-ClassCue를-끝까지-제출하며-배운-것들"
+          velog: "https://velog.io/@lova-clover/회고-KIT-바이브코딩-공모전에서-ClassCue를-끝까지-제출하며-배운-것들",
+          site: {
+            href: "http://koreaitac.com/2025/landing/vibe_coding.asp",
+            label: "KIT 공모전 페이지"
+          }
         },
         metrics: [
           ["My Role", "개인 기획·서비스 구현"],
-          ["Problem", "수업 이후 재설명 지점과 개입 판단이 흩어짐"],
-          ["Build", "자료, 질문, 메모 기반 AI 분석 흐름"],
-          ["Result", "교강사 승인과 학습자 공유까지 연결"]
+          ["Problem", "수업 후 재설명 지점과 개입 우선순위 판단이 흩어짐"],
+          ["Build", "자료·질문·메모 → 오개념 분석 → 교강사 승인"],
+          ["Result", "복습 가이드·미니 퀴즈·운영 브리프 연결"]
         ],
         build: [
-          "강의 자료, 학생 질문, 교강사 메모를 하나의 세션으로 묶고 AI가 근거 기반 분석과 개입안을 제안하도록 구성했습니다.",
-          "교강사가 AI 초안을 검토하고 승인한 뒤 학습자와 운영자에게 공유되는 흐름을 설계했습니다.",
-          "실행 모드, fallback, 프롬프트와 모델 버전 기록을 남겨 교육 운영 서비스로 설명할 수 있게 정리했습니다."
+          "강의 자료, 학생 질문, 교강사 메모를 하나의 세션으로 묶어 수업 직후 판단에 필요한 입력을 구조화했습니다.",
+          "AI가 오개념 클러스터, 근거 인용, 위험도, 다음 수업 개입안, 미니 퀴즈를 함께 제안하도록 분석 흐름을 구성했습니다.",
+          "AI 결과를 바로 공유하지 않고 교강사가 수정·확정하는 Human-in-the-loop 승인 단계를 두었습니다.",
+          "학습자 복습 가이드, 교강사 승인 화면, 운영자 브리프와 인박스로 이어지는 역할별 결과 화면을 설계했습니다.",
+          "Primary Model, Fast Model, Fallback 구조와 /api/health, /api/ready 점검 흐름을 두어 운영 안정성을 설명할 수 있게 정리했습니다."
         ],
         impact: [
           "교육 AI는 단순 요약보다 교강사의 다음 행동을 돕는 의사결정 레이어가 중요하다는 점을 배웠습니다.",
+          "AI 결과에 근거와 승인 절차를 붙여야 교육 현장에서 신뢰 가능한 흐름으로 읽힌다는 점을 확인했습니다.",
           "LMS 전체를 다시 만들기보다 수업 직후의 좁은 문제를 정확히 잡는 방식이 더 설득력 있다는 점을 확인했습니다."
         ]
       },
@@ -3582,14 +3607,14 @@
 
     const records = [
       ["2022~2026", "연세대학교 미래캠퍼스 소프트웨어학부 수료", "소프트웨어 전공을 기반으로 Python, AI/Data, 백엔드 자동화 프로젝트를 이어가고 있습니다.", "Education", "var(--lemon)"],
-      ["2025.09", "WAVE-LAB Challenge 창업경진대회 장려상", "PerfactoAI 자동화와 CPR 운영 로그 구조를 결합해 운영형 SaaS 방향성을 제시했습니다.", "Startup", "var(--mint)"],
-      ["2025.11", "의료 AI 솔루션 코딩대회 결승 2등", "생성형 AI를 활용한 코딩 환경에서 반례 설계와 엣지 케이스 검증을 직접 수행해 결승 2등을 기록했습니다.", "Coding", "var(--sky)"],
-      ["2025.12", "SW엔지니어소양세미나 우수상", "한국융합신호처리학회로부터 인공지능 융합기술·신호처리 분야 우수 역량을 인정받았습니다.", "Seminar", "var(--violet)"],
-      ["2025.12", "강원도 대학생 AI 활용 창업 공모전 장려상", "MediBridge 자동화 아키텍처를 기반으로 의료 운영 프로세스를 구조화해 제안했습니다.", "Startup", "var(--mint)"],
+      ["2025.09", "2025학년도 WAVE-LAB Challenge 창업경진대회 장려상", "연세대학교 미래캠퍼스 RISE사업단 주관 대회에서 PerfactoAI와 CPR 운영형 SaaS 방향성을 제안했습니다.", "Startup", "var(--mint)"],
+      ["2025.11", "의료 AI 솔루션 코딩대회 결승(5차) [ChatGPT 활용] 2등", "연세대학교 의료AI반도체전문인력양성사업단 운영 대회에서 생성형 AI 활용과 직접 검증 역량을 증명했습니다.", "Coding", "var(--sky)"],
+      ["2025.12", "SW엔지니어소양세미나 우수상", "한국융합신호처리학회 주관 세미나에서 인공지능 융합기술·신호처리 분야 우수 역량을 인정받았습니다.", "Seminar", "var(--violet)"],
+      ["2025.12", "2025 강원도 대학생 AI 활용 창업 아이디어 공모전 장려상", "상지대학교 RISE사업단 벤처창업본부 주최 대회에 MediClear를 팀명 MediBridge로 출품했습니다.", "Startup", "var(--mint)"],
       ["2025.12", "제2회 Medical AI 경진대회 Private 49위", "477팀 리더보드 기준 약 상위 11%를 기록하며, 의료 데이터 전처리와 검증 전략을 다듬었습니다.", "Medical AI", "var(--sun)"],
-      ["2026.01", "K리그-서울시립대 공개 AI 경진대회 15등 · 장려상", "K-MOMENTO AI로 정형 데이터 전처리, xG/xT 흐름 분석, 예측 모델링을 수행했습니다.", "Competition", "var(--mint)"],
-      ["2026.04", "구조물 안정성 물리 추론 AI 경진대회 Private 12위", "두 시점 이미지 기반 안정성 예측에서 검증 전략과 확률 예측 안정성에 집중했습니다.", "DACON", "var(--sky)"],
-      ["2026.05", "스마트 공장 운영 시스템 MVP 개발 해커톤 최종 3등", "LossTwin AI로 손실금액 기반 조치 ROI 비교와 작업지시 흐름을 구현했습니다.", "Hackathon", "var(--sun)"]
+      ["2026.01", "Track2 아이디어 개발 부문 K리그-서울시립대 공개 AI 경진대회 15위 · 장려상", "DACON 수상 인증서 기준 15/38을 기록하며 K-MOMENTO AI의 경기 흐름 분석 아이디어를 제안했습니다.", "Competition", "var(--mint)"],
+      ["2026.04", "DACON 구조물 안정성 물리 추론 AI 경진대회 Private 12위", "두 시점 이미지 기반 안정성 예측에서 검증 전략과 확률 예측 안정성에 집중했습니다.", "DACON", "var(--sky)"],
+      ["2026.05", "2026 스마트 공장 운영 시스템 MVP 개발 본선 해커톤 3위", "DACON 수상 인증서 기준 3/163을 기록하며 LossTwin AI의 손실금액 기반 조치 ROI 흐름을 구현했습니다.", "Hackathon", "var(--sun)"]
     ];
 
     const grid = document.getElementById("projectGrid");
@@ -3732,7 +3757,7 @@
         mode: "개인 프로젝트",
         label: "기여도",
         contribution: "100%",
-        tasks: ["문제 정의·MVP 흐름 설계", "손실 예측·ROI 로직", "React 화면 구현", "배포·회고 정리"]
+        tasks: ["CNC 이상 시나리오 정의", "AI 이상 점수·손실금액 산출 로직", "ROI 비교·조치 추천 흐름", "React MVP 화면·시연 구성"]
       },
       devhistory: {
         mode: "개인 프로젝트",
@@ -3741,16 +3766,16 @@
         tasks: ["활동 데이터 수집·정규화", "FastAPI 백엔드 설계", "Celery 작업 처리", "리포트·증빙 자동화"]
       },
       mediclear: {
-        mode: "개인 프로젝트",
+        mode: "개인 프로젝트 / 1인 팀 출품",
         label: "기여도",
         contribution: "100%",
-        tasks: ["v2 문제 재정의", "RAG·안내문 흐름 설계", "환자·관리자 화면 구조화", "위험신호·로그 흐름 정리"]
+        tasks: ["퇴원 후 14일 관리 문제 정의", "RAG 기반 환자 안내문 생성 흐름 설계", "환자 모바일 웹과 관리자 대시보드 구현", "상태 체크·위험신호 관리 흐름 구조화"]
       },
       kmomento: {
         mode: "개인 프로젝트",
         label: "기여도",
         contribution: "100%",
-        tasks: ["정형 데이터 전처리", "xG/xT 피처 설계", "예측 모델링", "경기 흐름 시각화"]
+        tasks: ["raw_data·match_info 전처리", "xG/xT 모멘텀 지표 설계", "SciPy Peak Detection 기반 전환점 탐지", "GPT-4 해설·스토리 카드 구성"]
       },
       freshguard: {
         mode: "팀 프로젝트",
@@ -3795,7 +3820,7 @@
         mode: "개인 프로젝트",
         label: "기여도",
         contribution: "100%",
-        tasks: ["교육 문제 정의", "AI 분석 흐름 설계", "교강사 승인 UX", "서비스 화면 구현"]
+        tasks: ["수업 직후 재수업 의사결정 문제 정의", "오개념·근거·개입안 AI 분석 흐름 설계", "교강사 승인 Human-in-the-loop UX", "복습 가이드·미니 퀴즈·운영 브리프 화면 구현", "Fallback·health/ready 점검 흐름 정리"]
       },
       roboescape: {
         mode: "개인 프로젝트",
