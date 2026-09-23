@@ -1,0 +1,437 @@
+{
+  "projects": [
+    {
+      "id": "losstwin",
+      "media": [
+        {
+          "src": "assets/losstwin-cover.png",
+          "alt": "LossTwin AI 본선 3등 회고 커버"
+        },
+        {
+          "src": "assets/losstwin-final-leaderboard.jpeg",
+          "alt": "LossTwin AI 본선 해커톤 최종 3위 결과 캡처",
+          "caption": "본선 해커톤 최종 결과 · 전체 3위 기록"
+        },
+        {
+          "src": "assets/losstwin-dashboard.png",
+          "alt": "LossTwin AI 대시보드 화면",
+          "caption": "대시보드 화면 · 예상 손실과 승인 흐름 요약"
+        },
+        {
+          "src": "assets/losstwin-line-monitoring.png",
+          "alt": "LossTwin AI 라인 모니터링 화면",
+          "caption": "라인 모니터링 화면 · 공정 상태와 설비 이상 추적"
+        },
+        {
+          "src": "assets/losstwin-simulation-explained.png",
+          "alt": "LossTwin AI 시뮬레이션 화면",
+          "caption": "시뮬레이션 화면 · 이상 신호와 AI 추천 조치 확인"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/LossTwin-AI",
+        "velog": "https://velog.io/@lova-clover/2026-스마트-공장-MVP-해커톤-LossTwin-AI-회고"
+      },
+      "desc": "CNC 설비 이상 신호를 손실금액으로 환산하고, 조치 비용·ROI 비교를 거쳐 승인과 작업지시까지 연결한 스마트공장 의사결정 MVP입니다.",
+      "build": [
+        "토크·온도·진동 편차와 불량 추세를 조합해 현장에서 설명 가능한 이상 점수 산출 방식을 구성했습니다.",
+        "정지 손실, 불량 폐기 손실, 납기 지연 리스크를 합산해 예상 손실금액으로 환산했습니다.",
+        "조치 비용, 절감 효과, 실행 신속성, SOP 적합성을 함께 비교해 승인과 작업지시까지 이어지는 MVP 화면을 구현했습니다."
+      ],
+      "impact": [
+        "단순 알림보다 손실·비용·작업 실행까지 이어지는 액션 중심 구조가 중요하다는 점을 확인했습니다.",
+        "DACON 수상 인증서 기준 3/163을 기록하며 2026 스마트 공장 운영 시스템 MVP 개발 본선 해커톤 3위를 수상했습니다."
+      ]
+    },
+    {
+      "id": "devhistory",
+      "media": [
+        {
+          "src": "assets/devhistory-portfolio.png",
+          "alt": "DevHistory 포트폴리오 생성 화면"
+        },
+        {
+          "src": "assets/devhistory-generated-blog.png",
+          "alt": "DevHistory 블로그 생성 화면"
+        },
+        {
+          "src": "assets/devhistory-dashboard.png",
+          "alt": "DevHistory 대시보드 화면"
+        },
+        {
+          "src": "assets/devhistory.png",
+          "alt": "DevHistory 로고와 서비스 화면"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/DevHistory",
+        "velog": "https://velog.io/@lova-clover/DevHistory-개발-포트폴리오-자동화-플랫폼-만들기"
+      },
+      "desc": "GitHub, Velog, solved.ac 활동을 수집·정규화해 주간 리포트와 포트폴리오 증빙으로 재가공하는 기록 자동화 플랫폼입니다.",
+      "build": [
+        "여러 플랫폼의 활동 데이터를 수집하고 프로젝트 단위로 정규화했습니다.",
+        "주간 리포트와 포트폴리오 근거로 재사용할 수 있는 출력 구조를 만들었습니다.",
+        "Celery와 Redis 기반으로 스케줄 실행, 실패 재시도, 로그 기록까지 이어지는 백그라운드 처리 흐름을 설계했습니다."
+      ],
+      "impact": [
+        "포트폴리오를 말로 꾸미는 대신 실제 활동 기록을 근거로 보여주는 방향성을 만들었습니다.",
+        "이후 프로젝트 정리와 회고를 자동화하는 개인 아카이브 기반이 되었습니다."
+      ]
+    },
+    {
+      "id": "mediclear",
+      "media": [
+        {
+          "src": "assets/medibridge.png",
+          "alt": "MediClear v2 모바일 환자 화면",
+          "caption": "v2 환자 모바일 화면 · 강원도 대학생 AI 활용 창업 공모전 장려상",
+          "phone": true
+        },
+        {
+          "src": "assets/mediclear-faq.png",
+          "alt": "MediClear v2 환자 FAQ 모달",
+          "caption": "v2 환자 FAQ 모달 · 물음표 버튼으로 확인하는 자주 묻는 질문",
+          "phone": true
+        },
+        {
+          "src": "assets/medibridge-patient-check.png",
+          "alt": "MediClear v2 환자 상태 체크 화면",
+          "caption": "v2 환자 상태 체크 · 통증, 발열, 수술 부위 상태 입력 흐름",
+          "phone": true
+        },
+        {
+          "src": "assets/medibridge-admin-dashboard.png",
+          "alt": "MediClear v2 관리자 대시보드",
+          "caption": "v2 관리자 대시보드 · 위험신호와 응답 현황 관리"
+        },
+        {
+          "src": "assets/medibridge-admin-doc.png",
+          "alt": "MediClear v2 퇴원 안내문 생성 화면",
+          "caption": "v2 퇴원 안내문 생성 · 환자별 RAG 안내문 운영"
+        },
+        {
+          "src": "assets/medibridge-flow.png",
+          "alt": "MediClear v2 운영 흐름",
+          "caption": "v2 운영 아키텍처 · 병원, AI 생성, 환자 응답, 병원 관리 흐름"
+        }
+      ],
+      "links": {
+        "github": {
+          "href": "https://github.com/Lova-clover/MediClear-K-Intelligence-2025-Track-2",
+          "label": "GitHub v1"
+        },
+        "velog": {
+          "href": "https://velog.io/@lova-clover/K-intelligence-해커톤-2025-Track-2-GPT-4o-기반-Custom-모델beta-예선-본선-참가-후기",
+          "label": "Velog v1"
+        }
+      },
+      "desc": "K-Intelligence v1 탈락 이후 퇴원 후 14일 관리 흐름을 다시 설계해, 강원도 대학생 AI 활용 창업 공모전 장려상까지 이어간 의료 운영 자동화 프로젝트입니다.",
+      "build": [
+        "v1에서 대회 탈락 후, 단순 안내문 생성만으로는 운영 가치가 약하다고 보고 퇴원 후 관리 흐름을 다시 설계했습니다.",
+        "EMR 정보를 바탕으로 환자별 퇴원 안내문을 생성하고, 알림·설문·위험신호를 관리자 대시보드로 연결했습니다.",
+        "환자, 병원, AI 안내문 생성, 환자 응답, 병원 관리 단계를 분리해 실제 운영 프로세스처럼 보이도록 구조화했습니다."
+      ],
+      "impact": [
+        "탈락한 아이디어를 그대로 버리지 않고 부족했던 운영 흐름을 보완해 v2로 고도화했고, 강원도 대학생 AI 활용 창업 공모전 장려상으로 이어졌습니다.",
+        "현재 GitHub와 Velog는 v1 기록이며, v2 코드는 private이라 공개 이후 별도 링크로 추가할 예정입니다."
+      ]
+    },
+    {
+      "id": "kmomento",
+      "media": [
+        {
+          "src": "assets/kmomento-match.png",
+          "alt": "K-MOMENTO AI 경기 선택 화면",
+          "phone": true
+        },
+        {
+          "src": "assets/kmomento-visualization.png",
+          "alt": "K-MOMENTO AI 경기 흐름 시각화"
+        },
+        {
+          "src": "assets/kmomento-cover.jpeg",
+          "alt": "K-MOMENTO AI 경진대회 제출 화면"
+        }
+      ],
+      "links": {
+        "velog": "https://velog.io/@lova-clover/DACON-K리그-AI-경진대회-15등장려상-모멘텀-그래프스토리-카드-자동화-K-MOMENTO-AI-후기",
+        "site": {
+          "href": "https://dacon.io/competitions/official/236648/codeshare/13760",
+          "label": "DACON 코드공유"
+        }
+      },
+      "desc": "K리그 이벤트 데이터를 xG/xT 기반 모멘텀으로 환산하고, 전환점 탐지와 스토리 카드 생성으로 팬 친화적 경기 흐름 해설을 구성했습니다.",
+      "build": [
+        "raw_data와 match_info를 경기·팀·이벤트·좌표 단위로 정리해 분석 가능한 형태로 전처리했습니다.",
+        "xG는 Logistic Regression, xT는 Markov Chain 전이 확률 기반으로 구성해 경기 모멘텀을 시간축으로 시각화했습니다.",
+        "SciPy Peak Detection으로 Top 3 전환점을 찾고, 그래프와 스토리 카드로 팬이 이해할 수 있는 해설 흐름을 만들었습니다."
+      ],
+      "impact": [
+        "스포츠 데이터는 예측보다 흐름, 전환점, 원인을 함께 설명할 때 팬 경험으로 이어진다는 점을 확인했습니다.",
+        "DACON 수상 인증서 기준 15/38을 기록하며 Track2 아이디어 개발 부문 장려상을 수상했습니다."
+      ]
+    },
+    {
+      "id": "freshguard",
+      "media": [
+        {
+          "src": "assets/freshguard.png",
+          "alt": "FreshGuard 사과 신선도 비교"
+        },
+        {
+          "src": "assets/freshguard-pipeline.png",
+          "alt": "FreshGuard 탐지와 분류 파이프라인"
+        },
+        {
+          "src": "assets/freshguard-detail.png",
+          "alt": "FreshGuard 상세 결과",
+          "phone": true
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/FreshGuard",
+        "velog": "https://velog.io/@lova-clover/FreshGuard-YOLOv8-EfficientNet-B0로-구현한-과일-신선도-판별-시스템"
+      },
+      "desc": "팀 프로젝트에서 스마트폰 촬영 과일 이미지 기반 신선도 판별 AI 서비스를 개발했습니다. 저는 YOLOv8n 탐지와 EfficientNet-B0 멀티태스크 분류를 연결한 2-stage CV 파이프라인을 담당했습니다.",
+      "build": [
+        "Kaggle Food Freshness Dataset을 기반으로 과일 종류와 신선도 라벨을 정리했습니다.",
+        "이미지를 224x224로 resize하고 ImageNet mean/std 정규화, Flip, ColorJitter, Rotation 증강을 적용했습니다.",
+        "EfficientNet-B0 backbone에 과일 종류 분류 head와 신선도 분류 head를 둔 멀티태스크 모델을 구현했습니다.",
+        "fresh/rotten 2-class 학습 후 p_fresh 기준 후처리로 fresh/normal/rotten 3단계 결과를 만들었습니다.",
+        "YOLOv8n 탐지 박스에서 ROI를 crop한 뒤 EfficientNet-B0로 과일 종류와 신선도를 판별하는 추론 흐름을 구성했습니다.",
+        "Android 앱과 Flask 서버/API가 모델을 호출할 수 있도록 입력 이미지 형식, 추론 결과 구조, 반환값 기준을 정리했습니다."
+      ],
+      "impact": [
+        "모델 성능은 아키텍처뿐 아니라 입력 ROI 품질, 전처리, 후처리 규칙에 크게 좌우된다는 점을 확인했습니다.",
+        "앱·서버·AI 모델이 분리된 팀 프로젝트에서 모델 입출력 기준과 결과 형식을 명확히 정리해야 한다는 점을 배웠습니다.",
+        "팀원들이 담당한 Android 앱과 Flask 서버/API 흐름에 맞춰 AI 모델을 연결하며, 모델을 실제 서비스 흐름 안에 배치하는 경험을 했습니다."
+      ]
+    },
+    {
+      "id": "prepit",
+      "media": [
+        {
+          "src": "assets/prepit-cover.png",
+          "alt": "Prep.it 서비스 커버"
+        },
+        {
+          "src": "assets/prepit-dashboard.png",
+          "alt": "Prep.it 대시보드 화면"
+        },
+        {
+          "src": "assets/prepit-interview.png",
+          "alt": "Prep.it 모의 면접 화면"
+        }
+      ],
+      "links": {},
+      "desc": "포트폴리오 PDF에서 프로젝트와 성과를 읽어 맞춤 질문, 모의 면접, 누적 코칭까지 이어주는 AI 면접 연습 플랫폼입니다.",
+      "build": [
+        "포트폴리오 PDF에서 프로젝트, 역할, 성과를 추출해 면접 질문으로 변환했습니다.",
+        "기술 트레이드오프, 정량 성과, 꼬리질문 등 8유형 질문을 생성했습니다.",
+        "OpenAI API 키가 없어도 heuristic fallback으로 질문 생성 흐름이 끊기지 않게 구성했습니다.",
+        "SQLite와 PostgreSQL 전환, /healthz 기반 Docker 배포까지 서비스 운영 흐름을 붙였습니다."
+      ],
+      "impact": [
+        "AI 기능이 끊겨도 서비스 흐름이 유지되는 fallback 설계의 중요성을 확인했습니다.",
+        "SQLite와 PostgreSQL 전환, Docker health check 기반 배포 흐름을 구성했습니다."
+      ]
+    },
+    {
+      "id": "perfacto",
+      "media": [
+        {
+          "src": "assets/perfacto-streamlit.png",
+          "alt": "PerfactoAI Streamlit 실행 화면",
+          "caption": "Streamlit MVP · RAG/페르소나 설정과 스크립트 기반 생성 실행"
+        },
+        {
+          "src": "assets/perfacto-sample-frame.png",
+          "alt": "PerfactoAI 생성 영상 샘플 화면",
+          "caption": "생성 결과 샘플 · 이미지, 음성, 자막을 합성한 쇼츠 프레임"
+        },
+        {
+          "src": "assets/perfacto-admin-console.png",
+          "alt": "WAVE-LAB CPR 데모 운영 화면",
+          "caption": "WAVE-LAB CPR · 콘텐츠 배포와 운영 로그를 확인하는 데모 화면"
+        }
+      ],
+      "desc": "팀 프로젝트에서 스크립트 기반 쇼츠 생성 자동화와 CPR(CareProof Record) 운영 구조를 연결한 AI Automation SaaS형 프로젝트를 개발했습니다. 저는 개발 파트를 맡아 RAG·다중 페르소나 기반 생성 흐름, 컷 분할·TTS/STT·자막·FFmpeg 합성 파이프라인, Streamlit 생성 화면, YouTube 업로드 흐름, FastAPI·PostgreSQL 기반 이벤트 로그 구조, 링크·QR 배포와 동의·열람·이수 기록 흐름을 구현했습니다.",
+      "build": [
+        "스크립트 입력, 컷 분할, 이미지 검색/생성, TTS/STT, 자막 타이밍, FFmpeg 합성까지 이어지는 쇼츠 생성 파이프라인을 구현했습니다.",
+        "RAG와 다중 AI 페르소나 설정을 적용해 목적과 대상에 맞는 콘텐츠 생성 흐름을 구성했습니다.",
+        "Streamlit 화면에서 페르소나 선택, 스크립트 생성, 결과 확인, 영상 생성, YouTube 업로드 흐름을 연결했습니다.",
+        "CPR로 확장하며 표준 템플릿, 버전 기준, 링크·QR 배포, 대상자 세그먼트, 동의·이해도 체크, 열람·이수 이벤트 로그를 운영 데이터로 남기는 구조를 설계했습니다.",
+        "이벤트 로그 스키마를 통해 누가, 언제, 무엇을, 어떤 버전으로 확인했는지 남길 수 있는 감사·증빙 구조를 정리했습니다.",
+        "FastAPI, PostgreSQL, 스케줄러, 이벤트 로그 모델링을 기반으로 이수율, 미열람, 재안내, 문의율 같은 KPI를 추적할 수 있는 구조를 정리했습니다."
+      ],
+      "impact": [
+        "단순 생성 자동화보다 생성, 배포, 동의, 열람, 이수, 로그, 개선 흐름을 함께 설계할 때 서비스 가치가 커진다는 점을 확인했습니다.",
+        "RAG와 다중 페르소나를 적용하면서 생성형 AI가 단순 답변 도구가 아니라 목적별 콘텐츠 운영 시스템으로 확장될 수 있다는 점을 경험했습니다.",
+        "PM, 디자인, 리서치, 마케팅·법무 파트와 협업하며 개발 기능을 실제 운영 흐름에 맞게 구조화하는 경험을 했습니다.",
+        "기획된 아이디어를 영상 자동화와 CPR 운영 구조로 끌고 가며, 팀 프로젝트 안에서 구현과 구조 설계의 중심 역할을 맡았습니다."
+      ]
+    },
+    {
+      "id": "anemia",
+      "media": [
+        {
+          "src": "assets/anemiadetection.png",
+          "alt": "AnemiaDetection 지표 화면",
+          "phone": true
+        },
+        {
+          "src": "assets/anemia-conjunctiva-result.png",
+          "alt": "AnemiaDetection 결막 입력과 예측 결과",
+          "phone": true
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/AnemiaDetection_web",
+        "velog": "https://velog.io/@lova-clover/실시간-결막-이미지-기반-빈혈-판별-웹앱-개발기",
+        "demo": {
+          "href": "https://anemiadetection.streamlit.app/",
+          "label": "Streamlit Demo"
+        }
+      },
+      "desc": "팀 프로젝트에서 결막 이미지 기반 빈혈 판별 시스템을 개발했습니다. 저는 ResNet18 전이학습 모델과 Streamlit 웹 추론 데모를 담당했고, RGB thresholding 판정과 딥러닝 예측을 함께 활용하는 Hybrid AI System 방향을 검토했습니다.",
+      "build": [
+        "결막 이미지 기반 빈혈 판별을 위해 ResNet18 전이학습 모델을 구현했습니다.",
+        "이미지 증강과 학습 설정을 적용하고 5-Fold CV로 모델 성능을 비교·검증했습니다.",
+        "Streamlit 웹앱에서 입력 이미지, 모델 예측 결과, 예측 확률을 확인할 수 있도록 구현했습니다.",
+        "팀원이 구현한 RGB thresholding 판정 결과와 모델 예측 결과를 함께 활용하는 하이브리드 판별 구조를 검토했습니다."
+      ],
+      "impact": [
+        "의료 이미지에서는 모델 성능뿐 아니라 촬영 환경, 색상 기준, 밝기 보정, 입력 가이드가 결과 신뢰도에 영향을 준다는 점을 배웠습니다.",
+        "규칙 기반 판정과 딥러닝 예측을 하나의 서비스 흐름으로 연결하는 팀 프로젝트 구조를 경험했습니다."
+      ]
+    },
+    {
+      "id": "rulevest",
+      "media": [
+        {
+          "src": "assets/rulevest-home.png",
+          "alt": "RuleVest 홈 화면"
+        },
+        {
+          "src": "assets/rulevest-dashboard.png",
+          "alt": "RuleVest 대시보드"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/RuleVest",
+        "demo": "https://lova-clover.github.io/RuleVest/",
+        "velog": "https://velog.io/@lova-clover/%ED%88%AC%EC%9E%90-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%8C%80%EC%8B%9C%EB%B3%B4%EB%93%9C%EB%A5%BC-%EB%A7%8C%EB%93%A4%EB%A9%B0-%EB%B0%B0%EC%9A%B4-%EA%B2%83-RuleVest-%ED%9A%8C%EA%B3%A0"
+      },
+      "desc": "투자 데이터를 업로드하면 구조를 해석하고 지표, 차트, 분석 요약을 자동 구성하는 Skills 기반 대시보드입니다.",
+      "build": [
+        "CSV, JSON, TSV, XLSX 업로드 후 날짜, 자산, 수익률, 벤치마크, 거래량 같은 컬럼 역할을 추론하도록 설계했습니다.",
+        "Skills.md에 정의한 분석 규칙을 바탕으로 KPI, 차트, 분석 요약, 원본 데이터 검색 흐름을 대시보드에 연결했습니다.",
+        "GitHub Pages에서 바로 실행되도록 브라우저 안에서 데이터를 읽고 분석하는 구조로 구현했습니다."
+      ],
+      "impact": [
+        "1차 투표에서 7위를 기록했지만 2차 심사에서 탈락하며, 구현물만큼 문제 정의와 평가 기준 대응이 중요하다는 점을 정리했습니다.",
+        "다시 만든다면 단순 자동 시각화가 아니라 수익률 뒤의 위험 구조를 해석하는 투자 리스크 대시보드로 재정의해야 한다고 회고했습니다."
+      ]
+    },
+    {
+      "id": "structure",
+      "media": [
+        {
+          "src": "assets/structure-result.png",
+          "alt": "구조물 안정성 AI 경진대회 결과와 검증 기록"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/Dacon-Structural-Stability",
+        "velog": "https://velog.io/@lova-clover/%ED%9A%8C%EA%B3%A0-%EA%B5%AC%EC%A1%B0%EB%AC%BC-%EC%95%88%EC%A0%95%EC%84%B1-AI-%EA%B2%BD%EC%A7%84%EB%8C%80%ED%9A%8C-OOF%EB%8A%94-%EC%A2%8B%EC%95%98%EB%8A%94%EB%8D%B0-%EC%99%9C-Public%EC%9D%80-%ED%8B%80%EB%A0%B8%EC%9D%84%EA%B9%8C",
+        "site": {
+          "href": "https://dacon.io/competitions/official/236686/leaderboard",
+          "label": "DACON 대회 페이지"
+        }
+      },
+      "desc": "구조물 안정성 물리 추론 AI 경진대회에서 두 시점 이미지 기반 안정성 예측 전략을 검증했습니다.",
+      "build": [
+        "두 시점 이미지를 기반으로 안정성을 예측하는 모델링 전략을 검토했습니다.",
+        "OOF와 Public/Private 차이를 분석하며 검증 전략의 중요성을 정리했습니다.",
+        "확률 예측의 안정성과 리더보드 흔들림을 회고 글로 남겼습니다."
+      ],
+      "impact": [
+        "대회에서는 모델 선택뿐 아니라 검증 데이터 설계와 확률 보정이 결과를 크게 좌우한다는 점을 배웠습니다.",
+        "Private 12위 기록을 통해 실험 관리와 검증 전략의 중요성을 다시 확인했습니다."
+      ]
+    },
+    {
+      "id": "classcue",
+      "media": [
+        {
+          "src": "assets/classcue-cover.png",
+          "alt": "ClassCue 서비스 커버",
+          "caption": "ClassCue 서비스 커버"
+        },
+        {
+          "src": "assets/classcue-dashboard.png",
+          "alt": "ClassCue 운영 현황 대시보드",
+          "caption": "운영 현황 대시보드 · 분석 완료, 대기, 단축 시간, 전체 세션 지표"
+        },
+        {
+          "src": "assets/classcue-input.png",
+          "alt": "ClassCue 질문 입력과 데모 데이터 화면",
+          "caption": "질문 입력 화면 · 학생 질문과 교강사 관찰 노트를 묶는 흐름"
+        },
+        {
+          "src": "assets/classcue-analysis.png",
+          "alt": "ClassCue 분석 사례와 승인 흐름",
+          "caption": "활용 사례 화면 · 실제 수업 정리와 후속 안내로 이어지는 흐름"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/ClassCue",
+        "velog": "https://velog.io/@lova-clover/회고-KIT-바이브코딩-공모전에서-ClassCue를-끝까지-제출하며-배운-것들",
+        "site": {
+          "href": "http://koreaitac.com/2025/landing/vibe_coding.asp",
+          "label": "KIT 공모전 페이지"
+        }
+      },
+      "desc": "수업 직후 강의 자료, 학생 질문, 교강사 메모를 하나의 세션으로 묶고, AI가 오개념과 근거·개입안을 제안한 뒤 교강사가 승인해 학습자와 운영자에게 전달하는 교육 운영 서비스입니다.",
+      "build": [
+        "강의 자료, 학생 질문, 교강사 메모를 하나의 세션으로 묶어 수업 직후 판단에 필요한 입력을 구조화했습니다.",
+        "AI가 오개념 클러스터, 근거 인용, 위험도, 다음 수업 개입안, 미니 퀴즈를 함께 제안하도록 분석 흐름을 구성했습니다.",
+        "AI 결과를 바로 공유하지 않고 교강사가 수정·확정하는 Human-in-the-loop 승인 단계를 두었습니다.",
+        "학습자 복습 가이드, 교강사 승인 화면, 운영자 브리프와 인박스로 이어지는 역할별 결과 화면을 설계했습니다.",
+        "Primary Model, Fast Model, Fallback 구조와 /api/health, /api/ready 점검 흐름을 두어 운영 안정성을 설명할 수 있게 정리했습니다."
+      ],
+      "impact": [
+        "교육 AI는 단순 요약보다 교강사의 다음 행동을 돕는 의사결정 레이어가 중요하다는 점을 배웠습니다.",
+        "AI 결과에 근거와 승인 절차를 붙여야 교육 현장에서 신뢰 가능한 흐름으로 읽힌다는 점을 확인했습니다.",
+        "LMS 전체를 다시 만들기보다 수업 직후의 좁은 문제를 정확히 잡는 방식이 더 설득력 있다는 점을 확인했습니다."
+      ]
+    },
+    {
+      "id": "roboescape",
+      "media": [
+        {
+          "src": "assets/roboescape-cover.png",
+          "alt": "RoboEscape 교육용 게임 커버"
+        },
+        {
+          "src": "assets/roboescape-ingame.png",
+          "alt": "RoboEscape 알고리즘 게임 실제 플레이 화면"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/RoboEscape-Path-Planning",
+        "velog": "https://velog.io/@lova-clover/RoboEscape-Algorithm-Hunters-7%EA%B0%80%EC%A7%80-Path-Planning-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EC%9C%BC%EB%A1%9C-%EB%A7%8C%EB%93%A0-%EA%B5%90%EC%9C%A1%EC%9A%A9-%EA%B2%8C%EC%9E%84"
+      },
+      "desc": "Bug, APF, PRM, RRT, Belief 등 경로 계획 알고리즘을 적 AI로 시각화한 교육용 액션 게임입니다.",
+      "build": [
+        "Bug1, Bug2, Tangent Bug, APF, PRM, RRT, Belief Localization을 각각 다른 추적 패턴으로 구현했습니다.",
+        "PRM 로드맵, RRT 트리, Belief 확률 분포처럼 알고리즘 내부 상태를 게임 안에서 시각화했습니다.",
+        "플레이어가 벽, 노이즈, 슬로우모션을 활용해 알고리즘의 약점을 체감하도록 스테이지를 구성했습니다."
+      ],
+      "impact": [
+        "알고리즘을 설명하는 것보다 직접 상호작용하게 만들 때 학습 경험이 더 강해진다는 점을 확인했습니다.",
+        "게임 구조 안에서도 자료구조, 경로 탐색, 확률 추론을 자연스럽게 드러낼 수 있었습니다."
+      ]
+    }
+  ]
+}

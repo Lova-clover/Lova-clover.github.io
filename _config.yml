@@ -1,0 +1,10 @@
+# Keep preserved experiments and development files out of root GitHub Pages output.
+exclude:
+  - archive
+  - docs
+  - scripts
+  - output
+  - node_modules
+  - dist
+  - package.json
+  - package-lock.json

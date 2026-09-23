@@ -1,33 +1,38 @@
-# Portfolio Content Notice
+# Code, content & third-party notices
 
-This repository is a personal portfolio website for Han Seongju.
+This repository contains the portfolio of Han Seongju (Lova-clover).
+Different parts of the repository have different reuse terms.
 
-## Source Code
+## Implementation code — MIT
 
-The source code files in this repository are licensed under the MIT License.
-You may reference, reuse, and adapt the code under the terms of `LICENSE`.
+The original website implementation, CSS, JavaScript behavior, Node.js scripts,
+and runnable maintenance examples are available under [LICENSE](LICENSE).
+Keep the copyright and license notice when reusing this code.
 
-## Portfolio Content and Assets
+## Portfolio content — separate permission
 
-Unless explicitly stated otherwise, the following materials are not licensed
-under the MIT License:
+The MIT grant does not cover original personal statements, project narratives,
+README editorial copy, screenshots, photographs, presentation material, or
+personal branding such as the Lova-clover identity and duck artwork.
+This includes editorial text embedded in index.html and assets/data/portfolio.js.
 
-- Portfolio text, project descriptions, personal statements, and README copy
-- Project screenshots, result images, generated images, and preview images
-- Personal branding elements, including the lova-clover identity and duck character
-- Project-specific visual materials, diagrams, records, and presentation images
+Copyright (c) 2026 Han Seongju for original materials owned by the author.
+All rights reserved for those materials unless a separate permission or license
+is provided. Please request permission before reusing them.
+This notice does not claim ownership of third-party materials or facts.
 
-These materials are Copyright (c) 2026 Han Seongju. All rights reserved.
-Please do not copy, redistribute, publish, or reuse them without permission.
+## Third-party resources
 
-## Third-Party Marks and Icons
+Third-party icons, fonts, logos, marks, and material visible inside project
+screenshots retain their respective ownership and license terms. They are not
+relicensed under this repository's MIT grant. Brand marks identify technologies
+and projects; their presence does not imply endorsement.
 
-Third-party names, logos, technology icons, product names, and trademarks
-remain the property of their respective owners. They are used only for
-identification and portfolio presentation.
+See [Third-party notices](assets/licenses/README.md) for resource sources,
+applicable license texts, and local file mappings.
 
-## Practical Summary
+## In practice
 
-You may use the code as a reference under the MIT License.
-Please do not reuse the portfolio content, screenshots, images, or personal
-branding as your own.
+You may reuse the implementation under MIT. Replace the personal content,
+project screenshots, and branding with material you have permission to use.
+Retain the applicable third-party attribution and license notices.

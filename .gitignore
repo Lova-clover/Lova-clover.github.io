@@ -1,0 +1,21 @@
+# Local experiments and research notes; preserve them on disk.
+/archive/
+/orbit/
+/orbit-source/
+/portfolio/
+/portfolio-source/
+/docs/
+
+# Build output, dependencies, browser sessions, and review artifacts.
+node_modules/
+/dist/
+/output/
+/.playwright-cli/
+*.log
+
+# Local configuration and credentials.
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

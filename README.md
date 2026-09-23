@@ -1,116 +1,133 @@
-# lova-clover.github.io
-
 <div align="center">
 
-## Learning by Building. Growing by Improving.
+# Han Seongju · Lova-clover
 
-한성주의 개인 포트폴리오 웹사이트입니다.  
-AI, 데이터 처리, 백엔드 자동화, 컴퓨터비전 프로젝트를 실제 결과물과 기록 중심으로 정리했습니다.
+**문제를 좁히고, 데이터와 AI를 연결해, 동작하는 서비스로 만듭니다.**
 
-[Portfolio](https://lova-clover.github.io/) · [GitHub](https://github.com/Lova-clover) · [Velog](https://velog.io/@lova-clover/posts)
+AI / Data Engineering · Backend Automation · Computer Vision
 
-[![Portfolio preview](assets/portfolio-preview.jpeg)](https://lova-clover.github.io/)
+[포트폴리오](https://lova-clover.github.io/) · [GitHub](https://github.com/Lova-clover) · [개발 기록](https://velog.io/@lova-clover/posts) · [Email](mailto:woeg0226@naver.com)
+
+<a href="https://lova-clover.github.io/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/portfolio-preview-2026-dark.jpg">
+    <img src="assets/portfolio-preview-2026.jpg" alt="한성주 포트폴리오 실제 화면" width="1440">
+  </picture>
+</a>
 
 </div>
 
----
+## 소개
 
-## Overview
+Python을 중심으로 데이터 처리, 모델링, 백엔드 자동화를 구현합니다. 최근에는 LLM 응답의 근거 검증, RAG, 멀티모달 검색과 데이터 기반 의사결정 서비스를 만들고 있습니다.
 
-이 저장소는 GitHub Pages로 배포되는 단일 페이지 포트폴리오입니다.
+이 저장소에는 프로젝트의 **문제 · 구현 · 역할 · 결과**를 보여주는 포트폴리오 웹사이트가 담겨 있습니다. 실제 서비스 화면과 발표자료를 함께 볼 수 있고, 공개된 코드·데모·회고는 각 프로젝트 상세에서 연결됩니다.
 
-프로젝트를 단순히 나열하기보다, 각 작업이 어떤 문제에서 시작했고 어떤 구현으로 이어졌으며 어떤 결과와 회고를 남겼는지 한 화면에서 확인할 수 있도록 구성했습니다.
+## 대표 프로젝트
 
-## Highlights
-
-- 따뜻한 크림/오렌지 톤과 오리 캐릭터를 중심으로 한 개인 브랜딩
-- Main 프로젝트 8개와 전체 프로젝트/기록을 볼 수 있는 갤러리 구조
-- 프로젝트별 이미지 슬라이드, 역할, 핵심 구현, 결과, GitHub/Velog 링크
-- 대회, 수상, 세미나, 회고를 시간순으로 정리한 History & Records
-- 데스크톱과 모바일을 모두 고려한 반응형 레이아웃
-
-## Featured Projects
-
-| Project | Focus | Summary |
+| 순서 · 프로젝트 | 해결한 문제와 구현 | 결과 / 확인할 수 있는 작업 |
 | --- | --- | --- |
-| LossTwin AI | Smart Factory · MVP | CNC 설비 이상 신호를 손실금액, ROI 비교, 승인/작업지시 흐름으로 연결한 MVP |
-| DevHistory | Automation · Archive | GitHub, Velog, solved.ac 활동을 수집해 리포트와 포트폴리오 증빙으로 재가공 |
-| MediClear | Medical Ops · RAG | 퇴원 후 14일 관리 흐름을 안내문, 알림, 위험신호 기록 구조로 확장 |
-| K-MOMENTO AI | Sports Data | K리그 이벤트 데이터를 xG/xT 모멘텀, 전환점 탐지, 스토리 카드로 전환 |
-| PerfactoAI & CPR | AI Automation SaaS | 쇼츠 생성 자동화와 CareProof Record 운영 로그 구조를 연결 |
-| Prep.it | AI Interview | 포트폴리오 PDF 기반 맞춤 질문, 모의 면접, 누적 코칭 흐름 구현 |
-| AnemiaDetection | Medical Vision | ResNet18 기반 결막 이미지 빈혈 판별 모델과 Streamlit 추론 데모 구현 |
-| FreshGuard | Computer Vision | YOLOv8n ROI 탐지와 EfficientNet-B0 분류를 연결한 과일 신선도 판별 파이프라인 |
+| **01 · 겹봄 (GyeopBom)** | 돌봄·근무 일정 충돌 이후의 행동을 CARE → TIME → DIRECT로 안내. 공유 EVENT 상태와 예약 문자 로컬 파서를 연결했습니다. | 호남 IS 코딩챌린지 **대상·전주시장상**. 현장 10시간 동안 1인 구현한 프로토타입 |
+| **02 · 첫자리** | 가게 계약 전 시작 자금·손익분기 주문 수·감당 가능한 월세를 점검. 비용 계산 엔진과 LLM 설명을 분리하고 규칙 기반 fallback을 구성했습니다. | 경기도 공공데이터 AI 활용 창업경진대회 **장려상**. 예선 315팀 중 본선 9팀 |
+| **03 · LossTwin AI** | CNC 설비 이상을 손실금액으로 환산하고 조치 비용·ROI·승인·작업지시까지 연결한 스마트공장 MVP입니다. | 스마트 공장 운영 시스템 MVP 개발 **본선 해커톤 3위** |
+| **04 · PerfactoAI & CPR** | RAG·영상 생성·FFmpeg 합성과 링크/QR 배포, 동의·열람·이수 이벤트 기록을 연결했습니다. | **WAVE-LAB Challenge 장려상**. 팀 프로젝트 개발 파트 담당 |
+| **05 · MediClear** | 퇴원 후 14일의 안내·상태 관리 흐름에 RAG 안내문, 알림, 설문, 위험신호 관리를 구성했습니다. | 강원도 대학생 AI 활용 창업 아이디어 공모전 **장려상**, K-Intelligence Track 2 본선 진출 |
+| **06 · 찍먹AI** | 음식 사진의 멀티모달 분석 → Oracle Vector Search 후보 검색 → 속성 재정렬 → 메뉴·옵션 선택 흐름을 구현했습니다. | 요기요 × 오라클 해커톤 **서류 지원 186팀 중 본선 8팀 선정** |
+| **07 · AnemiaDetection** | 결막 이미지 기반 ResNet18 전이학습을 수행하고 Streamlit 추론 화면으로 연결했습니다. | 5-Fold CV 검증과 웹 데모. 팀 프로젝트의 모델 학습·추론 데모 담당 |
+| **08 · FreshGuard** | YOLOv8n 탐지 ROI와 EfficientNet-B0 멀티태스크 분류를 연결해 과일 종류·신선도를 판별했습니다. | 팀 프로젝트의 AI 모델 개발·CV 파이프라인 담당. 상세에 검증 조건과 결과 수록 |
 
-## Records
+Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 등을 포함한 **19개 프로젝트**를 제공합니다.
 
-- 2025학년도 WAVE-LAB Challenge 창업경진대회 장려상
-- 의료 AI 솔루션 코딩대회 결승(5차) [ChatGPT 활용] 2등
-- SW엔지니어소양세미나 우수상
-- 2025 강원도 대학생 AI 활용 창업 아이디어 공모전 장려상
-- 제2회 Medical AI 경진대회 Private 49위
-- Track2 아이디어 개발 부문 K리그-서울시립대 공개 AI 경진대회 15위 및 장려상
-- DACON 구조물 안정성 물리 추론 AI 경진대회 Private 12위
-- 2026 스마트 공장 운영 시스템 MVP 개발 본선 해커톤 3위
+대회 수상은 **History & Records**, 본선 진출·발표 기록은 **Finalist & Selected**에서 구분합니다. 자체 평가 결과는 공식 대회 성적과 구별하며, 프로젝트별 역할과 프로토타입의 한계도 상세에 함께 적었습니다.
 
-## Stack
+## 프로젝트에서 사용한 기술
 
-사이트 자체는 별도 빌드 도구 없이 정적 파일로 구성했습니다.
+| 영역 | 실제 프로젝트에 사용한 기술 |
+| --- | --- |
+| AI · 검색 | RAG, OpenAI Responses API, OCI Gemini, Cohere Embed 4, Oracle Vector Search, pgvector |
+| 데이터 · 컴퓨터비전 | Python, Pandas, scikit-learn, PyTorch, OpenCV, YOLOv8n, ResNet18, EfficientNet-B0 |
+| 백엔드 · 자동화 | FastAPI, Node.js, Fastify, PostgreSQL, Redis, Celery, Docker, FFmpeg |
+| 서비스 화면 | React, Next.js, TypeScript, Vanilla JavaScript, Streamlit, PWA, Chart.js |
 
-```text
-HTML
-CSS
-Vanilla JavaScript
-GitHub Pages
+이 표는 여러 프로젝트에서 사용한 기술을 모은 것입니다. 개별 프로젝트의 적용 범위는 해당 상세 설명을 기준으로 합니다.
+
+## 포트폴리오 구현
+
+웹사이트 자체는 **HTML · CSS · Vanilla JavaScript**로 만든 정적 페이지입니다. Node.js 기본 모듈로 검사·빌드·로컬 서버를 제공하며, 실행을 위해 별도 npm 패키지를 설치할 필요가 없습니다.
+
+- **콘텐츠와 화면 분리** — 프로젝트·수상·본선 기록·역할을 `assets/data/portfolio.js`에서 관리합니다.
+- **확장 가능한 갤러리** — 카테고리 필터, 이미지 슬라이드, 키보드·터치 조작을 지원합니다. 카드 태그는 한 줄에 맞춰 `+N`으로 요약하고 상세에는 전체를 표시합니다.
+- **일관된 표현** — 오리 캐릭터와 크림·오렌지 색상, 같은 카드 구조를 유지합니다. 시스템 다크 모드와 화면 크기에 대응합니다.
+- **읽기와 이동** — 모바일 메뉴, 상세창 포커스 순환·복귀, Escape 닫기, 모션 감소 설정을 지원합니다.
+- **보존 검사** — 기존 프로젝트 콘텐츠, 중복, 대표 순서, 이미지 경로와 공개 링크 형식을 빌드 전에 확인합니다.
+
+## 로컬 실행
+
+**Node.js 18 이상**이 필요합니다.
+
+```bash
+git clone https://github.com/Lova-clover/Lova-clover.github.io.git
+cd Lova-clover.github.io
+npm run dev
 ```
 
-포트폴리오에서 반복적으로 다룬 주요 기술은 다음과 같습니다.
+브라우저에서 **http://127.0.0.1:4175/** 를 엽니다.
 
-```text
-Python · FastAPI · PostgreSQL · Redis · Docker
-PyTorch · OpenCV · YOLO · scikit-learn · Pandas
-RAG · React
-```
+| 명령 | 동작 |
+| --- | --- |
+| `npm run dev` | 소스 기반 로컬 미리보기 · 포트 4175 |
+| `npm run check` | 데이터·순서·이미지·링크 형식·기존 콘텐츠 보존 검사 |
+| `npm run build` | 검증 후 `dist/`에 정적 페이지·리소스·라이선스 고지 생성 |
+| `npm run preview -- --port 4176` | 빌드 결과를 별도 포트에서 미리보기 |
 
-## Structure
+로컬 서버는 `index.html`과 `assets/`만 제공합니다. 검사·빌드는 인터넷 연결이나 API 키 없이 실행됩니다. 웹폰트와 프로젝트의 외부 링크를 열 때는 네트워크 연결이 필요합니다.
+
+## 파일 구조
 
 ```text
 .
-├── index.html
+├── index.html                   # 페이지 구조 · 기본 스타일 · 상호작용
 ├── assets/
-│   ├── emoji/
-│   ├── icons/
-│   └── project images
-├── LICENSE
-├── NOTICE.md
-└── README.md
+│   ├── data/portfolio.js         # 프로젝트 · Records · Finalist · 역할
+│   ├── projects/                # 실제 서비스 화면과 발표 이미지
+│   ├── styles/refinement.css    # 세부 레이아웃 · 반응형 · 다크 테마
+│   ├── icons/ · emoji/          # UI 리소스
+│   └── licenses/                # 외부 리소스 출처와 라이선스 원문
+├── scripts/
+│   ├── check.mjs                # 콘텐츠 검사
+│   ├── build.mjs                # 정적 산출물 생성
+│   ├── serve.mjs                # 로컬 서버
+│   └── fixtures/                # 기존 프로젝트 보존 기준
+├── _config.yml                  # GitHub Pages 배포 제외 경로
+├── LICENSE                      # 구현 코드: MIT
+└── NOTICE.md                    # 콘텐츠·브랜딩·외부 자료의 사용 범위
 ```
 
-`index.html` 하나로 동작하는 정적 포트폴리오이며, 현재 `assets`에는 실제 페이지에서 참조하는 파일만 남겨두었습니다.
+3D 실험은 로컬 `archive/3d-experiments/`에 보존하며 Git과 배포에서 제외합니다. 로컬 자료 확인 문서·스크린샷 검사 결과·빌드 출력도 커밋하지 않습니다. 콘텐츠 검사에 필요한 기준 데이터는 `scripts/fixtures/`에 포함하므로 새로 clone한 환경에서도 검사와 빌드가 가능합니다.
 
-## Local Preview
+## 프로젝트 추가와 수정
 
-별도 설치 없이 `index.html`을 브라우저에서 열면 확인할 수 있습니다.
+1. 실제 프로젝트 이미지나 발표자료를 `assets/projects/<id>/`에 넣습니다.
+2. `assets/data/portfolio.js`에 고유한 `id`, 설명, 기술, 이미지, 확인된 링크와 결과를 작성합니다. 카드의 짧은 소개는 `summary`, 상세 설명은 `desc`를 사용합니다.
+3. `categories`로 분류하고 `rank`로 순서를 정합니다. 대표 8개는 `main`, 5열에서 추가할 2개는 `main-wide`로 구분합니다. 대표 구성을 바꾸면 `scripts/check.mjs`의 기대 순서도 함께 수정합니다.
+4. `records`에는 수상·주요 이력을, `finalists`에는 본선 기록을 작성합니다. 수상·본선 날짜는 `YYYY.MM`로 통일하고 오래된 기록부터 배치합니다. 본선은 `date`에 실제 발표·결과 월을, `detail`에 대회명 아래에 표시할 세부 기록을 작성합니다.
+5. `npm run build` 후 모바일·데스크톱과 라이트·다크 테마에서 카드와 상세창을 확인합니다.
 
-```text
-index.html
-```
+자료가 없는 항목은 성과·기술·링크를 추정해 채우지 않습니다. 실제 화면이 준비되지 않았다면 `cover: null`, `media: []`, `mediaStatus: "awaiting-source"`를 사용할 수 있습니다. 상세 데이터의 형식은 기존 프로젝트 항목을 참고하세요.
 
-## Deployment
+## 검증과 배포
 
-GitHub Pages에서 저장소 루트의 `index.html`을 배포합니다.
+빌드 검사에 더해 브라우저에서 전체 프로젝트 상세·이미지, 필터, 갤러리, 모바일 메뉴, 키보드 이동을 확인합니다. 화면 폭 320~2400px의 라이트·다크 테마를 점검했으며, 이는 Chromium 에뮬레이션 기준입니다. 실기기·다른 브라우저 확인은 별도입니다.
 
-```text
-Repository Settings -> Pages -> Deploy from branch -> main / root
-```
+GitHub Pages는 `main`의 루트에서 배포합니다. `index.html`과 신규 데이터·스타일·이미지를 함께 커밋하고 푸시해야 합니다. `_config.yml`은 archive·개발 스크립트·작업 문서를 공개 사이트에서 제외합니다. 외부 호스팅에 올릴 때는 `npm run build`의 `dist/`를 사용할 수 있습니다.
 
-## License
+프로젝트 데모는 각각 별도로 운영됩니다. Streamlit 등 외부 서비스는 휴면이나 API 설정에 따라 첫 실행 상태가 달라질 수 있습니다.
 
-Source code files are licensed under the [MIT License](LICENSE).
+## 라이선스와 연락
 
-Portfolio content, project screenshots, images, personal branding, and written
-materials are not covered by the MIT License. See [NOTICE.md](NOTICE.md) for
-details.
+**구현 코드는 [MIT](LICENSE)**로 공개합니다. 개인 소개·프로젝트 글·스크린샷·발표자료·브랜딩은 별도 범위이며, 코드 라이선스가 해당 콘텐츠의 재사용까지 허용하는 것은 아닙니다. 자세한 내용은 [NOTICE](NOTICE.md)와 [외부 리소스 고지](assets/licenses/README.md)를 확인해 주세요.
+
+프로젝트나 협업에 관한 연락은 [Email](mailto:woeg0226@naver.com)로 받을 수 있습니다. 구현 과정과 시행착오는 [Velog](https://velog.io/@lova-clover/posts)에 남깁니다.
 
 ---
 
