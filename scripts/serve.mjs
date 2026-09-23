@@ -21,8 +21,9 @@ const root = useDist ? path.join(projectRoot, 'dist') : projectRoot;
 if (!fs.existsSync(path.join(root, 'index.html'))) throw new Error(`${useDist ? 'Run npm run build first.' : 'Missing index.html.'}`);
 const assetsRoot = path.join(root, 'assets');
 const realAssetsRoot = fs.realpathSync(assetsRoot) + path.sep;
-const realIndex = fs.realpathSync(path.join(root, 'index.html'));
+const publicFiles = new Map(['index.html', '404.html', 'robots.txt', 'sitemap.xml'].filter(file => fs.existsSync(path.join(root, file))).map(file => ['/' + file, fs.realpathSync(path.join(root, file))]));
 const contentTypes = {
+  '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8',
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml',
@@ -34,6 +35,12 @@ const contentTypes = {
 
 const server = http.createServer((request, response) => {
   const sendError = (status, message) => {
+    const notFound = publicFiles.get('/404.html');
+    if (status === 404 && notFound) {
+      response.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
+      response.end(request.method === 'HEAD' ? undefined : fs.readFileSync(notFound));
+      return;
+    }
     response.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' });
     response.end(request.method === 'HEAD' ? undefined : message);
   };
@@ -49,7 +56,7 @@ const server = http.createServer((request, response) => {
     sendError(400, 'Invalid path');
     return;
   }
-  if (pathname !== '/' && pathname !== '/index.html' && !pathname.startsWith('/assets/')) {
+  if (pathname !== '/' && !publicFiles.has(pathname) && !pathname.startsWith('/assets/')) {
     sendError(404, 'Not found');
     return;
   }
@@ -57,7 +64,7 @@ const server = http.createServer((request, response) => {
   try {
     if (!fs.statSync(file).isFile()) { sendError(404, 'Not found'); return; }
     const resolved = fs.realpathSync(file);
-    if (resolved !== realIndex && !resolved.startsWith(realAssetsRoot)) { sendError(404, 'Not found'); return; }
+    if (![...publicFiles.values()].includes(resolved) && !resolved.startsWith(realAssetsRoot)) { sendError(404, 'Not found'); return; }
     const stats = fs.statSync(resolved);
     response.writeHead(200, {
       'Content-Type': contentTypes[path.extname(resolved).toLowerCase()] || 'application/octet-stream',
@@ -72,6 +79,6 @@ const server = http.createServer((request, response) => {
 server.on('error', error => { console.error(`Preview failed: ${error.message}`); process.exitCode = 1; });
 server.listen(port, '127.0.0.1', () => {
   console.log(`2D portfolio preview: http://127.0.0.1:${port}/ (${useDist ? 'dist' : 'local source'})`);
-  console.log('Only index.html and assets/ are served. Archived experiments are unavailable.');
+  console.log('Only public HTML, robots, sitemap, and assets/ are served. Archived experiments are unavailable.');
 });
 for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => server.close(() => process.exit(0)));

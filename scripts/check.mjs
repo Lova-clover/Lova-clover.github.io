@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { validatePublishing } from './publishing-checks.mjs';
 import { fileURLToPath } from 'node:url';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -190,6 +191,9 @@ export function validate() {
   if (!/\bsrc=["'](?:\.\/)?assets\/data\/portfolio\.js["']/.test(html)) errors.push('index.html must load assets/data/portfolio.js.');
   if (/Smart Factory MVP(?: Hackathon)? 3rd/.test(html)) errors.push('Remove the old Smart Factory hero badge.');
 
+  const publication = validatePublishing(root, html, data, imagePaths);
+  errors.push(...publication.errors);
+  for (const warning of publication.warnings) console.warn('Warning: ' + warning);
   if (errors.length) throw new Error('Portfolio checks failed:\n' + errors.map(error => ` - ${error}`).join('\n'));
   const summary = {
     projects: projects.length,

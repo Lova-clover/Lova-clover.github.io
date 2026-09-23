@@ -36,7 +36,9 @@ Python을 중심으로 데이터 처리, 모델링, 백엔드 자동화를 구�
 | **07 · AnemiaDetection** | 결막 이미지 기반 ResNet18 전이학습을 수행하고 Streamlit 추론 화면으로 연결했습니다. | 5-Fold CV 검증과 웹 데모. 팀 프로젝트의 모델 학습·추론 데모 담당 |
 | **08 · FreshGuard** | YOLOv8n 탐지 ROI와 EfficientNet-B0 멀티태스크 분류를 연결해 과일 종류·신선도를 판별했습니다. | 팀 프로젝트의 AI 모델 개발·CV 파이프라인 담당. 상세에 검증 조건과 결과 수록 |
 
-Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 등을 포함한 **19개 프로젝트**를 제공합니다.
+Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 등을 포함한 **23개 프로젝트**를 제공합니다.
+
+All에는 저장소 근거를 검증하는 개발 도구 **RepoDNA**, 공개 URL의 기본 보안 설정을 점검하는 **SiteGuard**, Stockfish 기반 체스 훈련 플랫폼 **CheckmateAI**, 기록·재생 퍼즐 게임 **Afterimage-Runner**를 추가했습니다. RepoDNA의 고정 데모와 실제 분석 모드, SiteGuard의 패시브 점검 범위는 상세에서 구분합니다.
 
 대회 수상은 **History & Records**, 본선 진출·발표 기록은 **Finalist & Selected**에서 구분합니다. 자체 평가 결과는 공식 대회 성적과 구별하며, 프로젝트별 역할과 프로토타입의 한계도 상세에 함께 적었습니다.
 
@@ -59,7 +61,8 @@ Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되�
 - **확장 가능한 갤러리** — 카테고리 필터, 이미지 슬라이드, 키보드·터치 조작을 지원합니다. 카드 태그는 한 줄에 맞춰 `+N`으로 요약하고 상세에는 전체를 표시합니다.
 - **일관된 표현** — 오리 캐릭터와 크림·오렌지 색상, 같은 카드 구조를 유지합니다. 시스템 다크 모드와 화면 크기에 대응합니다.
 - **읽기와 이동** — 모바일 메뉴, 상세창 포커스 순환·복귀, Escape 닫기, 모션 감소 설정을 지원합니다.
-- **보존 검사** — 기존 프로젝트 콘텐츠, 중복, 대표 순서, 이미지 경로와 공개 링크 형식을 빌드 전에 확인합니다.
+- **보존 검사** — 기존 프로젝트 콘텐츠, 중복, 대표 순서, 모든 프로젝트의 역할, 이미지 경로와 외부 링크 속성, 공유 메타데이터를 빌드 전에 확인합니다.
+- **이미지와 공유** — Hero는 우선 로드하고 카드·갤러리는 지연 로딩합니다. 전용 파비콘, canonical·OG·Twitter 카드, ProfilePage JSON-LD, robots·sitemap·404 페이지를 제공합니다.
 
 ## 로컬 실행
 
@@ -76,17 +79,19 @@ npm run dev
 | 명령 | 동작 |
 | --- | --- |
 | `npm run dev` | 소스 기반 로컬 미리보기 · 포트 4175 |
-| `npm run check` | 데이터·순서·이미지·링크 형식·기존 콘텐츠 보존 검사 |
+| `npm run check` | 데이터·역할·순서·이미지·링크·공유 정보·기존 콘텐츠 보존 검사 |
 | `npm run build` | 검증 후 `dist/`에 정적 페이지·리소스·라이선스 고지 생성 |
 | `npm run preview -- --port 4176` | 빌드 결과를 별도 포트에서 미리보기 |
 
-로컬 서버는 `index.html`과 `assets/`만 제공합니다. 검사·빌드는 인터넷 연결이나 API 키 없이 실행됩니다. 웹폰트와 프로젝트의 외부 링크를 열 때는 네트워크 연결이 필요합니다.
+로컬 서버는 공개 HTML·`assets/`·`robots.txt`·`sitemap.xml`만 제공합니다. 알 수 없는 경로는 404 상태와 안내 페이지를 반환하며 archive·개발 파일은 제공하지 않습니다. 검사·빌드는 인터넷 연결이나 API 키 없이 실행됩니다. 웹폰트와 프로젝트의 외부 링크를 열 때는 네트워크 연결이 필요합니다.
 
 ## 파일 구조
 
 ```text
 .
 ├── index.html                   # 페이지 구조 · 기본 스타일 · 상호작용
+├── 404.html · robots.txt · sitemap.xml
+├── .github/workflows/portfolio-qa.yml # Node 20 check/build 자동 검증
 ├── assets/
 │   ├── data/portfolio.js         # 프로젝트 · Records · Finalist · 역할
 │   ├── projects/                # 실제 서비스 화면과 발표 이미지
@@ -95,6 +100,7 @@ npm run dev
 │   └── licenses/                # 외부 리소스 출처와 라이선스 원문
 ├── scripts/
 │   ├── check.mjs                # 콘텐츠 검사
+│   ├── publishing-checks.mjs    # 역할 · SEO · 정적 파일 · 이미지 용량 검사
 │   ├── build.mjs                # 정적 산출물 생성
 │   ├── serve.mjs                # 로컬 서버
 │   └── fixtures/                # 기존 프로젝트 보존 기준
@@ -108,7 +114,7 @@ npm run dev
 ## 프로젝트 추가와 수정
 
 1. 실제 프로젝트 이미지나 발표자료를 `assets/projects/<id>/`에 넣습니다.
-2. `assets/data/portfolio.js`에 고유한 `id`, 설명, 기술, 이미지, 확인된 링크와 결과를 작성합니다. 카드의 짧은 소개는 `summary`, 상세 설명은 `desc`를 사용합니다.
+2. `assets/data/portfolio.js`에 고유한 `id`, 설명, 기술, 이미지, 확인된 링크와 결과를 작성합니다. 카드의 짧은 소개는 `summary`, 상세 설명은 `desc`를 사용합니다. 같은 `id`로 `projectRoles`의 `mode`, `label`, `contribution`, 비어 있지 않은 `tasks` 배열도 반드시 작성합니다.
 3. `categories`로 분류하고 `rank`로 순서를 정합니다. 대표 8개는 `main`, 5열에서 추가할 2개는 `main-wide`로 구분합니다. 대표 구성을 바꾸면 `scripts/check.mjs`의 기대 순서도 함께 수정합니다.
 4. `records`에는 수상·주요 이력을, `finalists`에는 본선 기록을 작성합니다. 수상·본선 날짜는 `YYYY.MM`로 통일하고 오래된 기록부터 배치합니다. 본선은 `date`에 실제 발표·결과 월을, `detail`에 대회명 아래에 표시할 세부 기록을 작성합니다.
 5. `npm run build` 후 모바일·데스크톱과 라이트·다크 테마에서 카드와 상세창을 확인합니다.
@@ -118,6 +124,8 @@ npm run dev
 ## 검증과 배포
 
 빌드 검사에 더해 브라우저에서 전체 프로젝트 상세·이미지, 필터, 갤러리, 모바일 메뉴, 키보드 이동을 확인합니다. 화면 폭 320~2400px의 라이트·다크 테마를 점검했으며, 이는 Chromium 에뮬레이션 기준입니다. 실기기·다른 브라우저 확인은 별도입니다.
+
+GitHub Actions의 `Portfolio QA`는 main 대상 push·pull request에서 Node 20으로 check/build를 실행합니다. 별도 패키지 설치가 필요 없으며, Pages 배포를 대체하거나 배포 완료를 보장하는 workflow는 아닙니다.
 
 GitHub Pages는 `main`의 루트에서 배포합니다. `index.html`과 신규 데이터·스타일·이미지를 함께 커밋하고 푸시해야 합니다. `_config.yml`은 archive·개발 스크립트·작업 문서를 공개 사이트에서 제외합니다. 외부 호스팅에 올릴 때는 `npm run build`의 `dist/`를 사용할 수 있습니다.
 

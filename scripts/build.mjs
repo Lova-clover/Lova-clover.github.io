@@ -17,11 +17,11 @@ try {
   verifyNoSymlinks(destination);
   if (fs.existsSync(path.join(destination, 'archive'))) throw new Error('dist/archive exists; refusing to include archived experiments in the build.');
   fs.mkdirSync(destination, { recursive: true });
-  for (const file of ['index.html', 'LICENSE', 'NOTICE.md']) {
+  for (const file of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'LICENSE', 'NOTICE.md']) {
     fs.copyFileSync(path.join(root, file), path.join(destination, file));
   }
   fs.cpSync(path.join(root, 'assets'), path.join(destination, 'assets'), { recursive: true, force: true });
-  console.log('Static build ready: dist/index.html + dist/assets/ + license notices. Archive, source experiments, and QA files are excluded.');
+  console.log('Static build ready: HTML, assets, robots, sitemap, and license notices. Archive, source experiments, and QA files are excluded.');
   console.log('Local files only. Nothing was deployed.');
 } catch (error) {
   console.error(error.message);

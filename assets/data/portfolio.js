@@ -1364,6 +1364,255 @@ window.PORTFOLIO_DATA = {
         "2026 울산 디지털 트윈 활용 아이디어 공모전 본선에 진출해 발표했습니다.",
         "공식 대기질과 일부 교통·안전 시연값을 구분했습니다. What-if는 정책 가정에 따른 계산이며, 예측 검증은 자체 평가로 실제 정책 효과나 공식 대회 성적을 의미하지 않습니다."
       ]
+    },
+    {
+      "id": "checkmateai",
+      "rank": 22,
+      "title": "CheckmateAI",
+      "type": "Chess Training",
+      "categories": [
+        "ai",
+        "service"
+      ],
+      "cover": "assets/projects/checkmateai/battle.jpeg",
+      "coverFit": "contain",
+      "summary": "Stockfish 대국·기보 분석과 SQLite 퍼즐 훈련을 연결한 로컬 체스 플랫폼입니다.",
+      "desc": "React·TypeScript 화면과 FastAPI 서버를 연결해 Stockfish 대국, PGN 기보 분석, 난이도별 퍼즐 훈련을 제공하는 로컬 체스 플랫폼입니다.",
+      "tags": [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Stockfish",
+        "SQLite",
+        "python-chess"
+      ],
+      "media": [
+        {
+          "src": "assets/projects/checkmateai/battle.jpeg",
+          "alt": "CheckmateAI Stockfish 대국 화면",
+          "caption": "저장소 실제 화면 · 체스판, 대국 타이머와 기보"
+        },
+        {
+          "src": "assets/projects/checkmateai/home.jpeg",
+          "alt": "CheckmateAI 게임 모드 선택 화면"
+        },
+        {
+          "src": "assets/projects/checkmateai/puzzle.jpeg",
+          "alt": "CheckmateAI 퍼즐 훈련 화면"
+        },
+        {
+          "src": "assets/projects/checkmateai/analysis.jpeg",
+          "alt": "CheckmateAI 기보 분석 화면"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/CheckmateAI"
+      },
+      "metrics": [
+        [
+          "Problem",
+          "대국·퍼즐·기보 분석을 오가는 훈련 흐름"
+        ],
+        [
+          "Build",
+          "React UI · FastAPI · Stockfish · SQLite"
+        ],
+        [
+          "Result",
+          "로컬 대국·분석·퍼즐 훈련 화면 구현"
+        ]
+      ],
+      "build": [
+        "FastAPI에서 FEN으로 체스판을 구성하고 Stockfish의 탐색 깊이·시간 제한을 조정해 다음 수를 요청하도록 연결했습니다.",
+        "PGN 기보 분석 API와 대국 화면을 구성하고, SQLite 퍼즐의 난이도 조회와 풀이 검증 로직을 구현했습니다.",
+        "rating 인덱스와 범위 조회를 활용한 퍼즐 선택을 구성했습니다. 무작위 rating 기준의 첫 결과를 선택하므로 전체 퍼즐의 균등 추출과는 구분됩니다."
+      ],
+      "impact": [
+        "엔진 호출, 체스 상태, 퍼즐 데이터와 사용자 화면을 하나의 로컬 훈련 흐름으로 연결했습니다.",
+        "Stockfish 실행 파일과 퍼즐 DB를 준비해 사용하는 로컬 실행형 프로젝트로, 대국 API와 퍼즐 조회·검증 모듈을 나눠 구성했습니다."
+      ]
+    },
+    {
+      "id": "afterimage-runner",
+      "rank": 23,
+      "title": "Afterimage-Runner",
+      "type": "Interactive Game",
+      "categories": [
+        "service"
+      ],
+      "cover": "assets/projects/afterimage-runner/menu.png",
+      "coverFit": "contain",
+      "summary": "이전 플레이의 잔상이 다음 시도의 스위치와 방패가 되는 웹 퍼즐 러너입니다.",
+      "desc": "‘잔상탈출: 러너-07’은 플레이어의 이동·상태를 기록하고 다음 루프에서 잔상으로 재생하는 브라우저 퍼즐 게임입니다. 과거의 움직임을 스위치 유지와 레이저 차단에 활용해 탈출 경로를 만듭니다.",
+      "tags": [
+        "JavaScript",
+        "HTML Canvas",
+        "Vite",
+        "localStorage"
+      ],
+      "media": [
+        {
+          "src": "assets/projects/afterimage-runner/menu.png",
+          "alt": "잔상탈출 러너-07 메인 메뉴",
+          "caption": "저장소 실제 화면 · 기록과 잔상을 사용하는 퍼즐 러너"
+        },
+        {
+          "src": "assets/projects/afterimage-runner/gameplay.png",
+          "alt": "잔상탈출 3번 방 게임 화면"
+        },
+        {
+          "src": "assets/projects/afterimage-runner/stages.png",
+          "alt": "잔상탈출 방 선택 화면"
+        },
+        {
+          "src": "assets/projects/afterimage-runner/replay.png",
+          "alt": "잔상탈출 루프 결과와 리플레이 화면"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/Afterimage-Runner",
+        "demo": "https://afterimage-runner.vercel.app"
+      },
+      "metrics": [
+        [
+          "Problem",
+          "이전 시도를 다음 행동에 활용하는 퍼즐 설계"
+        ],
+        [
+          "Build",
+          "시간별 상태 기록 · 잔상 재생 · 충돌 판정"
+        ],
+        [
+          "Result",
+          "20개 방 · 기록 저장 · 모바일 조작 구현"
+        ]
+      ],
+      "build": [
+        "위치·시간·방향·대시·크기 상태를 샘플링하고, 기록 사이를 보간해 이전 플레이를 잔상으로 재생합니다.",
+        "현재 플레이어와 잔상, 스위치, 레이저, 문 상태를 연결하고 Canvas 게임 루프에서 이동과 충돌을 처리합니다.",
+        "localStorage에 진행도·최고 기록·경로를 저장하고, 키보드와 모바일 가상 방향 패드·행동 버튼을 연결했습니다."
+      ],
+      "impact": [
+        "20개 방과 결과 리플레이를 통해 기록 → 재생 → 다음 시도의 문제 해결로 이어지는 게임 흐름을 구성했습니다.",
+        "브라우저에서 동작하는 인터랙션 프로젝트로, 상태 관리·기록 재생·입력 처리 구현 경험을 정리했습니다."
+      ]
+    },
+    {
+      "id": "repodna",
+      "rank": 20,
+      "title": "RepoDNA",
+      "type": "Developer Tools",
+      "categories": [
+        "ai",
+        "service"
+      ],
+      "cover": "assets/projects/repodna/hero.png",
+      "coverFit": "contain",
+      "summary": "저장소 근거를 수집하고 규칙의 출처를 검증해 코딩 에이전트용 문서와 ZIP으로 내보내는 개발 도구입니다.",
+      "desc": "공개 GitHub 저장소의 문서·설정·워크플로·커밋을 제한된 범위에서 읽고, 수집한 근거를 참조하는 규칙만 코딩 에이전트용 컨텍스트 팩으로 내보내는 프로토타입입니다.",
+      "tags": [
+        "TypeScript",
+        "React",
+        "GitHub API",
+        "Structured Output",
+        "Evidence Validation"
+      ],
+      "media": [
+        {
+          "src": "assets/projects/repodna/hero.png",
+          "alt": "RepoDNA 실제 랜딩 화면",
+          "caption": "실제 앱 캡처 · 화면의 점수는 고정 합성 fixture 자체 평가 예시"
+        },
+        {
+          "src": "assets/projects/repodna/evidence.png",
+          "alt": "RepoDNA 규칙과 원문 근거를 대조하는 화면",
+          "caption": "실제 앱의 근거 검토 화면 · 합성 fixture 데모"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/RepoDNA"
+      },
+      "metrics": [
+        [
+          "Problem",
+          "저장소 관례와 생성된 지침의 근거 확인 어려움"
+        ],
+        [
+          "Build",
+          "읽기 전용 수집 · 구조화 분석 · 근거 ID 검증"
+        ],
+        [
+          "Result",
+          "AGENTS·Skill·근거·검증기 ZIP 내보내기 구현"
+        ]
+      ],
+      "build": [
+        "GitHub API로 README·설정·워크플로·커밋 근거를 수집하고, 구조화 분석 결과의 근거 ID를 검증합니다. 모델 호출 실패 시 규칙 기반 fallback을 구분해 제공합니다.",
+        "검증된 참조를 AGENTS.md, Skill, 근거 문서, 매핑 검증기와 manifest로 묶어 ZIP으로 내보냅니다. 대상 저장소 코드를 실행하지 않습니다.",
+        "고정 합성 fixture 데모와 실제 저장소 분석 모드를 분리했습니다. 실제 분석은 자체 호스팅 환경에서 서버 키와 명시적인 활성화 설정이 필요합니다."
+      ],
+      "impact": [
+        "규칙의 출처를 검토하고 내보내는 흐름을 구현했습니다. 근거 ID의 연결 검증은 규칙 자체의 정확성이나 저장소 전체 준수를 보장하지 않습니다.",
+        "화면의 점수는 합성 fixture의 자체 평가 예시입니다. 일반적인 에이전트 성능 향상이나 공식 대회 성적으로 제시하지 않습니다."
+      ]
+    },
+    {
+      "id": "siteguard",
+      "rank": 21,
+      "title": "SiteGuard",
+      "type": "Backend / Security",
+      "categories": [
+        "service"
+      ],
+      "cover": "assets/projects/siteguard/home.png",
+      "coverFit": "contain",
+      "summary": "공개 URL의 HTTPS·TLS·보안 헤더·쿠키 설정을 근거와 권장 조치로 정리하는 패시브 점검 도구입니다.",
+      "desc": "공개 웹사이트의 응답에서 확인할 수 있는 HTTPS·TLS·보안 헤더·쿠키 설정을 점검하고, 결과 근거와 조치 우선순위를 보여주는 Node.js 웹 도구입니다.",
+      "tags": [
+        "Node.js",
+        "JavaScript",
+        "DNS Validation",
+        "Rate Limiting",
+        "TTL Cache"
+      ],
+      "media": [
+        {
+          "src": "assets/projects/siteguard/home.png",
+          "alt": "SiteGuard 공개 URL 입력 화면"
+        },
+        {
+          "src": "assets/projects/siteguard/result.png",
+          "alt": "SiteGuard 점검 결과와 권장 조치 화면",
+          "caption": "실제 서비스 캡처 · 해당 URL의 점검 당시 결과 예시"
+        }
+      ],
+      "links": {
+        "github": "https://github.com/Lova-clover/SiteGuard",
+        "demo": "https://siteguard-mauve.vercel.app"
+      },
+      "metrics": [
+        [
+          "Problem",
+          "배포한 웹사이트의 기본 보안 설정 확인 부담"
+        ],
+        [
+          "Build",
+          "패시브 검사 · DNS 검증 · 요청 제어 · 결과 UI"
+        ],
+        [
+          "Result",
+          "점검 근거와 권장 조치를 제공하는 웹 도구 구현"
+        ]
+      ],
+      "build": [
+        "HTTP/HTTPS 응답과 TLS 인증서, 보안 헤더·쿠키·mixed content 신호를 읽고 점검 근거와 권장 조치를 구성했습니다.",
+        "사설 주소를 거부하고 리다이렉트마다 목적지를 재검증하며, 검증한 DNS 주소로 연결하도록 구성했습니다.",
+        "요청 빈도·동시 실행·응답 크기·시간 제한과 TTL 캐시를 적용하고, 점검 결과·기록 화면을 연결했습니다."
+      ],
+      "impact": [
+        "웹 화면뿐 아니라 외부 요청 처리의 범위와 자원 제한을 함께 구현한 백엔드 프로젝트입니다.",
+        "공개 응답의 기본 설정을 확인하는 도구이며, 로그인 이후 기능이나 SQL Injection·권한 우회 등 적극적인 취약점 검증은 범위에 포함하지 않습니다."
+      ]
     }
   ],
   "records": [
@@ -1648,6 +1897,116 @@ window.PORTFOLIO_DATA = {
         "EVENT·상태 전이 설계",
         "예약 문자 파서·공공데이터 연결",
         "검증·시연영상·발표자료"
+      ]
+    },
+    "cheotjari": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "창업 비용 점검 서비스 기획·개발",
+      "tasks": [
+        "계약 전 비용·운영 조건 문제 정의",
+        "시작 자금·손익분기·월세 계산 엔진",
+        "근거 제한 LLM 설명·규칙 기반 fallback",
+        "Next.js 화면·공공데이터 API 연결"
+      ]
+    },
+    "jjikmuk": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "멀티모달 검색·추천 MVP 기획·개발",
+      "tasks": [
+        "OCI Gemini 음식 속성 분석",
+        "Cohere 임베딩·Oracle 벡터 검색·재정렬",
+        "React·Fastify 메뉴·옵션·장바구니 흐름",
+        "공개 실사진 500장 자체 평가·실패 사례 검토"
+      ]
+    },
+    "risk-rehearse": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "위험 설명·근거 검증 MVP 기획·개발",
+      "tasks": [
+        "LLM 응답 스키마·원문 근거 검증",
+        "손실 계산과 보류·검토 정책 분리",
+        "직원 확인 단계·libSQL 기록 저장",
+        "Next.js 리허설·검토 화면 구현"
+      ]
+    },
+    "portflow": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "배차 의사결정 프로토타입 기획·개발",
+      "tasks": [
+        "항만·교통·기상 공공데이터 정리",
+        "출발·대기·우회 시나리오 비교",
+        "PWA·지도·기사 안내 카드 구현",
+        "Python·scikit-learn 유입량 예측 모델"
+      ]
+    },
+    "movelens": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "경로 비교·시민 제보 프로토타입 기획·개발",
+      "tasks": [
+        "이동 부담 문제 정의·다기준 경로 점수",
+        "접근성·환승·도보 조건 반영",
+        "React·TypeScript·Leaflet 화면 구현",
+        "시민 제보·행정 개선 후보 연결"
+      ]
+    },
+    "twinops": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "산단 위험·조치 의사결정 MVP 기획·개발",
+      "tasks": [
+        "공식 대기질 수집·정규화",
+        "3시간 예측·시간순 기준 모델 비교",
+        "조치 우선순위·What-if·정책 리포트",
+        "React·Leaflet 시각화 구현"
+      ]
+    },
+    "checkmateai": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "체스 훈련 플랫폼 기획·개발",
+      "tasks": [
+        "React·TypeScript 대국·훈련 화면",
+        "FastAPI·Stockfish 엔진 연결",
+        "SQLite 퍼즐 조회·풀이 검증",
+        "PGN 기보 분석 흐름 구현"
+      ]
+    },
+    "afterimage-runner": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "웹 퍼즐 게임 기획·개발",
+      "tasks": [
+        "Canvas 이동·충돌·입력 처리",
+        "시간별 상태 기록·잔상 보간 재생",
+        "스위치·레이저·문 퍼즐 설계",
+        "진행도 저장·모바일 조작 구현"
+      ]
+    },
+    "repodna": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "저장소 근거 기반 개발 도구 기획·개발",
+      "tasks": [
+        "GitHub 읽기 전용 근거 수집",
+        "구조화 분석·근거 ID 검증·fallback",
+        "AGENTS·Skill·검증기 ZIP 내보내기",
+        "고정 fixture 데모·검증 UI 구현"
+      ]
+    },
+    "siteguard": {
+      "mode": "개인 프로젝트",
+      "label": "내 역할",
+      "contribution": "공개 URL 패시브 점검 도구 기획·개발",
+      "tasks": [
+        "HTTP·TLS·헤더·쿠키 점검 로직",
+        "DNS·리다이렉트 대상 검증",
+        "요청 제한·동시 실행 제한·TTL 캐시",
+        "근거·권장 조치 결과 화면 구현"
       ]
     }
   }
