@@ -2,6 +2,46 @@
 window.PORTFOLIO_DATA = {
   "projects": [
     {
+      "id": "batchon",
+      "rank": 24,
+      "title": "배치온",
+      "type": "예약·생산 일정 관리",
+      "categories": ["service"],
+      "cover": "assets/projects/batchon/order-options.png",
+      "coverFit": "contain",
+      "desc": "안동 사과 수탁가공장의 예약이 바뀌면, 납기를 앞당기는 안과 기존 배정을 더 많이 유지하는 안을 비교해 담당자가 선택하도록 만든 웹 시제품입니다.",
+      "tags": ["JavaScript", "Node.js", "제약 탐색", "시뮬레이션"],
+      "media": [
+        {
+          "src": "assets/projects/batchon/order-options.png",
+          "alt": "사과 700kg의 목요일 완료안과 금요일 완료안을 비교하는 예약 변경 화면",
+          "caption": "시제품 · 목요일 완료안은 500kg을, 금요일 완료안은 300kg을 다른 날로 옮깁니다."
+        },
+        {
+          "src": "assets/projects/batchon/schedule-comparison.png",
+          "alt": "오전 10시 빈 시간에 같은 제품군의 작업을 배정한 전후 일정표",
+          "caption": "본선 발표 자료 · 설비 한 대와 주문 세 건을 둔 가상 예시에서 작업 순서에 따른 세척·추가 가동 차이를 비교했습니다."
+        }
+      ],
+      "links": {
+        "demo": "https://batchon.vercel.app/",
+        "retrospective": {"href": "https://lova-log.vercel.app/posts/23/", "label": "배치온 데모와 시험 결과 읽기"}
+      },
+      "metrics": [
+        ["Problem", "설비 점검으로 예약이 밀리면 어떤 물량을 옮겨야 약속한 납기를 지킬 수 있을까?"],
+        ["Build", "일별 수락 가능량 계산 · 예약 변경안 비교 · 납기 회복 엔진"],
+        ["Result", "2026 창업 경진대회 예비창업자 부문 장려상"]
+      ],
+      "build": [
+        "일별 생산 여력으로 주문 수락 가능량을 계산하고, 기존 예약을 얼마나 유지할 수 있는지 변경안별로 표시했습니다.",
+        "고정 예약, 원료 입고와 처리 마감, 제품군별 세척 시간, 납기를 제약으로 두고 작업 순서와 허용된 추가 가동 시간대를 탐색했습니다."
+      ],
+      "impact": [
+        "216개 가상 조건 각각에서 납기 우선·세척 우선 중 더 좋은 일정과 비교했습니다. 54건은 개선, 159건은 동일했고, 3건은 두 방식 모두 납기를 맞출 수 없었습니다. 전량 처리 가능한 조건은 210건에서 213건으로 늘었습니다.",
+        "본선에서 납품처에 따라 긴급 주문 빈도가 얼마나 달라지는지 질문을 받았습니다. 실제 가공장의 주문표로 일정 변경 빈도와 운영 효과를 확인하는 일을 후속 과제로 남겼습니다."
+      ]
+    },
+    {
       "id": "losstwin",
       "rank": 3,
       "title": "LossTwin AI",
@@ -1746,7 +1786,7 @@ window.PORTFOLIO_DATA = {
       "2026.11",
       "2026 창업 경진대회 예비창업자 부문 장려상",
       "안동 사과 수탁가공장의 주문이 바뀔 때 기존 예약과 세척·납기 조건을 만족하는 일정을 찾는 엔진을 구현하고, 가상 조건 216개로 비교했습니다.",
-      "Startup", "var(--sun)", "배치온"
+      "Startup", "var(--sun)", "배치온", "batchon"
     ]
   ],
   "finalists": [
@@ -1788,9 +1828,23 @@ window.PORTFOLIO_DATA = {
       "project": "찍먹AI",
       "result": "본선 발표",
       "detail": "서류 지원 186팀 중 본선 8팀 선정"
+    },
+    {
+      "id": "gangwon-science-comic",
+      "date": "2026.10",
+      "competition": "2026년 국립강원전문과학관 AI경진대회",
+      "division": "4컷 과학만화 만들기",
+      "project": "침입자의 기술, 생명을 잇다 — 태반 속 바이러스 유래 유전자",
+      "result": "본선 진출"
     }
   ],
   "projectRoles": {
+    "batchon": {
+      "mode": "예비창업자 부문",
+      "label": "내 역할",
+      "contribution": "예약 웹과 납기 회복 엔진 설계·구현",
+      "tasks": ["주문 수락·예약 변경 화면 구현", "제약에 따른 작업 순서·추가 가동 탐색", "216개 합성 조건 비교 및 전수계산 대조", "시제품 시연·본선 발표"]
+    },
     "losstwin": {
       "mode": "개인 프로젝트",
       "label": "기여도",

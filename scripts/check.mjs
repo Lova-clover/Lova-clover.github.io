@@ -124,9 +124,10 @@ export function validate() {
     ['yogiyo-oracle', ['찍먹AI', '본선 발표', '서류 지원 186팀 중 본선 8팀 선정']],
     ['incheon-startup', ['PortFlow Dispatch AI', '본선 발표']],
     ['sejong-data-ai', ['MoveLens', '본선 발표']],
+    ['gangwon-science-comic', ['침입자의 기술, 생명을 잇다 — 태반 속 바이러스 유래 유전자', '본선 진출']],
     ['ulsan-digital-twin', ['TwinOps Ulsan', '본선 발표']],
   ]);
-  if (finalists.length !== approvedFinalists.size) errors.push(`Finalist & Selected must contain exactly 5 entries; found ${finalists.length}.`);
+  if (finalists.length !== approvedFinalists.size) errors.push(`Finalist & Selected must contain exactly ${approvedFinalists.size} entries; found ${finalists.length}.`);
   const finalistIds = new Set();
   const finalistCompetitions = new Set();
   for (const finalist of finalists) {

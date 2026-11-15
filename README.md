@@ -36,7 +36,7 @@ Python을 중심으로 데이터 처리, 모델링, 백엔드 자동화를 구�
 | **07 · AnemiaDetection** | 결막 이미지 기반 ResNet18 전이학습을 수행하고 Streamlit 추론 화면으로 연결했습니다. | 5-Fold CV 검증과 웹 데모. 팀 프로젝트의 모델 학습·추론 데모 담당 |
 | **08 · FreshGuard** | YOLOv8n 탐지 ROI와 EfficientNet-B0 멀티태스크 분류를 연결해 과일 종류·신선도를 판별했습니다. | 팀 프로젝트의 AI 모델 개발·CV 파이프라인 담당. 상세에 검증 조건과 결과 수록 |
 
-Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 등을 포함한 **23개 프로젝트**를 제공합니다.
+Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 및 배치온 등을 포함한 **24개 프로젝트**를 제공합니다.
 
 All에는 저장소 근거를 검증하는 개발 도구 **RepoDNA**, 공개 URL의 기본 보안 설정을 점검하는 **SiteGuard**, Stockfish 기반 체스 훈련 플랫폼 **CheckmateAI**, 기록·재생 퍼즐 게임 **Afterimage-Runner**를 추가했습니다. RepoDNA의 고정 데모와 실제 분석 모드, SiteGuard의 패시브 점검 범위는 상세에서 구분합니다.
 
