@@ -285,6 +285,8 @@
       display: block;
     }
 
+    .nav-icon-book { width: 22px; height: 22px; }
+
     .nav-actions {
       display: none;
       align-items: center;
@@ -2932,10 +2934,7 @@
         <a href="#contact">Contact</a>
         <span class="nav-divider" aria-hidden="true"></span>
         <a class="nav-external" href="https://lova-log.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="개발 노트 (새 탭에서 열기)">
-          <svg class="nav-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" focusable="false">
-            <rect x="3.5" y="2.5" width="13" height="15" rx="2"/>
-            <path d="M7 3v14m3-10h3.5M10 10h2.5"/>
-          </svg>
+          <img class="nav-icon nav-icon-book" src="assets/icons/dev-note-book.png" width="22" height="22" alt="">
           <span>개발 노트</span>
         </a>
         <a class="nav-external" href="https://github.com/Lova-clover" target="_blank" rel="noopener noreferrer" aria-label="GitHub 열기">
@@ -3110,10 +3109,15 @@
         <div class="section-head reveal">
           <span class="section-kicker">History & Records</span>
           <h2 class="section-title">도전이 다음 작업으로 이어진 기록</h2>
-          <p class="section-desc is-record-desc">프로젝트를 만들고 검증하며 얻은 주요 수상과 활동 기록입니다.</p>
+          <p class="section-desc is-record-desc">대표 수상 프로젝트</p>
         </div>
 
         <div class="record-list" id="recordList"></div>
+        <details class="award-archive">
+          <summary><span class="award-show">수상 <span id="awardCount"></span>건 전체 보기</span><span class="award-hide">수상 목록 접기</span></summary>
+          <ul id="awardList"></ul>
+        </details>
+        <div class="education-record" id="educationRecord"></div>
 
         <div class="finalist-section" aria-labelledby="finalistTitle">
           <div class="finalist-heading">
@@ -3322,16 +3326,25 @@
       openModal(card.dataset.project);
     });
 
-    const recordList = document.getElementById("recordList");
-    recordList.innerHTML = records.map(([date, title, desc, label, accent], index) => `
-      <article class="record-item reveal" style="--accent: ${accent}; --i: ${index};">
+    const awards = records.filter(record => record[3] !== "Education");
+    const featuredAwards = ["겹봄", "PerfactoAI · CPR", "첫기준", "배치온"];
+    const awardsByProject = new Map(awards.map(record => [record[5], record]));
+    document.getElementById("recordList").innerHTML = featuredAwards.map(project => {
+      const [date, title, desc, , accent] = awardsByProject.get(project);
+      return `<article class="record-item" style="--accent: ${accent}">
         <div class="record-meta">
           <span class="record-date">${date}</span>
-          <span class="record-label">${label}</span>
         </div>
-        <div><h4>${title}</h4><p>${desc}</p></div>
-      </article>
-    `).join("");
+        <div><h3>${project}</h3><strong>${title}</strong><p>${desc}</p></div>
+      </article>`;
+    }).join("");
+    document.getElementById("awardCount").textContent = awards.length;
+    document.getElementById("awardList").innerHTML = awards.slice().reverse().map(([date, title, desc, , , project]) => `
+      <li><time datetime="${date.replace(".", "-")}">${date}</time>
+        <div><strong>${project ? project + " · " : ""}${title}</strong><p>${desc}</p></div>
+      </li>`).join("");
+    document.getElementById("educationRecord").innerHTML = records.filter(record => record[3] === "Education")
+      .map(([date, title]) => `<p><strong>학력</strong> · ${date} · ${title}</p>`).join("");
 
     const finalistList = document.getElementById("finalistList");
     finalistList.innerHTML = finalists.map((item, index) => `

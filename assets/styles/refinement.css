@@ -9,6 +9,18 @@
 }
 
 /* A smaller companion to History & Records, using the same accents and badges. */
+.record-item h3 { margin: 0 0 .35rem; color: var(--ink); font-size: 1.12rem; }
+.record-item strong { color: var(--accent-ink); font-size: .84rem; }
+.award-archive { margin-top: 1rem; }
+.award-archive summary { width: fit-content; max-width: 100%; margin-inline: auto; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 2rem; background: var(--surface); color: var(--ink); cursor: pointer; font-weight: 650; }
+.award-archive summary:focus-visible { outline: 2px solid var(--accent-ink); outline-offset: 3px; }
+.award-hide, .award-archive[open] .award-show { display: none; }
+.award-archive[open] .award-hide { display: inline; }
+.award-archive ul { margin: 1rem auto 0; max-width: 58rem; padding: 0; list-style: none; }
+.award-archive li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .85rem; padding: .75rem 0; border-bottom: 1px solid var(--line); font-size: .88rem; }
+.award-archive time, .education-record { color: var(--ink-soft); font-size: .8rem; }
+.award-archive li p { margin: .25rem 0 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.6; }
+.education-record { text-align: center; margin-top: 1.2rem; }
 .finalist-section { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid var(--line); }
 .finalist-heading { display: grid; justify-items: center; gap: .4rem; margin: 0 auto .85rem; text-align: center; }
 .finalist-heading h3, .finalist-heading p { margin: 0; }
