@@ -17,7 +17,7 @@ try {
   verifyNoSymlinks(destination);
   if (fs.existsSync(path.join(destination, 'archive'))) throw new Error('dist/archive exists; refusing to include archived experiments in the build.');
   fs.mkdirSync(destination, { recursive: true });
-  for (const file of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'googleda29a09769d36eac.html', 'LICENSE', 'NOTICE.md']) {
+  for (const file of ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'googleda29a09769d36eac.html', 'navera8cba3b1f7126926fe96788903da8d97.html', 'LICENSE', 'NOTICE.md']) {
     fs.copyFileSync(path.join(root, file), path.join(destination, file));
   }
   await fs.promises.cp(path.join(root, 'assets'), path.join(destination, 'assets'), { recursive: true, force: true });
