@@ -31,12 +31,12 @@ Python을 중심으로 데이터 처리, 모델링, 백엔드 자동화를 구�
 | **02 · 첫자리** | 가게 계약 전 시작 자금·손익분기 주문 수·감당 가능한 월세를 점검. 비용 계산 엔진과 LLM 설명을 분리하고 규칙 기반 fallback을 구성했습니다. | 경기도 공공데이터 AI 활용 창업경진대회 **장려상**. 예선 315팀 중 본선 9팀 |
 | **03 · LossTwin AI** | CNC 설비 이상을 손실금액으로 환산하고 조치 비용·ROI·승인·작업지시까지 연결한 스마트공장 MVP입니다. | 스마트 공장 운영 시스템 MVP 개발 **본선 해커톤 3위** |
 | **04 · PerfactoAI & CPR** | RAG·영상 생성·FFmpeg 합성과 링크/QR 배포, 동의·열람·이수 이벤트 기록을 연결했습니다. | **WAVE-LAB Challenge 장려상**. 팀 프로젝트 개발 파트 담당 |
-| **05 · MediClear** | 퇴원 후 14일의 안내·상태 관리 흐름에 RAG 안내문, 알림, 설문, 위험신호 관리를 구성했습니다. | 강원도 대학생 AI 활용 창업 아이디어 공모전 **장려상**, K-Intelligence Track 2 본선 진출 |
-| **06 · 찍먹AI** | 음식 사진의 멀티모달 분석 → Oracle Vector Search 후보 검색 → 속성 재정렬 → 메뉴·옵션 선택 흐름을 구현했습니다. | 요기요 × 오라클 해커톤 **서류 지원 186팀 중 본선 8팀 선정** |
+| **05 · 배치온** | 사과 수탁가공 주문의 완료일과 기존 배정 유지량을 비교하고, 세척·납기를 고려해 가능한 작업 순서를 탐색했습니다. | **2026 창업 경진대회 예비창업자 부문 장려상**. 가상 조건 216개에서 일정 비교 |
+| **06 · MediClear** | 퇴원 후 14일의 안내·상태 관리 흐름에 RAG 안내문, 알림, 설문, 위험신호 관리를 구성했습니다. | 강원도 대학생 AI 활용 창업 아이디어 공모전 **장려상**, K-Intelligence Track 2 본선 진출 |
 | **07 · AnemiaDetection** | 결막 이미지 기반 ResNet18 전이학습을 수행하고 Streamlit 추론 화면으로 연결했습니다. | 5-Fold CV 검증과 웹 데모. 팀 프로젝트의 모델 학습·추론 데모 담당 |
 | **08 · FreshGuard** | YOLOv8n 탐지 ROI와 EfficientNet-B0 멀티태스크 분류를 연결해 과일 종류·신선도를 판별했습니다. | 팀 프로젝트의 AI 모델 개발·CV 파이프라인 담당. 상세에 검증 조건과 결과 수록 |
 
-Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 및 배치온 등을 포함한 **24개 프로젝트**를 제공합니다.
+Main은 기본 8개입니다. 화면이 넓어 실제 그리드가 5열이 되면 **K-MOMENTO AI → DevHistory**를 추가해 두 행으로 보여줍니다. All은 같은 순서로 시작하며 RISK:REHEARSE, PortFlow Dispatch AI, MoveLens, TwinOps Ulsan 및 찍먹AI 등을 포함한 **24개 프로젝트**를 제공합니다.
 
 All에는 저장소 근거를 검증하는 개발 도구 **RepoDNA**, 공개 URL의 기본 보안 설정을 점검하는 **SiteGuard**, Stockfish 기반 체스 훈련 플랫폼 **CheckmateAI**, 기록·재생 퍼즐 게임 **Afterimage-Runner**를 추가했습니다. RepoDNA의 고정 데모와 실제 분석 모드, SiteGuard의 패시브 점검 범위는 상세에서 구분합니다.
 

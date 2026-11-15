@@ -93,7 +93,7 @@ export function validate() {
 
   const main = projects.filter(project => project.categories?.includes('main'));
   if (main.length !== 8) errors.push(`Main must contain exactly 8 base projects; found ${main.length}.`);
-  const expectedMain = ["gyeopbom","cheotjari","losstwin","perfacto","mediclear","jjikmuk","anemia","freshguard"];
+  const expectedMain = ["gyeopbom","cheotjari","losstwin","perfacto","batchon","mediclear","anemia","freshguard"];
   if (JSON.stringify([...main].sort((a,b) => a.rank-b.rank).map(p => p.id)) !== JSON.stringify(expectedMain)) errors.push('Main project order differs from the requested selection.');
   const wideMain = projects.filter(p => p.categories?.includes('main-wide')).sort((a,b) => a.rank-b.rank);
   if (JSON.stringify(wideMain.map(p => p.id)) !== JSON.stringify(['kmomento','devhistory'])) errors.push('Wide Main must append K-MOMENTO AI and DevHistory in that order.');

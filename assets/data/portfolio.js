@@ -3,10 +3,10 @@ window.PORTFOLIO_DATA = {
   "projects": [
     {
       "id": "batchon",
-      "rank": 24,
+      "rank": 5,
       "title": "배치온",
       "type": "예약·생산 일정 관리",
-      "categories": ["service"],
+      "categories": ["main", "service"],
       "cover": "assets/projects/batchon/award-cover.webp",
       "coverFit": "contain",
       "desc": "안동 사과 수탁가공장의 예약이 바뀌면, 납기를 앞당기는 안과 기존 배정을 더 많이 유지하는 안을 비교해 담당자가 선택하도록 만든 웹 시제품입니다.",
@@ -200,7 +200,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "mediclear",
-      "rank": 5,
+      "rank": 6,
       "title": "MediClear",
       "type": "Medical Ops",
       "categories": [
@@ -435,7 +435,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "prepit",
-      "rank": 15,
+      "rank": 16,
       "title": "Prep.it",
       "type": "AI Interview",
       "categories": [
@@ -645,7 +645,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "rulevest",
-      "rank": 16,
+      "rank": 17,
       "title": "RuleVest",
       "type": "Finance Helper",
       "categories": [
@@ -707,7 +707,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "structure",
-      "rank": 17,
+      "rank": 18,
       "title": "Structure Stability AI",
       "type": "DACON Competition",
       "categories": [
@@ -768,7 +768,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "classcue",
-      "rank": 18,
+      "rank": 19,
       "title": "ClassCue",
       "type": "Teaching Intelligence",
       "categories": [
@@ -849,7 +849,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "roboescape",
-      "rank": 19,
+      "rank": 20,
       "title": "RoboEscape",
       "type": "Algorithm Game",
       "categories": [
@@ -1011,7 +1011,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "risk-rehearse",
-      "rank": 11,
+      "rank": 12,
       "title": "RISK:REHEARSE",
       "type": "LLM Decision Support",
       "categories": [
@@ -1149,11 +1149,10 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "jjikmuk",
-      "rank": 6,
+      "rank": 11,
       "title": "찍먹AI",
       "type": "Multimodal Search",
       "categories": [
-        "main",
         "ai",
         "service"
       ],
@@ -1217,7 +1216,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "portflow",
-      "rank": 12,
+      "rank": 13,
       "title": "PortFlow Dispatch AI",
       "type": "Data · Decision Support",
       "categories": [
@@ -1285,7 +1284,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "movelens",
-      "rank": 13,
+      "rank": 14,
       "title": "MoveLens",
       "type": "Mobility · Public Data",
       "categories": [
@@ -1353,7 +1352,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "twinops",
-      "rank": 14,
+      "rank": 15,
       "title": "TwinOps Ulsan",
       "type": "Forecasting · Decision Support",
       "categories": [
@@ -1421,7 +1420,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "checkmateai",
-      "rank": 22,
+      "rank": 23,
       "title": "CheckmateAI",
       "type": "Chess Training",
       "categories": [
@@ -1488,7 +1487,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "afterimage-runner",
-      "rank": 23,
+      "rank": 24,
       "title": "Afterimage-Runner",
       "type": "Interactive Game",
       "categories": [
@@ -1553,7 +1552,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "repodna",
-      "rank": 20,
+      "rank": 21,
       "title": "RepoDNA",
       "type": "Developer Tools",
       "categories": [
@@ -1612,7 +1611,7 @@ window.PORTFOLIO_DATA = {
     },
     {
       "id": "siteguard",
-      "rank": 21,
+      "rank": 22,
       "title": "SiteGuard",
       "type": "Backend / Security",
       "categories": [
