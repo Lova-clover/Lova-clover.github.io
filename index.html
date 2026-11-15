@@ -2930,6 +2930,7 @@
         <a href="#records">Records</a>
         <a href="#contact">Contact</a>
         <span class="nav-divider" aria-hidden="true"></span>
+        <a class="nav-external" href="https://lova-log.vercel.app/" target="_blank" rel="noopener noreferrer">개발 노트</a>
         <a class="nav-external" href="https://github.com/Lova-clover" target="_blank" rel="noopener noreferrer" aria-label="GitHub 열기">
           <img class="nav-icon" src="assets/icons/github.svg" alt="" aria-hidden="true">
           <span>GitHub</span>
@@ -3376,6 +3377,8 @@
       const site = normalizeLink(links.site, "소개 사이트");
       const github = normalizeLink(links.github, "GitHub");
       const velog = normalizeLink(links.velog, "Velog");
+      const retrospective = normalizeLink(links.retrospective, "개발 회고 읽기");
+      if (retrospective?.href) result.push(`<a class="link-pill is-site" href="${retrospective.href}" target="_blank" rel="noopener noreferrer">${retrospective.label}</a>`);
       if (github?.href) result.push(`<a class="link-pill is-github" href="${github.href}" target="_blank" rel="noopener noreferrer"><span class="link-label"><img class="icon-img" src="assets/icons/github.svg" alt="" aria-hidden="true">${github.label}</span></a>`);
       if (velog?.href) result.push(`<a class="link-pill is-velog" href="${velog.href}" target="_blank" rel="noopener noreferrer"><span class="link-label"><img class="icon-img" src="assets/icons/velog.svg" alt="" aria-hidden="true">${velog.label}</span></a>`);
       if (demo?.href) result.push(`<a class="link-pill is-demo" href="${demo.href}" target="_blank" rel="noopener noreferrer">${demo.label}</a>`);

@@ -918,6 +918,10 @@ window.PORTFOLIO_DATA = {
         }
       ],
       "links": {
+        "retrospective": {
+          "href": "https://lova-log.vercel.app/posts/12/",
+          "label": "겹봄 개발 회고 읽기"
+        },
         "site": {
           "href": "https://www.jica.or.kr/2025/inner.php?mode=view&no=318&sMenu=A6000",
           "label": "공식 수상 기사"
