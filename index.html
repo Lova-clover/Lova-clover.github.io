@@ -3322,9 +3322,14 @@
       openModal(card.dataset.project);
     });
 
-    const awards = records.filter(record => record[3] !== "Education").reverse();
+    const awards = records.filter(record => record[3] !== "Education");
+    const featuredProjects = ["겹봄", "PerfactoAI · CPR", "첫기준", "배치온"];
+    const orderedAwards = [
+      ...featuredProjects.flatMap(project => awards.filter(record => record[5] === project)),
+      ...awards.filter(record => !featuredProjects.includes(record[5]))
+    ];
     const recordList = document.getElementById("recordList");
-    recordList.innerHTML = awards.map(([date, title, desc, , accent, project, projectId]) => {
+    recordList.innerHTML = orderedAwards.map(([date, title, desc, , accent, project, projectId]) => {
       return `<article class="record-item" style="--accent: ${accent}">
         <div class="record-meta">
           <time class="record-date" datetime="${date.replace(".", "-")}">${date}</time>
