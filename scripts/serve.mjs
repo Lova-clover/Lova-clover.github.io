@@ -21,7 +21,7 @@ const root = useDist ? path.join(projectRoot, 'dist') : projectRoot;
 if (!fs.existsSync(path.join(root, 'index.html'))) throw new Error(`${useDist ? 'Run npm run build first.' : 'Missing index.html.'}`);
 const assetsRoot = path.join(root, 'assets');
 const realAssetsRoot = fs.realpathSync(assetsRoot) + path.sep;
-const publicFiles = new Map(['index.html', '404.html', 'robots.txt', 'sitemap.xml'].filter(file => fs.existsSync(path.join(root, file))).map(file => ['/' + file, fs.realpathSync(path.join(root, file))]));
+const publicFiles = new Map(['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'googleda29a09769d36eac.html'].filter(file => fs.existsSync(path.join(root, file))).map(file => ['/' + file, fs.realpathSync(path.join(root, file))]));
 const contentTypes = {
   '.txt': 'text/plain; charset=utf-8', '.xml': 'application/xml; charset=utf-8',
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
