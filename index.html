@@ -3109,11 +3109,10 @@
         <div class="section-head reveal">
           <span class="section-kicker">History & Records</span>
           <h2 class="section-title">도전이 다음 작업으로 이어진 기록</h2>
-          <p class="section-desc is-record-desc">대회 수상 기록</p>
+          <p class="section-desc is-record-desc">학력과 수상 기록을 시간순으로 정리했습니다.</p>
         </div>
 
         <div class="record-list" id="recordList"></div>
-        <div class="education-record" id="educationRecord"></div>
 
         <div class="finalist-section" aria-labelledby="finalistTitle">
           <div class="finalist-heading">
@@ -3322,30 +3321,16 @@
       openModal(card.dataset.project);
     });
 
-    const awards = records.filter(record => record[3] !== "Education");
-    const featuredProjects = ["겹봄", "PerfactoAI · CPR", "첫기준", "배치온"];
-    const orderedAwards = [
-      ...featuredProjects.flatMap(project => awards.filter(record => record[5] === project)),
-      ...awards.filter(record => !featuredProjects.includes(record[5]))
-    ];
     const recordList = document.getElementById("recordList");
-    recordList.innerHTML = orderedAwards.map(([date, title, desc, , accent, project, projectId]) => {
-      return `<article class="record-item" style="--accent: ${accent}">
+    recordList.innerHTML = records.map(([date, title, desc, label, accent], index) => `
+      <article class="record-item reveal" style="--accent: ${accent}; --i: ${index};">
         <div class="record-meta">
-          <time class="record-date" datetime="${date.replace(".", "-")}">${date}</time>
+          <span class="record-date">${date}</span>
+          <span class="record-label">${label}</span>
         </div>
-        <div><h3>${project || title}</h3>${project ? `<strong>${title}</strong>` : ""}<p>${desc}</p></div>
-        ${projectId ? `<button class="award-project" type="button" data-award-project="${projectId}">${project} 프로젝트 보기</button>` : ""}
-      </article>`;
-    }).join("");
-    recordList.addEventListener("click", event => {
-      const button = event.target.closest("[data-award-project]");
-      if (!button) return;
-      lastFocusedCard = button;
-      openModal(button.dataset.awardProject);
-    });
-    document.getElementById("educationRecord").innerHTML = records.filter(record => record[3] === "Education")
-      .map(([date, title]) => `<p><strong>학력</strong> · ${date} · ${title}</p>`).join("");
+        <div><h4>${title}</h4><p>${desc}</p></div>
+      </article>
+    `).join("");
 
     const finalistList = document.getElementById("finalistList");
     finalistList.innerHTML = finalists.map((item, index) => `

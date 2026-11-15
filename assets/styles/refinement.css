@@ -9,11 +9,6 @@
 }
 
 /* A smaller companion to History & Records, using the same accents and badges. */
-.record-item h3 { margin: 0 0 .35rem; color: var(--ink); font-size: 1.12rem; }
-.record-item strong { color: var(--accent-ink); font-size: .84rem; }
-.award-project { justify-self: start; min-height: 44px; padding: .3rem .6rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); color: var(--accent-ink); font-weight: 650; cursor: pointer; }
-.education-record { color: var(--ink-soft); font-size: .8rem; }
-.education-record { text-align: center; margin-top: 1.2rem; }
 .finalist-section { margin-top: 1.25rem; padding-top: 1.15rem; border-top: 1px solid var(--line); }
 .finalist-heading { display: grid; justify-items: center; gap: .4rem; margin: 0 auto .85rem; text-align: center; }
 .finalist-heading h3, .finalist-heading p { margin: 0; }
